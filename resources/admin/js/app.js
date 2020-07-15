@@ -1,5 +1,7 @@
 import components from './components';
 import DeleteConfirmation from '../../common/js/components/delete';
+import Swatches from 'vue-swatches';
+import "vue-multiselect/dist/vue-multiselect.min.css";
 import i18n from '../../common/js/utils/i18n';
 import Datetime from 'vue-datetime';
 import 'vue-datetime/dist/vue-datetime.css';
@@ -14,6 +16,8 @@ try {
 } catch (e) {}
 
 Vue.component('delete-confirmation', DeleteConfirmation);
+
+Vue.component('v-swatches', Swatches);
 
 Vue.use(Datetime);
 
