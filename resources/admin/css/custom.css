@@ -1,0 +1,72 @@
+.sidebar {
+    min-height: calc(100vh - 50px);
+}
+
+.vs__clear,
+.vs__open-indicator {
+    transform: scale(0.7) !important;
+    cursor: pointer !important;
+}
+
+.vs__dropdown-toggle {
+    min-height: 36px !important;
+}
+
+.daterangepicker.dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.daterangepicker.dropdown-menu .ranges {
+    border: 0;
+    box-shadow: none;
+}
+
+.daterangepicker.dropdown-menu .table-condensed tr > td,
+.daterangepicker.dropdown-menu .table-condensed tr > th {
+    min-width: 32px;
+}
+
+.vue-daterange-picker .reportrange-text {
+    padding: 7px 10px !important;
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*.table-responsive td {*/
+/*    min-width: 200px !important;*/
+/*}*/
+
+.csv-file {
+    position: relative;
+    overflow: hidden;
+}
+#csv-file {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+.navbar-brand img {
+    height: 1.5rem;
+}
+
+.overflow-box .custom-file-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 85px;
+}
+
+
+@media screen and (max-width: 1520px) {
+    .table {
+        width: 1280px;
+    }
+}
