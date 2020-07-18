@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Product;
 use App\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Spatie\MediaLibrary\Models\Media;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -82,6 +84,8 @@ class RouteServiceProvider extends ServiceProvider
         $models = [
             'user' => User::class,
             'category' => Category::class,
+            'product' => Product::class,
+            'media' => Media::class,
         ];
 
         foreach ($models as $key => $class) {

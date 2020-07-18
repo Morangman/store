@@ -11,6 +11,7 @@ return [
     'sidebar' => [
         'users' => 'Користувачі',
         'categories' => 'Категорії',
+        'products' => 'Товари',
     ],
     'header' => [
         'breadcrumbs' => [

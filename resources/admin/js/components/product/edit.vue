@@ -1,26 +1,31 @@
 <template>
-    <category-form
+    <product-form
         v-if="model"
         :model.sync="model"
+        :categories.sync="categories"
         :errors.sync="errors"
         @submit="update"
-        @delete="deleteCategory"
+        @delete="deleteProduct"
     >
-    </category-form>
+    </product-form>
 </template>
 
 <script>
-    import CategoryFormComponent from './form';
+    import ProductFormComponent from './form';
     import FormHelper from '../../mixins/form_helper';
 
     export default {
         components: {
-            CategoryForm: CategoryFormComponent,
+            ProductForm: ProductFormComponent,
         },
 
         props: {
-            category: {
+            product: {
                 type: Object,
+                required: true,
+            },
+            categories: {
+                type: Array,
                 required: true,
             },
         },
@@ -29,7 +34,7 @@
 
         data() {
             return {
-                model: this.category,
+                model: this.product,
                 errors: {},
                 formData: null,
             };
@@ -43,7 +48,7 @@
                 this.collectFormData(data);
 
                 axios.post(
-                    Router.route('admin.category.update', { category: this.category.id }),
+                    Router.route('admin.product.update', { product: this.product.id }),
                     this.formData,
                     {
                         headers: {
@@ -51,18 +56,18 @@
                         },
                     },
                 ).then(() => {
-                    location.href = Router.route('admin.category.index');
+                    location.href = Router.route('admin.product.index');
                 }).catch(({ response: { data: { errors } } }) => {
                     this.errors = errors;
                     this.scrollToError();
                 });
             },
 
-            deleteCategory() {
+            deleteProduct() {
                 axios.delete(
-                    Router.route('admin.category.delete', { category: this.category.id }),
+                    Router.route('admin.product.delete', { product: this.product.id }),
                 ).then(() => {
-                    location.href = Router.route('admin.category.index');
+                    location.href = Router.route('admin.product.index');
                 }).catch(({ response: { data: { errors } } }) => {
                     notify.error(_.head(errors));
                 });

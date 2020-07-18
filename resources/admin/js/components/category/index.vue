@@ -66,7 +66,7 @@
                                 </span>
                             </th>
                             <th>
-                                {{ $t('admin.user.index.table.headers.created_at') }}
+                                {{ $t('admin.category.index.table.headers.created_at') }}
                                 <span>
                                     <i
                                             v-if="filters.by === 'created_at' && filters.dir === 'desc'"

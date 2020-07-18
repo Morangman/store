@@ -1,19 +1,32 @@
 <template>
-    <category-form
+    <product-form
         :model.sync="model"
+        :categories.sync="categories"
+        :recommended.sync="recommended"
         :errors.sync="errors"
         @submit="store"
     >
-    </category-form>
+    </product-form>
 </template>
 
 <script>
-    import CategoryFormComponent from './form';
+    import ProductFormComponent from './form';
     import FormHelper from '../../mixins/form_helper';
 
     export default {
         components: {
-            CategoryForm: CategoryFormComponent,
+            ProductForm: ProductFormComponent,
+        },
+
+        props: {
+            categories: {
+                type: Array,
+                required: true,
+            },
+            recommended: {
+                type: Array,
+                required: true,
+            }
         },
 
         mixins: [FormHelper],
@@ -21,7 +34,16 @@
         data() {
             return {
                 model: {
-                    name: null,
+                    title: null,
+                    category_id: null,
+                    general_info: null,
+                    price: null,
+                    old_price: null,
+                    image: null,
+                    variations: [],
+                    recommended_products: [],
+                    seo: [],
+                    is_hidden: null,
                 },
                 errors: {},
                 formData: null,
@@ -35,10 +57,10 @@
                 this.collectFormData(data);
 
                 axios.post(
-                    Router.route('admin.category.store'),
+                    Router.route('admin.product.store'),
                     this.formData,
                 ).then(() => {
-                    location.href = Router.route('admin.category.index');
+                    location.href = Router.route('admin.product.index');
                 }).catch(({ response: { data: { errors } } }) => {
                     this.errors = errors;
                     this.scrollToError();

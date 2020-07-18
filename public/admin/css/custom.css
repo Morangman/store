@@ -124,6 +124,47 @@
     background-color: rgba(0,0,0,.15);
 }
 
+.vue-swatches__fallback__wrapper {
+    display: table;
+}
+
+.vue-swatches__fallback__input--wrapper {
+    display: table-cell;
+    padding-right: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.vue-swatches__fallback__input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    color: #35495e;
+    background: #fff;
+}
+
+.vue-swatches__fallback__button {
+    display: table-cell;
+    padding: 6px 15px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+    background-color: #3571c8;
+    border-radius: 5px;
+}
+
+.change-blocks-wrapper__item {
+    border: 1px solid #d4d4d4;
+}
+
+.change-blocks-wrapper__item {
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+}
+
 @media screen and (max-width: 1520px) {
     .table {
         width: 1280px;

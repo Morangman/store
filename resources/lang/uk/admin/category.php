@@ -21,6 +21,7 @@ return [
             'headers' => [
                 'id' => 'ID',
                 'name' => 'Ім\'я',
+                'created_at' => 'Дата створення',
             ],
         ],
     ],

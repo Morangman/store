@@ -3,9 +3,9 @@
         <div class="card-body">
             <div class="form-group row">
                 <div class="col col-auto">
-                    <a :href="$r('admin.category.create')" class="btn btn-labeled btn-labeled-right bg-blue heading-btn">
+                    <a :href="$r('admin.product.create')" class="btn btn-labeled btn-labeled-right bg-blue heading-btn">
                         <b><i class="icon-add"></i></b>
-                        {{ $t('admin.category.index.header_btn') }}
+                        {{ $t('admin.product.index.header_btn') }}
                     </a>
                 </div>
                 <div class="col col-md-5">
@@ -14,7 +14,7 @@
                         name="search"
                         type="text"
                         class="form-control"
-                        :placeholder="$t('admin.category.index.filters.search')"
+                        :placeholder="$t('admin.product.index.filters.search')"
                     >
                 </div>
                 <div class="col col-md-2">
@@ -28,7 +28,7 @@
                     <thead>
                         <tr class="bg-blue">
                             <th>
-                                {{ $t('admin.category.index.table.headers.id') }}
+                                {{ $t('admin.product.index.table.headers.id') }}
                                 <span>
                                     <i
                                             v-if="filters.by === 'id' && filters.dir === 'desc'"
@@ -47,26 +47,27 @@
                                 </span>
                             </th>
                             <th>
-                                {{ $t('admin.category.index.table.headers.name') }}
+                                {{ $t('admin.product.index.table.headers.title') }}
                                 <span>
                                     <i
-                                            v-if="filters.by === 'name' && filters.dir === 'desc'"
-                                            @click.prevent="sort('name', 'asc')"
+                                            v-if="filters.by === 'title' && filters.dir === 'desc'"
+                                            @click.prevent="sort('title', 'asc')"
                                             class="icon-arrow-down8 cursor-pointer"
                                     ></i>
                                     <i
-                                            v-if="filters.by === 'name' && filters.dir === 'asc'"
-                                            @click.prevent="sort('name', 'desc')"
+                                            v-if="filters.by === 'title' && filters.dir === 'asc'"
+                                            @click.prevent="sort('title', 'desc')"
                                             class="icon-arrow-up8 cursor-pointer"
                                     ></i>
-                                    <span v-if="filters.by !== 'name'" @click.prevent="sort('name', 'asc')">
+                                    <span v-if="filters.by !== 'title'" @click.prevent="sort('title', 'asc')">
                                         <i class="icon-arrow-up8 cursor-pointer"></i>
                                         <i class="icon-arrow-down8 cursor-pointer"></i>
                                     </span>
                                 </span>
                             </th>
+                            <th>{{ $t('admin.product.index.table.headers.status') }}</th>
                             <th>
-                                {{ $t('admin.user.index.table.headers.created_at') }}
+                                {{ $t('admin.product.index.table.headers.created_at') }}
                                 <span>
                                     <i
                                             v-if="filters.by === 'created_at' && filters.dir === 'desc'"
@@ -89,17 +90,22 @@
                     </thead>
                     <tbody>
                         <template v-if="!isLoading">
-                            <tr v-for="(category, i) in categories" :key="`category_${i}`">
-                                    <td>{{ category.id }}</td>
-                                    <td v-html="highlightSearchResult(category.name, filters.search)"></td>
-                                    <td>{{ category.created_at }}</td>
+                            <tr v-for="(product, i) in products" :key="`product_${i}`">
+                                    <td>{{ product.id }}</td>
+                                    <td v-html="highlightSearchResult(product.title, filters.search)"></td>
                                     <td>
-                                        <a :href="$r('admin.category.edit', { category: category.id })">
+                                        {{ product.is_hidden
+                                        ? $t('admin.product.index.table.product_status.1')
+                                        : $t('admin.product.index.table.product_status.0') }}
+                                    </td>
+                                    <td>{{ product.created_at }}</td>
+                                    <td>
+                                        <a :href="$r('admin.product.edit', { product: product.id })">
                                             <i class="icon-pencil"></i>
                                         </a>
                                         <delete-confirmation
-                                            :route-path="$r('admin.category.delete', { category: category.id })"
-                                            :redirect-path="$r('admin.category.index')"
+                                            :route-path="$r('admin.product.delete', { product: product.id })"
+                                            :redirect-path="$r('admin.product.index')"
                                             :title="$t('common.word.delete')"
                                         />
                                     </td>
@@ -112,7 +118,7 @@
             <b-pagination
                 v-model='filters.page'
                 :total-rows='total'
-                aria-controls='categories'
+                aria-controls='products'
                 class="mt-2"
             ></b-pagination>
         </div>
@@ -138,7 +144,7 @@
                     by: 'id',
                     dir: 'asc',
                 },
-                categories: [],
+                products: [],
                 total: null,
                 isLoading: true,
             };
@@ -147,23 +153,23 @@
         watch: {
             filters: {
                 handler() {
-                    this.debouncedGetCategories();
+                    this.debouncedGetProducts();
                 },
                 deep: true,
             },
         },
 
         methods: {
-            getCategories() {
+            getProducts() {
                 this.isLoading = true;
 
                 axios.get(
                     Router.route(
-                        'admin.category.all',
+                        'admin.product.all',
                         _.pickBy(this.filters, _.identity)
                     ),
                 ).then(({ data }) => {
-                    this.categories = data.data;
+                    this.products = data.data;
                     this.total = data.total;
                 }).catch(({ response: { data: { errors } } }) => {
                     notify.error(_.head(errors));
@@ -179,9 +185,9 @@
         },
 
         created() {
-            this.getCategories();
+            this.getProducts();
 
-            this.debouncedGetCategories =_.debounce(this.getCategories, 500);
+            this.debouncedGetProducts =_.debounce(this.getProducts, 500);
         },
     };
 </script>

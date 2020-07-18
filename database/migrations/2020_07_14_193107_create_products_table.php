@@ -18,7 +18,12 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('title');
             $table->text('general_info')->nullable();
+            $table->float('price');
+            $table->float('old_price')->nullable();
+            $table->string('image');
             $table->json('variations');
+            $table->json('recommended_products');
+            $table->json('seo');
             $table->boolean('is_hidden')->default(0);
             $table->timestamps();
 

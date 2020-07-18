@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\StoreRequest;
 use App\Http\Requests\Admin\Product\UpdateRequest;
 use App\Product;
+use App\Category;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -31,17 +32,25 @@ class ProductController extends Controller
      */
     public function create(): ViewContract
     {
-        return View::make('admin.product.create');
+        return View::make('admin.product.create', [
+            'categories' => Category::all(),
+            'recommended' => Product::query()->get(['id', 'title']),
+        ]);
     }
 
     /**
      * @param \App\Http\Requests\Admin\Product\StoreRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
      */
     public function store(StoreRequest $request): JsonResponse
     {
-        Product::create($request->all());
+        /** @var \App\Product $product */
+        $product = Product::create($request->all());
+
+        $this->handleDocuments($request, $product);
 
         Session::flash(
             'success',
@@ -61,7 +70,8 @@ class ProductController extends Controller
         return View::make(
             'admin.product.edit',
             [
-                'product' => $product,
+                'product' => $product->append('product_images'),
+                'categories' => Category::all(),
             ]
         );
     }
@@ -71,10 +81,14 @@ class ProductController extends Controller
      * @param \App\Product $product
      *
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
      */
     public function update(UpdateRequest $request, Product $product): JsonResponse
     {
         $product->update($request->all());
+
+        $this->handleDocuments($request, $product);
 
         Session::flash(
             'success',
@@ -101,16 +115,6 @@ class ProductController extends Controller
         );
 
         return $this->json()->noContent();
-    }
-
-    /**
-     * @param \App\Product $product
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function get(Product $product): JsonResponse
-    {
-        return $this->json()->ok($product);
     }
 
     /**
@@ -157,6 +161,18 @@ class ProductController extends Controller
         foreach ($images as $image) {
             $product->addMedia($image)
                 ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
+        }
+
+        if ($productPreviewImage = $request->file('image')) {
+            $media = $product->addMedia($productPreviewImage)
+                ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
+
+            $product->update(['image' => $media->getUrl()]);
+        } elseif ($product->getAttribute('image') !== $image = $request->get('image')) {
+            $media = $product->addMediaFromUrl($image)
+                ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
+
+            $product->update(['image' => $media->getUrl()]);
         }
     }
 

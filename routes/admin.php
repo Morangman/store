@@ -19,3 +19,12 @@ Route::group(
     ],
     __DIR__.'/admin/category.php'
 );
+
+Route::group(
+    [
+        'as' => '.product',
+        'prefix' => 'product',
+        'middleware' => ['anyrole:admin|superadmin']
+    ],
+    __DIR__.'/admin/product.php'
+);

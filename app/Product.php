@@ -21,6 +21,9 @@ class Product extends Model implements HasMedia
 
     public const MEDIA_COLLECTION_PRODUCT = 'product';
 
+    public const STATUS_ACTIVE = 0;
+    public const STATUS_HIDDEN = 1;
+
     /**
      * @var string
      */
@@ -33,7 +36,12 @@ class Product extends Model implements HasMedia
         'category_id',
         'title',
         'general_info',
+        'price',
+        'old_price',
+        'image',
         'variations',
+        'recommended_products',
+        'seo',
         'is_hidden',
     ];
 
@@ -44,7 +52,12 @@ class Product extends Model implements HasMedia
         'category_id' => 'int',
         'title' => 'string',
         'general_info' => 'string',
+        'price' => 'float',
+        'old_price' => 'float',
+        'image' => 'string',
         'variations' => 'array',
+        'recommended_products' => 'array',
+        'seo' => 'array',
         'is_hidden' => 'bool',
     ];
 

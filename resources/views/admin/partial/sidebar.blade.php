@@ -25,6 +25,12 @@
                         <span>@lang('common.sidebar.categories')</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ URL::route('admin.product.index') }}" class="nav-link @active_menu_class('admin.product')">
+                        <i class="icon-basket"></i>
+                        <span>@lang('common.sidebar.products')</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
