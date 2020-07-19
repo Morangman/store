@@ -17,6 +17,8 @@ use McMatters\Helpers\Helpers\ModelHelper;
 use Spatie\MediaLibrary\Models\Media;
 use Throwable;
 
+use function is_object;
+
 class ProductController extends Controller
 {
     /**
@@ -87,7 +89,17 @@ class ProductController extends Controller
      */
     public function update(UpdateRequest $request, Product $product): JsonResponse
     {
-        $product->update($request->all());
+        $productData = $request->except(
+                [
+                    'recommended_products',
+                    'variations',
+                ]
+            ) + [
+                'recommended_products' => $request->get('recommended_products') ?? [],
+                'variations' => $request->get('variations') ?? [],
+            ];
+
+        $product->update($productData);
 
         $this->handleDocuments($request, $product);
 
@@ -158,10 +170,34 @@ class ProductController extends Controller
     protected function handleDocuments(Request $request, Product $product): void
     {
         $images = $request->file('product_images', []);
+        $variations = [];
 
         foreach ($images as $image) {
             $product->addMedia($image)
                 ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
+        }
+
+        if ($variationImages = $request->file('variations', [])) {
+            foreach ($request->variations as $key => $value) {
+                $imgUrl = $value['image'];
+
+                if (is_object($value['image'])) {
+                    $media = $product->addMedia($value['image'])
+                        ->toMediaCollection(Product::MEDIA_COLLECTION_VARIATIONS);
+
+                    $imgUrl = $media->getUrl();
+                }
+
+                $variations[] = [
+                    'color_name' => $value['color_name'],
+                    'color' => $value['color'],
+                    'price' => $value['price'],
+                    'old_price' => $value['old_price'],
+                    'image' => $imgUrl,
+                ];
+            }
+
+            $product->update(['variations' => $variations]);
         }
 
         if ($productPreviewImage = $request->file('image')) {
@@ -169,7 +205,7 @@ class ProductController extends Controller
                 ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
 
             $product->update(['image' => $media->getUrl()]);
-        } elseif ($product->getAttribute('image') !== $image = $request->get('image')) {
+        } elseif ($request->has('image') && $product->getAttribute('image') !== $image = $request->get('image')) {
             $media = $product->addMediaFromUrl($image)
                 ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
 

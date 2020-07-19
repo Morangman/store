@@ -20,6 +20,7 @@ class Product extends Model implements HasMedia
     use HasMediaTrait;
 
     public const MEDIA_COLLECTION_PRODUCT = 'product';
+    public const MEDIA_COLLECTION_VARIATIONS = 'recommended';
 
     public const STATUS_ACTIVE = 0;
     public const STATUS_HIDDEN = 1;
@@ -80,6 +81,21 @@ class Product extends Model implements HasMedia
     public function getProductImagesAttribute(): array
     {
         return $this->getMedia(static::MEDIA_COLLECTION_PRODUCT)
+            ->map(static function (Media $media) {
+                return [
+                    'id' => $media->getKey(),
+                    'url' => $media->getUrl(),
+                ];
+            })
+            ->toArray();
+    }
+
+    /**
+     * @return array
+     */
+    public function getRecommendedImagesAttribute(): array
+    {
+        return $this->getMedia(static::MEDIA_COLLECTION_VARIATIONS)
             ->map(static function (Media $media) {
                 return [
                     'id' => $media->getKey(),

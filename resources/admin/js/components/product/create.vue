@@ -42,6 +42,7 @@
                     image: null,
                     variations: [],
                     recommended_products: [],
+                    recommended_images: null,
                     seo: {
                         title: null,
                         meta: null,

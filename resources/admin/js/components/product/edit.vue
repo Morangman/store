@@ -61,7 +61,7 @@
                         },
                     },
                 ).then(() => {
-                    location.href = Router.route('admin.product.index');
+                    location.href = Router.route('admin.product.edit', { product: this.product.id });
                 }).catch(({ response: { data: { errors } } }) => {
                     this.errors = errors;
                     this.scrollToError();

@@ -95,8 +95,8 @@
                                     <td v-html="highlightSearchResult(product.title, filters.search)"></td>
                                     <td>
                                         {{ product.is_hidden
-                                        ? $t('admin.product.index.table.product_status.1')
-                                        : $t('admin.product.index.table.product_status.0') }}
+                                        ? $t('admin.product.product_status.1')
+                                        : $t('admin.product.product_status.0') }}
                                     </td>
                                     <td>{{ product.created_at }}</td>
                                     <td>

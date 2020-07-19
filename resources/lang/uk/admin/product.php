@@ -22,6 +22,7 @@ return [
         'recommended_products' => 'Рекомендовані товари',
         'seo' => 'SEO налаштування',
         'status' => 'Статус',
+        'hidden' => 'Приховано',
         'variations_form' => [
             'color_name' => 'Назва кольору',
             'color' => 'Колір',
@@ -48,11 +49,11 @@ return [
                 'status' => 'Статус',
                 'created_at' => 'Дата створення',
             ],
-            'product_status' => [
-                Product::STATUS_ACTIVE => 'Опубліковано',
-                Product::STATUS_HIDDEN => 'Приховано',
-            ],
         ],
+    ],
+    'product_status' => [
+        Product::STATUS_ACTIVE => 'Опубліковано',
+        Product::STATUS_HIDDEN => 'Приховано',
     ],
     'create' => [
         'title' => 'Створити товар',

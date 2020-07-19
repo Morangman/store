@@ -59,7 +59,7 @@ class UpdateRequest extends FormRequest
                 'array',
             ],
             'image' => [
-                'required',
+                'nullable',
             ],
             'product_images.*' => [
                 'nullable',
