@@ -70,8 +70,9 @@ class ProductController extends Controller
         return View::make(
             'admin.product.edit',
             [
-                'product' => $product->append('product_images'),
+                'product' => $product,
                 'categories' => Category::all(),
+                'recommended' => Product::query()->get(['id', 'title']),
             ]
         );
     }

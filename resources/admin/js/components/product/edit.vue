@@ -3,6 +3,7 @@
         v-if="model"
         :model.sync="model"
         :categories.sync="categories"
+        :recommended.sync="recommended"
         :errors.sync="errors"
         @submit="update"
         @delete="deleteProduct"
@@ -28,6 +29,10 @@
                 type: Array,
                 required: true,
             },
+            recommended: {
+                type: Array,
+                required: true,
+            }
         },
 
         mixins: [FormHelper],

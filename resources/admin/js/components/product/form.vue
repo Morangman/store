@@ -224,12 +224,12 @@
                                                         class="mt-1"
                                                         v-model="recommended.image"
                                                         accept=".png,.jpg,.jpeg,.gif"
-                                                        @change="showRecommendedPreviewImage"
+                                                        @change="showRecommendedPreviewImage($event, index)"
                                                     ></b-form-file>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mt-3">
-                                                <img width="auto" height="100" class="center-image" v-if="previewImages[index]" :src="previewImage[index]">
+                                                <img width="auto" height="100" class="center-image" v-if="previewImages[index]" :src="previewImages[index]">
                                             </div>
                                         </div>
                                     </div>
@@ -336,8 +336,8 @@
             return {
                 previewImage: null,
                 previewImages: [],
-                productImages: [],
                 color: '#000000',
+                recommendedIndex: null,
             };
         },
 
@@ -352,11 +352,12 @@
                 this.previewImage = URL.createObjectURL(file);
             },
 
-            showRecommendedPreviewImage(e) {
-                console.log(e);
-                const file = e.target.files[0];
+            showRecommendedPreviewImage(event, index) {
+                const file = event.target.files[0];
 
                 this.previewImages[index] = URL.createObjectURL(file);
+
+                this.$forceUpdate();
             },
 
             deleteProduct() {
@@ -377,6 +378,8 @@
 
             deleteRecommended(index) {
                 this.model.variations.splice(index, 1);
+
+                this.previewImages.splice(index, 1);
             },
         },
 

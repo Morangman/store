@@ -77,7 +77,7 @@ class Product extends Model implements HasMedia
     /**
      * @return array
      */
-    public function getCarImagesAttribute(): array
+    public function getProductImagesAttribute(): array
     {
         return $this->getMedia(static::MEDIA_COLLECTION_PRODUCT)
             ->map(static function (Media $media) {

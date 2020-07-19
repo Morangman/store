@@ -42,7 +42,11 @@
                     image: null,
                     variations: [],
                     recommended_products: [],
-                    seo: [],
+                    seo: {
+                        title: null,
+                        meta: null,
+                        keywords: null,
+                    },
                     is_hidden: null,
                 },
                 errors: {},

@@ -18,5 +18,6 @@
     <product-edit
         :product="{{ $product }}"
         :categories="{{ $categories }}"
+        :recommended="{{ $recommended }}"
     ></product-edit>
 @endsection
