@@ -3,10 +3,23 @@
         <div class="card-body">
             <div class="form-group row">
                 <div class="col col-auto">
-                    <a :href="$r('admin.user.create')" class="btn btn-labeled btn-labeled-right bg-blue heading-btn">
+                    <a :href="$r('admin.order.create')" class="btn btn-labeled btn-labeled-right bg-blue heading-btn">
                         <b><i class="icon-add"></i></b>
-                        {{ $t('admin.user.index.header_btn') }}
+                        {{ $t('admin.order.index.header_btn') }}
                     </a>
+                </div>
+                <div class="form-group col-md-auto">
+                    <label for="orderStatus" class="d-inline-block">{{ $t('admin.order.index.table.headers.status') }} :</label>
+                    <select
+                        id="orderStatus"
+                        class="form-control form-control-sm d-inline-block"
+                        style="width: auto;"
+                        v-model="filters.order_status"
+                        required
+                    >
+                        <option :value="null">{{ $t('admin.order.index.search.all') }}</option>
+                        <option v-for="(status, key) in $t('admin.order.order_statuses')" :value="key">{{ status }}</option>
+                    </select>
                 </div>
                 <div class="col col-md-5">
                     <input
@@ -14,7 +27,7 @@
                         name="search"
                         type="text"
                         class="form-control"
-                        :placeholder="$t('admin.user.index.filters.search')"
+                        :placeholder="$t('admin.order.index.filters.search')"
                     >
                 </div>
                 <div class="col col-md-2">
@@ -28,7 +41,7 @@
                     <thead>
                         <tr class="bg-blue">
                             <th>
-                                {{ $t('admin.user.index.table.headers.id') }}
+                                {{ $t('admin.order.index.table.headers.id') }}
                                 <span>
                                     <i
                                             v-if="filters.by === 'id' && filters.dir === 'desc'"
@@ -47,7 +60,7 @@
                                 </span>
                             </th>
                             <th>
-                                {{ $t('admin.user.index.table.headers.name') }}
+                                {{ $t('admin.order.index.table.headers.name') }}
                                 <span>
                                     <i
                                             v-if="filters.by === 'name' && filters.dir === 'desc'"
@@ -65,11 +78,10 @@
                                     </span>
                                 </span>
                             </th>
-                            <th>{{ $t('admin.user.index.table.headers.email') }}</th>
-                            <th>{{ $t('admin.user.index.table.headers.role') }}</th>
-                            <th>{{ $t('admin.user.index.table.headers.phone') }}</th>
+                            <th>{{ $t('admin.order.index.table.headers.contacts') }}</th>
+                            <th>{{ $t('admin.order.index.table.headers.status') }}</th>
                             <th>
-                                {{ $t('admin.user.index.table.headers.created_at') }}
+                                {{ $t('admin.order.index.table.headers.created_at') }}
                                 <span>
                                     <i
                                             v-if="filters.by === 'created_at' && filters.dir === 'desc'"
@@ -92,20 +104,21 @@
                     </thead>
                     <tbody>
                         <template v-if="!isLoading">
-                            <tr v-for="(user, i) in users" :key="`user_${i}`">
-                                    <td><a :href="$r('admin.user.edit', { user: user.id })">{{ user.id }}</a></td>
-                                    <td v-html="highlightSearchResult(user.name, filters.search)"></td>
-                                    <td v-html="highlightSearchResult(user.email, filters.search)"></td>
-                                    <td>{{ roleName(user) }}</td>
-                                    <td v-html="highlightSearchResult(user.phone, filters.search)"></td>
-                                    <td>{{ user.created_at }}</td>
+                            <tr v-for="(order, i) in orders" :key="`order${i}`">
+                                    <td><a :href="$r('admin.order.edit', { order: order.id })">{{ order.id }}</a></td>
+                                    <td v-html="highlightSearchResult(order.name, filters.search)"></td>
+                                    <td>{{ order.phone }} <br> {{ order.email }}</td>
                                     <td>
-                                        <a :href="$r('admin.user.edit', { user: user.id })">
+                                        {{ $t('admin.order.order_statuses.' + order.ordered_status) }}
+                                    </td>
+                                    <td>{{ normalizeDate(order.created_at) }}</td>
+                                    <td>
+                                        <a :href="$r('admin.order.edit', { order: order.id })">
                                             <i class="icon-pencil"></i>
                                         </a>
                                         <delete-confirmation
-                                            :route-path="$r('admin.user.delete', { user: user.id })"
-                                            :redirect-path="$r('admin.user.index')"
+                                            :route-path="$r('admin.order.delete', { order: order.id })"
+                                            :redirect-path="$r('admin.order.index')"
                                             :title="$t('common.word.delete')"
                                         />
                                     </td>
@@ -118,7 +131,7 @@
             <b-pagination
                 v-model='filters.page'
                 :total-rows='total'
-                aria-controls='users'
+                aria-controls='orders'
                 class="mt-2"
             ></b-pagination>
         </div>
@@ -128,6 +141,7 @@
 <script>
     import IndexPageHelper from '../../mixins/index_page_helper';
     import InfiniteLoading from 'vue-infinite-loading';
+    import moment from 'moment';
 
     export default {
         components: {
@@ -141,10 +155,11 @@
                 filters: {
                     page: 1,
                     search: null,
+                    order_status: null,
                     by: 'id',
-                    dir: 'asc',
+                    dir: 'desc',
                 },
-                users: [],
+                orders: [],
                 total: null,
                 isLoading: true,
             };
@@ -153,23 +168,23 @@
         watch: {
             filters: {
                 handler() {
-                    this.debouncedGetUsers();
+                    this.debouncedGetOrders();
                 },
                 deep: true,
             },
         },
 
         methods: {
-            getUsers() {
+            getOrders() {
                 this.isLoading = true;
 
                 axios.get(
                     Router.route(
-                        'admin.user.all',
+                        'admin.order.all',
                         _.pickBy(this.filters, _.identity)
                     ),
                 ).then(({ data }) => {
-                    this.users = data.data;
+                    this.orders = data.data;
                     this.total = data.total;
                 }).catch(({ response: { data: { errors } } }) => {
                     notify.error(_.head(errors));
@@ -178,20 +193,20 @@
                 });
             },
 
-            roleName(user) {
-                return _.head(user.roles).name;
-            },
-
             sort(field, direction) {
                 this.filters.by = field;
                 this.filters.dir = direction;
             },
+
+            normalizeDate(date) {
+                return moment(date).format("DD.MM.YYYY hh:mm");
+            },
         },
 
         created() {
-            this.getUsers();
+            this.getOrders();
 
-            this.debouncedGetUsers =_.debounce(this.getUsers, 500);
+            this.debouncedGetOrders =_.debounce(this.getOrders, 500);
         },
     };
 </script>

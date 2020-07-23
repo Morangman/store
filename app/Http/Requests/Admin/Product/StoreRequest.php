@@ -54,6 +54,10 @@ class StoreRequest extends FormRequest
                 'nullable',
                 'boolean',
             ],
+            'ip_address' => [
+                'nullable',
+                'string',
+            ],
             'product_images' => [
                 'nullable',
                 'array',

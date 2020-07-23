@@ -31,6 +31,12 @@
                         <span>@lang('common.sidebar.products')</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ URL::route('admin.order.index') }}" class="nav-link @active_menu_class('admin.product')">
+                        <i class="icon-filter4"></i>
+                        <span>@lang('common.sidebar.orders')</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

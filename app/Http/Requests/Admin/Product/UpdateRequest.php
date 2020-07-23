@@ -54,6 +54,10 @@ class UpdateRequest extends FormRequest
                 'nullable',
                 'boolean',
             ],
+            'ip_address' => [
+                'nullable',
+                'string',
+            ],
             'product_images' => [
                 'nullable',
                 'array',

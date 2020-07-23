@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Order;
 use App\Product;
 use App\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -86,6 +87,7 @@ class RouteServiceProvider extends ServiceProvider
             'category' => Category::class,
             'product' => Product::class,
             'media' => Media::class,
+            'order' => Order::class,
         ];
 
         foreach ($models as $key => $class) {

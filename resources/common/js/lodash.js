@@ -1,3 +1,4 @@
+import assign from 'lodash/assign';
 import clone from 'lodash/clone';
 import createArray from 'lodash/values';
 import debounce from 'lodash/debounce';
@@ -24,6 +25,7 @@ import upperCase from 'lodash/upperCase';
 import upperFirst from 'lodash/upperFirst';
 
 window._ = {
+    assign,
     clone,
     createArray,
     debounce,

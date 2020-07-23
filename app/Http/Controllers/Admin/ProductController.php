@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -19,6 +21,11 @@ use Throwable;
 
 use function is_object;
 
+/**
+ * Class ProductController
+ *
+ * @package App\Http\Controllers\Admin
+ */
 class ProductController extends Controller
 {
     /**
@@ -49,8 +56,20 @@ class ProductController extends Controller
      */
     public function store(StoreRequest $request): JsonResponse
     {
+        $productData = $request->except(
+                [
+                    'recommended_products',
+                    'variations',
+                    'seo',
+                ]
+            ) + [
+                'recommended_products' => $request->get('recommended_products') ?? [],
+                'variations' => $request->get('variations') ?? [],
+                'seo' => $request->get('seo') ?? [],
+            ];
+
         /** @var \App\Product $product */
-        $product = Product::create($request->all());
+        $product = Product::create($productData);
 
         $this->handleDocuments($request, $product);
 
@@ -93,10 +112,12 @@ class ProductController extends Controller
                 [
                     'recommended_products',
                     'variations',
+                    'seo',
                 ]
             ) + [
                 'recommended_products' => $request->get('recommended_products') ?? [],
                 'variations' => $request->get('variations') ?? [],
+                'seo' => $request->get('seo') ?? [],
             ];
 
         $product->update($productData);
@@ -211,6 +232,28 @@ class ProductController extends Controller
 
             $product->update(['image' => $media->getUrl()]);
         }
+
+        if ($productSeoImage = $request->file('seo')['image']) {
+            $media = $product->addMedia($productSeoImage)
+                ->toMediaCollection(Product::MEDIA_COLLECTION_SEO);
+
+            $product->update(['seo' => [
+                'meta' => $product->getAttribute('seo')['meta'],
+                'title' => $product->getAttribute('seo')['title'],
+                'keywords' => $product->getAttribute('seo')['keywords'],
+                'image' => $media->getUrl(),
+            ]]);
+        } elseif ($request->has('seo')['image'] && $product->getAttribute('seo')['image'] !== $image = $request->get('seo')['image']) {
+            $media = $product->addMediaFromUrl($image)
+                ->toMediaCollection(Product::MEDIA_COLLECTION_SEO);
+
+            $product->update(['seo' => [
+                'meta' => $product->getAttribute('seo')['meta'],
+                'title' => $product->getAttribute('seo')['title'],
+                'keywords' => $product->getAttribute('seo')['keywords'],
+                'image' => $media->getUrl(),
+            ]]);
+        }
     }
 
     /**
@@ -222,7 +265,7 @@ class ProductController extends Controller
     public function deleteMedia(Product $product, Media $media): JsonResponse
     {
         try {
-            if ($media->getAttribute('collection_name') === Product::MEDIA_COLLECTION_PRODUCT
+            if ($media->getAttribute('collection_name') === Product::MEDIA_COLLECTION_SEO
                 && ModelHelper::doesMorphedBelongToParent($media, $product, 'model')
             ) {
                 $product->deleteMedia($media->getKey());

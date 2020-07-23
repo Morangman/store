@@ -1,14 +1,20 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use McMatters\LaravelRoles\Traits\HasPermission;
 use McMatters\LaravelRoles\Traits\HasRole;
 
+/**
+ * Class User
+ *
+ * @package App
+ */
 class User extends Authenticatable
 {
     use HasPermission;

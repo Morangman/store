@@ -28,3 +28,12 @@ Route::group(
     ],
     __DIR__.'/admin/product.php'
 );
+
+Route::group(
+    [
+        'as' => '.order',
+        'prefix' => 'order',
+        'middleware' => ['anyrole:admin|superadmin']
+    ],
+    __DIR__.'/admin/order.php'
+);

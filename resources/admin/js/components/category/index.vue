@@ -90,7 +90,7 @@
                     <tbody>
                         <template v-if="!isLoading">
                             <tr v-for="(category, i) in categories" :key="`category_${i}`">
-                                    <td>{{ category.id }}</td>
+                                    <td><a :href="$r('admin.category.edit', { category: category.id })">{{ category.id }}</a></td>
                                     <td v-html="highlightSearchResult(category.name, filters.search)"></td>
                                     <td>{{ category.created_at }}</td>
                                     <td>

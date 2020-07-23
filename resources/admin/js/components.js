@@ -10,6 +10,10 @@ import ProductIndex from './components/product/index';
 import ProductCreate from './components/product/create';
 import ProductEdit from './components/product/edit';
 
+import OrderIndex from './components/order/index';
+import OrderCreate from './components/order/create';
+import OrderEdit from './components/order/edit';
+
 export default {
     UserIndex,
     UserCreate,
@@ -19,5 +23,8 @@ export default {
     CategoryEdit,
     ProductIndex,
     ProductCreate,
-    ProductEdit
+    ProductEdit,
+    OrderIndex,
+    OrderCreate,
+    OrderEdit
 };

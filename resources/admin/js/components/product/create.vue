@@ -47,6 +47,7 @@
                         title: null,
                         meta: null,
                         keywords: null,
+                        image: null,
                     },
                     is_hidden: null,
                 },

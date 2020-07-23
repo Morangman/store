@@ -44,7 +44,7 @@
                                 <strong>{{ $t('admin.product.form.general_info') }}</strong>
                             </label>
                             <textarea
-                                name="title"
+                                name="general_info"
                                 type="text"
                                 rows="5"
                                 v-model="model.general_info"
@@ -130,6 +130,7 @@
                                 v-model="model.recommended_products"
                                 :options="recommended"
                                 :multiple="true"
+                                class="multiselect1"
                                 :close-on-select="true"
                                 placeholder="Обрати товар"
                                 label="title" track-by="title">
@@ -180,7 +181,7 @@
                                                         <strong>{{ $t('admin.product.form.variations_form.color_name') }}</strong>
                                                     </label>
                                                     <input
-                                                        name="title"
+                                                        name="color_name"
                                                         v-model="variation.color_name"
                                                         type="text"
                                                         class="form-control"
@@ -209,7 +210,7 @@
                                                         <strong>{{ $t('admin.product.form.variations_form.price') }}</strong>
                                                     </label>
                                                     <input
-                                                        name="title"
+                                                        name="price"
                                                         v-model="variation.price"
                                                         type="text"
                                                         class="form-control"
@@ -222,7 +223,7 @@
                                                         <strong>{{ $t('admin.product.form.variations_form.old_price') }}</strong>
                                                     </label>
                                                     <input
-                                                        name="title"
+                                                        name="old_price"
                                                         v-model="variation.old_price"
                                                         type="text"
                                                         class="form-control"
@@ -277,7 +278,7 @@
                             <strong>{{ $t('admin.product.form.seo_form.title') }}</strong>
                         </label>
                         <input
-                            name="title"
+                            name="seo-title"
                             type="text"
                             v-model="model.seo.title"
                             class="form-control"
@@ -288,7 +289,7 @@
                             <strong>{{ $t('admin.product.form.seo_form.meta') }}</strong>
                         </label>
                         <input
-                            name="title"
+                            name="seo-meta"
                             type="text"
                             v-model="model.seo.meta"
                             class="form-control"
@@ -299,10 +300,27 @@
                             <strong>{{ $t('admin.product.form.seo_form.keywords') }}</strong>
                         </label>
                         <input
-                            name="title"
+                            name="seo-keywords"
                             type="text"
                             v-model="model.seo.keywords"
                             class="form-control"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>{{ $t('admin.product.form.seo_form.image') }}</strong>
+                        </label>
+                        <b-form-file
+                            class="mt-1"
+                            accept=".png,.jpg,.jpeg,.gif"
+                            @change="showSeoPreviewImage($event)"
+                        ></b-form-file>
+                        <img width="auto"
+                             height="100"
+                             class="center-image"
+                             v-if="seoPreviewImage"
+                             :src="seoPreviewImage"
+                             v-on:click="deleteSeoImage"
                         >
                     </div>
                 </div>
@@ -357,6 +375,7 @@
         data() {
             return {
                 previewImage: null,
+                seoPreviewImage: null,
                 previewImages: [],
                 color: '#000000',
             };
@@ -381,6 +400,25 @@
                 this.previewImages[index] = URL.createObjectURL(file);
 
                 this.$forceUpdate();
+            },
+
+            showSeoPreviewImage(event) {
+                const file = event.target.files[0];
+
+                this.model.seo.image = file;
+
+                this.seoPreviewImage = URL.createObjectURL(file);
+
+                this.$forceUpdate();
+            },
+
+            deleteSeoImage() {
+                this.model.seo.image = null;
+                this.seoPreviewImage = null;
+
+                notify.success(
+                    this.$t('admin.product.messages.seo_image_delete')
+                );
             },
 
             is_object(value) {
@@ -415,6 +453,8 @@
         created() {
             if (this.model.id) {
                 this.previewImage = this.model.image;
+
+                this.seoPreviewImage = this.model.seo.image;
 
                 this.model.image = null;
 

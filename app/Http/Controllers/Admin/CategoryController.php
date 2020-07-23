@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
+/**
+ * Class CategoryController
+ *
+ * @package App\Http\Controllers\Admin
+ */
 class CategoryController extends Controller
 {
     /**

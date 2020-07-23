@@ -1,14 +1,15 @@
 import swal from 'sweetalert';
+import i18n from './i18n';
 
 // todo: translations
 const swalConfig = (data) => {
   return {
-    title: data.title || 'Are you sure?',
-    text: data.text || 'You will not be able to recover this',
+    title: i18n.t('common.phrase.confirm.title') || 'Are you sure?',
+    text: i18n.t('common.phrase.confirm.body') || 'You will not be able to recover this',
     icon: data.type ||'warning',
     buttons: [
-        data.cancelButtonText || 'Cancel',
-        data.confirmButtonText || 'Yes, proceed!'
+        i18n.t('common.word.cancel') || 'Cancel',
+        i18n.t('common.word.confirm') || 'Yes, proceed!'
     ],
   };
 };

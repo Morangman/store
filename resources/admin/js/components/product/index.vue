@@ -91,7 +91,7 @@
                     <tbody>
                         <template v-if="!isLoading">
                             <tr v-for="(product, i) in products" :key="`product_${i}`">
-                                    <td>{{ product.id }}</td>
+                                    <td><a :href="$r('admin.product.edit', { product: product.id })">{{ product.id }}</a></td>
                                     <td v-html="highlightSearchResult(product.title, filters.search)"></td>
                                     <td>
                                         <p :class="product.is_hidden ? 'text-danger' : 'text-primary'">

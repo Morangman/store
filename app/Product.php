@@ -21,6 +21,7 @@ class Product extends Model implements HasMedia
 
     public const MEDIA_COLLECTION_PRODUCT = 'product';
     public const MEDIA_COLLECTION_VARIATIONS = 'recommended';
+    public const MEDIA_COLLECTION_SEO = 'seo';
 
     public const STATUS_ACTIVE = 0;
     public const STATUS_HIDDEN = 1;

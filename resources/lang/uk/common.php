@@ -12,6 +12,7 @@ return [
         'users' => 'Користувачі',
         'categories' => 'Категорії',
         'products' => 'Товари',
+        'orders' => 'Заявки',
     ],
     'header' => [
         'breadcrumbs' => [
@@ -50,6 +51,7 @@ return [
         'filters' => 'Фільтри',
         'filter' => 'Фільтр',
         'all' => 'Усі',
+        'times' => 'разів',
         'and' => 'і',
         'thanks' => 'Спасибі',
         'regards' => 'З найкращими побажаннями',

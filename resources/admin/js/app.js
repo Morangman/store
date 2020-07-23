@@ -33,3 +33,6 @@ new Vue({
 
 Object.defineProperty(Vue.prototype, '$_', { value: window._ });
 
+console.log("Розробник сайту: Синєпольський Дмитро Володимирович");
+console.log("Контак розробника telegram: @dsdvnd7");
+
