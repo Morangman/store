@@ -13,6 +13,7 @@ return [
         'categories' => 'Категорії',
         'products' => 'Товари',
         'orders' => 'Заявки',
+        'comments' => 'Відгуки',
     ],
     'header' => [
         'breadcrumbs' => [

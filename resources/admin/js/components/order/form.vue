@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 mx-auto form p-1">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
                     <strong v-if="suspect && suspect.length > 0" class="text-danger date-centered">
@@ -143,6 +143,12 @@
                             >{{ $t('common.word.add') }}</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
                     <div class="form-group">
                         <label>
                             <strong>{{ $t('admin.order.form.ordered_status') }}</strong>
@@ -173,6 +179,42 @@
                             </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <h4 class="mt-2">{{ $t('admin.order.form.reminder.name') }}</h4>
+                    <div class="form-group">
+                        <label>
+                            <strong>{{ $t('admin.order.form.reminder.title') }}</strong>
+                        </label>
+                        <input
+                            name="reminder-title"
+                            type="text"
+                            v-model="reminder.title"
+                            class="form-control"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>{{ $t('admin.order.form.reminder.text') }}</strong>
+                        </label>
+                        <textarea
+                            name="reminder-text"
+                            type="text"
+                            rows="4"
+                            v-model="reminder.text"
+                            class="form-control"
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>{{ $t('admin.order.form.reminder.date') }}</strong>
+                        </label>
+                        <datetime
+                            id="reminder-date"
+                            :placeholder="$t('admin.order.form.reminder.date')"
+                            input-class="form-control"
+                            type="date"
+                            v-model="reminder.date"
+                        ></datetime>
                     </div>
                 </div>
             </div>
@@ -237,6 +279,11 @@
                 selectedOrderedProduct: [],
                 selectedOrderedProductColor: [],
                 summOrdered: null,
+                reminder: {
+                    title: null,
+                    text: null,
+                    date: null,
+                },
             };
         },
 
@@ -251,6 +298,8 @@
 
         methods: {
             submit() {
+                _.assign(this.model, { reminder: this.reminder });
+
                 this.$emit('submit', this.model);
             },
 

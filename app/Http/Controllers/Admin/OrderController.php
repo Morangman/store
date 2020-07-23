@@ -10,13 +10,14 @@ use App\Http\Requests\Admin\Order\UpdateRequest;
 use App\Order;
 use App\Product;
 use App\SuspectIp;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
-
 
 /**
  * Class OrderController
@@ -115,6 +116,27 @@ class OrderController extends Controller
      */
     public function update(UpdateRequest $request, Order $order): JsonResponse
     {
+        if ($remindData = $request->get('reminder')) {
+            $existData = unserialize(file_get_contents('array.json'));
+
+            $data[] = [
+                'order_id' => $order->getKey(),
+                'user_id' => Auth::id(),
+                'email' => Auth::user()->getAttribute('email'),
+                'title' => $remindData['title'] ?? Lang::get('admin/order.reminder.title'),
+                'text' => $remindData['text'] ?? Lang::get('admin/order.reminder.text'),
+                'date' => $remindData['date'] ?? Carbon::tomorrow(),
+            ];
+
+            if ($existData) {
+                $result = array_merge($existData, $data);
+            } else {
+                $result = $data;
+            }
+
+            file_put_contents("array.json", serialize($result));
+        }
+
         if ($suspectIp = $request->get('suspect_ip')) {
             SuspectIp::query()->create([
                 'order_id' => $order->getKey(),

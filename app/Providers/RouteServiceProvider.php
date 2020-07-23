@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Comment;
 use App\Order;
 use App\Product;
 use App\User;
@@ -88,6 +89,7 @@ class RouteServiceProvider extends ServiceProvider
             'product' => Product::class,
             'media' => Media::class,
             'order' => Order::class,
+            'comment' => Comment::class,
         ];
 
         foreach ($models as $key => $class) {

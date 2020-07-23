@@ -37,6 +37,12 @@
                         <span>@lang('common.sidebar.orders')</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ URL::route('admin.comment.index') }}" class="nav-link @active_menu_class('admin.product')">
+                        <i class="icon-bubble"></i>
+                        <span>@lang('common.sidebar.comments')</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

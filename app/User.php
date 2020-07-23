@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
@@ -56,5 +57,17 @@ class User extends Authenticatable
     public function setPasswordAttribute(string $value): void
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNotifiableUsers(Builder $query): Builder
+    {
+        return $query->whereHas('roles', function (Builder $subQuery) {
+            return $subQuery->where('roles.name', 'superadmin');
+        });
     }
 }

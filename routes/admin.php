@@ -37,3 +37,12 @@ Route::group(
     ],
     __DIR__.'/admin/order.php'
 );
+
+Route::group(
+    [
+        'as' => '.comment',
+        'prefix' => 'comment',
+        'middleware' => ['anyrole:admin|superadmin']
+    ],
+    __DIR__.'/admin/comment.php'
+);
