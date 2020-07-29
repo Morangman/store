@@ -67,7 +67,9 @@ class User extends Authenticatable
     public function scopeNotifiableUsers(Builder $query): Builder
     {
         return $query->whereHas('roles', function (Builder $subQuery) {
-            return $subQuery->where('roles.name', 'superadmin');
+            return $subQuery->where('roles.name', 'admin')
+                ->orWhere('roles.name', 'superadmin')
+                ->orWhere('roles.name', 'manager');
         });
     }
 }

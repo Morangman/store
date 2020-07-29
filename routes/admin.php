@@ -46,3 +46,21 @@ Route::group(
     ],
     __DIR__.'/admin/comment.php'
 );
+
+Route::group(
+    [
+        'as' => '.notification',
+        'prefix' => 'notification',
+        'middleware' => ['anyrole:admin|superadmin']
+    ],
+    __DIR__.'/admin/notification.php'
+);
+
+Route::group(
+    [
+        'as' => '.setting',
+        'prefix' => 'setting',
+        'middleware' => ['anyrole:admin|superadmin']
+    ],
+    __DIR__.'/admin/setting.php'
+);

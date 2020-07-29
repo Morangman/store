@@ -21,6 +21,24 @@
                             {{ error }}
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>{{ $t('admin.product.form.status') }}</strong>
+                        </label>
+                        <b-form-checkbox
+                            v-model="model.is_hidden"
+                            value="1"
+                            unchecked-value="0"
+                        >
+                            {{ $t('admin.product.form.hidden') }}
+                        </b-form-checkbox>
+                        <div v-for="(error, i) in errors.is_hidden"
+                             :key="`is_hidden__error__${i}`"
+                             class="text-danger error"
+                        >
+                            {{ error }}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="text-right">
@@ -72,6 +90,12 @@
                     this.$emit('delete');
                 });
             },
+        },
+
+        created() {
+            if (this.model.id) {
+                this.model.is_hidden = Number(this.model.is_hidden);
+            }
         },
     };
 </script>

@@ -54,7 +54,6 @@
         <script src="{{ URL::asset('admin/js/main/jquery.min.js') }}"></script>
         <script src="{{ URL::asset('admin/js/main/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ URL::asset('common/js/routes.js') }}"></script>
-        <script src="{{ URL::asset('common/js/main.js') }}"></script>
         <script src="{{ URL::asset('admin/js/main.js') }}"></script>
         @yield('scripts')
     </body>

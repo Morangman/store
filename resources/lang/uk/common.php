@@ -14,6 +14,8 @@ return [
         'products' => 'Товари',
         'orders' => 'Заявки',
         'comments' => 'Відгуки',
+        'notifications' => 'Сповіщення',
+        'settings' => 'Налаштування',
     ],
     'header' => [
         'breadcrumbs' => [

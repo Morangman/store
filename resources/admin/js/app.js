@@ -9,6 +9,10 @@ import { Vue } from '../../common/js/main';
 
 require('babel-polyfill');
 
+require('brace/theme/chrome');
+
+require('brace/mode/javascript');
+
 try {
     window.Popper = require('popper.js').default;
 

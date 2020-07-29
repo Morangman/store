@@ -15,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/comments', 'HomeController@comments')->name('comments');
+
+Route::get('/guarantee', 'HomeController@guarantee')->name('guarantee');
+
+Route::get('/product/{product}', 'HomeController@product')->name('product');
+
+Route::get('/accessories', 'HomeController@accessories')->name('accessories');
+
+Route::post('/order', 'HomeController@makeOrder')->name('order');
+
+Route::post('/call', 'HomeController@callMe')->name('call');
+
+Route::post('/comment', 'HomeController@addComment')->name('comment');
+
 Route::group([
     'namespace' => 'Auth',
     'as' => 'admin',

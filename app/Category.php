@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Category extends Model
 {
+    public const ACCESSORIES = 'Аксессуары';
+
     /**
      * @var string
      */
@@ -24,6 +26,7 @@ class Category extends Model
      */
     protected $fillable = [
         'name',
+        'is_hidden',
     ];
 
     /**
@@ -31,6 +34,7 @@ class Category extends Model
      */
     protected $casts = [
         'name' => 'string',
+        'is_hidden' => 'bool',
     ];
 
     /**

@@ -22,6 +22,7 @@
             return {
                 model: {
                     name: null,
+                    is_hidden: null,
                 },
                 errors: {},
                 formData: null,

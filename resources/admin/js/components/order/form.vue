@@ -91,8 +91,8 @@
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control selectpicker" v-model="selectedOrderedProduct[index]" v-on:change="selectOrderedProduct(index)" required>
-                                        <optgroup v-for="(product, index) in products" :label="index">
-                                            <option :value="product">{{ product.title }}</option>
+                                        <optgroup v-for="(category, index) in products" :label="index">
+                                            <option v-for="(product, index) in category" :value="product">{{ product.title }}</option>
                                         </optgroup>
                                     </select>
                                 </div>
@@ -368,7 +368,11 @@
         created() {
             if (this.model.id) {
                 _.each(this.model.ordered_product, (key, value) => {
-                    this.selectedOrderedProduct.push(key.product);
+                    this.selectedOrderedProduct.push({
+                        id: key.product.id,
+                        title: key.product.title,
+                        variations: key.product.variations,
+                    });
                     this.selectedOrderedProductColor.push(key.variation);
                 });
             } else {

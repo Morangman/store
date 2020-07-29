@@ -206,7 +206,7 @@ class ProductController extends Controller
                     $media = $product->addMedia($value['image'])
                         ->toMediaCollection(Product::MEDIA_COLLECTION_VARIATIONS);
 
-                    $imgUrl = $media->getUrl();
+                    $imgUrl = $media->getFullUrl();
                 }
 
                 $variations[] = [
@@ -225,12 +225,12 @@ class ProductController extends Controller
             $media = $product->addMedia($productPreviewImage)
                 ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
 
-            $product->update(['image' => $media->getUrl()]);
+            $product->update(['image' => $media->getFullUrl()]);
         } elseif ($request->has('image') && $product->getAttribute('image') !== $image = $request->get('image')) {
             $media = $product->addMediaFromUrl($image)
                 ->toMediaCollection(Product::MEDIA_COLLECTION_PRODUCT);
 
-            $product->update(['image' => $media->getUrl()]);
+            $product->update(['image' => $media->getFullUrl()]);
         }
 
         if ($productSeoImage = $request->file('seo')['image']) {
@@ -241,7 +241,7 @@ class ProductController extends Controller
                 'meta' => $product->getAttribute('seo')['meta'],
                 'title' => $product->getAttribute('seo')['title'],
                 'keywords' => $product->getAttribute('seo')['keywords'],
-                'image' => $media->getUrl(),
+                'image' => $media->getFullUrl(),
             ]]);
         } elseif ($request->has('seo')['image'] && $product->getAttribute('seo')['image'] !== $image = $request->get('seo')['image']) {
             $media = $product->addMediaFromUrl($image)
@@ -251,7 +251,7 @@ class ProductController extends Controller
                 'meta' => $product->getAttribute('seo')['meta'],
                 'title' => $product->getAttribute('seo')['title'],
                 'keywords' => $product->getAttribute('seo')['keywords'],
-                'image' => $media->getUrl(),
+                'image' => $media->getFullUrl(),
             ]]);
         }
     }

@@ -43,6 +43,18 @@
                         <span>@lang('common.sidebar.comments')</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ URL::route('admin.notification.index') }}" class="nav-link @active_menu_class('admin.notification')">
+                        <i class="icon-bell3"></i>
+                        <span>@lang('common.sidebar.notifications')</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ URL::route('admin.setting.index') }}" class="nav-link @active_menu_class('admin.setting')">
+                        <i class="icon-cog"></i>
+                        <span>@lang('common.sidebar.settings')</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

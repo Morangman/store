@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Order\StoreRequest;
 use App\Http\Requests\Admin\Order\UpdateRequest;
 use App\Order;
 use App\Product;
+use App\Reminder;
 use App\SuspectIp;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View as ViewContract;
@@ -41,11 +42,11 @@ class OrderController extends Controller
     {
         $productByCategory = [];
 
-        $products = Product::all();
+        $products = Product::query()->where('is_hidden', false)->get();
 
         foreach ($products as $product) {
             $productCategory = $product->category()->first();
-            $productByCategory[$productCategory->getAttribute('name')] = [
+            $productByCategory[$productCategory->getAttribute('name')][] = [
                 'id' => $product->getKey(),
                 'title' => $product->getAttribute('title'),
                 'variations' => $product->getAttribute('variations'),
@@ -66,7 +67,18 @@ class OrderController extends Controller
     {
         $orderData = array_merge($request->all(), ['ip_address' => $request->ip()]);
 
-        Order::create($orderData);
+        $order = Order::create($orderData);
+
+        if ($remindData = $request->get('reminder')) {
+            Reminder::query()->create([
+                'order_id' => $order->getKey(),
+                'user_id' => Auth::id(),
+                'email' => Auth::user()->getAttribute('email'),
+                'title' => $remindData['title'] ?? Lang::get('admin/order.reminder.title'),
+                'text' => $remindData['text'] ?? Lang::get('admin/order.reminder.text'),
+                'reminder_date' => Carbon::parse($remindData['date']) ?? Carbon::tomorrow(),
+            ]);
+        }
 
         Session::flash(
             'success',
@@ -89,7 +101,7 @@ class OrderController extends Controller
 
         foreach ($products as $product) {
             $productCategory = $product->category()->first();
-            $productByCategory[$productCategory->getAttribute('name')] = [
+            $productByCategory[$productCategory->getAttribute('name')][] = [
                 'id' => $product->getKey(),
                 'title' => $product->getAttribute('title'),
                 'variations' => $product->getAttribute('variations'),
@@ -117,24 +129,14 @@ class OrderController extends Controller
     public function update(UpdateRequest $request, Order $order): JsonResponse
     {
         if ($remindData = $request->get('reminder')) {
-            $existData = unserialize(file_get_contents('array.json'));
-
-            $data[] = [
+            Reminder::query()->create([
                 'order_id' => $order->getKey(),
                 'user_id' => Auth::id(),
                 'email' => Auth::user()->getAttribute('email'),
                 'title' => $remindData['title'] ?? Lang::get('admin/order.reminder.title'),
                 'text' => $remindData['text'] ?? Lang::get('admin/order.reminder.text'),
-                'date' => $remindData['date'] ?? Carbon::tomorrow(),
-            ];
-
-            if ($existData) {
-                $result = array_merge($existData, $data);
-            } else {
-                $result = $data;
-            }
-
-            file_put_contents("array.json", serialize($result));
+                'reminder_date' => Carbon::parse($remindData['date']) ?? Carbon::tomorrow(),
+            ]);
         }
 
         if ($suspectIp = $request->get('suspect_ip')) {

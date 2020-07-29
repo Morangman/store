@@ -18,6 +18,11 @@ import CommentIndex from './components/comment/index';
 import CommentCreate from './components/comment/create';
 import CommentEdit from './components/comment/edit';
 
+import NotificationIndex from './components/notification/index';
+import NotificationView from './components/notification/view';
+
+import SettingIndex from './components/setting/index';
+
 export default {
     UserIndex,
     UserCreate,
@@ -33,5 +38,8 @@ export default {
     OrderEdit,
     CommentIndex,
     CommentCreate,
-    CommentEdit
+    CommentEdit,
+    NotificationIndex,
+    NotificationView,
+    SettingIndex
 };

@@ -6,8 +6,10 @@ use App\Category;
 use App\Comment;
 use App\Order;
 use App\Product;
+use App\Setting;
 use App\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
 use Spatie\MediaLibrary\Models\Media;
 
@@ -90,6 +92,8 @@ class RouteServiceProvider extends ServiceProvider
             'media' => Media::class,
             'order' => Order::class,
             'comment' => Comment::class,
+            'setting' => Setting::class,
+            'nitification' => Notification::class,
         ];
 
         foreach ($models as $key => $class) {
