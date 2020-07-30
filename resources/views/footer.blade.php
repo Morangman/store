@@ -27,7 +27,7 @@
                         <div class="modal_forma">
                             <form id="contact-form" method="post">
                                 <input name="name" placeholder="Имя" required="" type="text">
-                                <input name="phone" placeholder="+38 (___) ___-__-__" required="" type="text">
+                                <input name="phone" placeholder="+38 (___) ___-__-__" required="" type="tel">
                                 <button class="b_o_c modal_btn" type="submit">Отправить</button>
                             </form>
                         </div>
