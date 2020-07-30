@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $('.oftt').click(function () {
         if($(this).is(':checked')) {
             $('.grey-button').removeAttr('disabled');
@@ -124,7 +123,7 @@ $(document).ready(function () {
 	});
 
 	function checkPhone (phone) {
-		var reg = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+		var reg = /^((8|\+38)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 		var _this = phone.val().trim();
 
 		if(reg.test(_this)) {

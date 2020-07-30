@@ -165,6 +165,22 @@
     padding: 20px;
 }
 
+.multiselect1 {
+    width: auto!important;
+    text-align: unset!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    text-transform: none!important;
+    overflow: unset!important;
+    text-overflow: unset!important;
+    white-space: unset!important;
+}
+
+.date-centered {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1520px) {
     .table {
         width: 1280px;

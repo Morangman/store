@@ -24,8 +24,8 @@ body textarea:required:valid {
 }
 .hr
 {
-	
-margin: 5px;	
+
+margin: 5px;
 }
 html, body {
 	max-width: 100% !important;
@@ -196,7 +196,7 @@ nav {
   margin: 0 auto 30px;
 }
 ul {
-  list-style: none; 
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -230,7 +230,7 @@ ul {
 .dl-menu.dl-animate-out-1 {
     animation: MenuAnimOut1 0.4s linear forwards;
 }
- 
+
 @keyframes MenuAnimOut1 {
     50% {
         transform: translateZ(-250px) rotateY(30deg);
@@ -244,11 +244,11 @@ ul {
         opacity: 0;
     }
 }
- 
+
 .dl-menu.dl-animate-in-1 {
     animation: MenuAnimIn1 0.3s linear forwards;
 }
- 
+
 @keyframes MenuAnimIn1 {
     0% {
         transform: translateZ(-500px) rotateY(0deg);
@@ -954,7 +954,7 @@ section#akcii span {
 
 section#akcii img {
     width: auto;
-   
+
 }
 .container-fluid {
     width: 100%;
@@ -962,7 +962,7 @@ section#akcii img {
     padding-left: 10px;
     margin-right: auto;
     margin-left: auto;}
-	
+
 	.blocks6 {
     width: 33%;
     text-align: center;
@@ -988,8 +988,8 @@ section#akcii img {
 .blocks6 {
     width: 33%;
     text-align: center;}
-	
-	
+
+
 
 section#delivery {
     padding-top: 90px;
@@ -2114,7 +2114,7 @@ input.success {
 	color: #fff !important;
 }
 .field_upload span {
-	line-height: 36px; 
+	line-height: 36px;
 }
 .header-baner {
 	background: none;
@@ -2621,4 +2621,4 @@ img.mbi {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}            
+}
