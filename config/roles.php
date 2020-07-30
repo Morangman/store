@@ -25,8 +25,5 @@ return [
         'admin' => [
             //routes
         ],
-        'superadmin' => [
-            //routes
-        ],
     ],
 ];

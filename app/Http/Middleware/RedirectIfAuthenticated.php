@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return Redirect::to('admin/user');
+            return Redirect::to('admin/order');
         }
 
         return $next($request);

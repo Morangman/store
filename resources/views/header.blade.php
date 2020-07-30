@@ -10,43 +10,40 @@
                 <a alt="Apple Store – интернет магазин Apple" class="logo-link" data-ajax="false" href="/" title="Apple Store – интернет магазин Apple"><img alt="Apple Store – интернет магазин Apple" src="{{ asset('client/themes/site/img/apple-logo.png') }}" title="Apple Store – интернет магазин Apple"></a>
             </div>
             <div class="col-lg-8 col-md-8 col-xs-5 header-nav">
-                <div class="dl-menuwrapper visible-xs" id="dl-menu">
-                    <button>Открыть меню</button>
-                    <ul class="dl-menu">
-                        <li>
-                            <a href="/#">Каталог</a>
-                            <ul class="dl-submenu">
-                                <li class="dl-back">
-                                    <a href="#">назад</a>
+                <div class="topnav">
+                    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                    <a href="javascript:void(0);" class="icon" id="mobile-menu">
+                        <i class="icon-menu3"></i>
+                    </a>
+                    <div id="myLinks">
+                        <ul style="margin-left: 0px;">
+                            <li>
+                                <a href="/">Главная</a>
+                            </li>
+                            @foreach($categories as $category)
+                                <li>
+                                    <a href="/#{{ str_replace(' ','_',$category->getAttribute('name')) }}">{{ $category->getAttribute('name') }}</a>
                                 </li>
-                                @foreach($categories as $category)
-                                    <li>
-                                        <a href="/#{{ str_replace(' ','_',$category->getAttribute('name')) }}">{{ $category->getAttribute('name') }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="{{ URL::route('accessories') }}">Аксессуары</a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::route('guarantee') }}">Гарантия</a>
-                        </li>
-                        <li>
-                            <a href="/#delivery">Доставка и оплата</a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::route('comments') }}">Отзывы</a>
-                        </li>
-                        <li>
-                            <a href="/#contacts">Контакты</a>
-                        </li>
-                        <li>
-                            <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
+                            @endforeach
+                            <li>
+                                <a href="{{ URL::route('accessories') }}">Аксессуары</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::route('guarantee') }}">Гарантия</a>
+                            </li>
+                            <li>
+                                <a href="/#delivery">Доставка и оплата</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL::route('comments') }}">Отзывы</a>
+                            </li>
+                            <li>
+                              <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
                                 <span class="lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
-                            </a>
-                        </li>
-                    </ul>
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="toggle-menu hidden-lg hidden-md hidden-sm hidden-xs">
                     <div class="sandwich">

@@ -12,22 +12,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <link href="{{ asset('client/css/bootstrap.min92fa92fa.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-    <link href="{{ asset('client/themes/site/css/woocommerce-layout92fa92fa.css?ver1131') }}" id="woocommerce-layout-css" media="all" rel="stylesheet" type="text/css">
-    <link href="{{ asset('client/themes/site/css/woocommerce-smallscreen92fa92fa.css?ver1131') }}" id="woocommerce-smallscreen-css" media="only screen and (max-width: 768px)" rel="stylesheet" type="text/css">
-    <link href="{{ asset('client/themes/site/css/woocommerce92fa92fa.css?ver1131') }}" id="woocommerce-general-css" media="all" rel="stylesheet" type="text/css">
-    <link href="{{ asset('client/themes/site/css/fonts92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/themes/site/css/main92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/themes/site/css/jquery-ui92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/themes/site/css/media92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/themes/site/css/animate92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/themes/site/css/dropdown92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/themes/site/css/font-awesome.min92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/plugins/fancybox/jquery.fancybox92fa92fa.css?ver1131') }}" rel="stylesheet">
-    <link href="{{ asset('client/css/default92fa92fa.css?ver1131') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('client/css/component92fa92fa.css?ver1131') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('client/css/app.css') }}" rel="stylesheet" type="text/css">
     <style type="text/css">
         .fancybox-margin {
             margin-right: 17px;
@@ -52,6 +38,46 @@
             color: #000;
             background-color: #FFF;
         }
+
+        .topnav {
+            display: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .topnav {
+                display: block;
+                overflow: hidden;
+                background-color: #333;
+                position: relative;
+            }
+
+            /* Hide the links inside the navigation menu (except for logo/home) */
+            .topnav #myLinks {
+                display: none;
+            }
+
+            /* Style navigation menu links */
+            .topnav a {
+                color: white;
+                padding: 6px 12px;
+                text-decoration: none;
+                font-size: 17px;
+                display: block;
+            }
+
+            /* Style the hamburger menu */
+            .topnav a.icon {
+                display: block;
+                right: 0;
+                top: 0;
+            }
+
+            /* Add a grey background color on mouse-over */
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+        }
     </style>
 
     {!! $settings->getAttribute('code_insert') !!}
@@ -72,10 +98,19 @@
     <script src="{{ asset('client/js/client.js') }}"></script>
     <script>
         $(window).on('load', function () {
-            var $preloader = $('.cssload-container'),
+            let $preloader = $('.cssload-container'),
                 $spinner = $preloader.find('.cssload-torus');
             $spinner.fadeOut();
             $preloader.delay(350).fadeOut('slow');
+
+            $( "#mobile-menu" ).click(() => {
+                let x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            });
         });
     </script>
     @yield('scripts')

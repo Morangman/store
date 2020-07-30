@@ -159,7 +159,7 @@
             },
             accessories: {
                 type: Boolean,
-                required: true,
+                required: false,
             },
         },
 

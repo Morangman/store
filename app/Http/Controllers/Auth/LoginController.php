@@ -45,6 +45,6 @@ class LoginController extends Controller
      */
     protected function authenticated(): RedirectResponse
     {
-        return new RedirectResponse(URL::route('admin.user.index'));
+        return new RedirectResponse(URL::route('admin.order.index'));
     }
 }
