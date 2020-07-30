@@ -11,9 +11,9 @@
                         <div class="col-md-5 hidden-opacity"></div>
                         <div class="col-md-7 hidden-opacity">
                             <div class="phone-container-title hidden-opacity" :id="category.replace(/\s+/g, '-')">
-                        <span>
-                          <a :href="$r('product', { product: product.id })">{{ product.title }} {{ selectedColors[product.id] ? selectedColors[product.id].color_name : '' }}</a>
-                        </span>
+                                <span>
+                                  <a :href="$r('product', { product: product.id })">{{ product.title }} {{ selectedColors[product.id] ? selectedColors[product.id].color_name : '' }}</a>
+                                </span>
                             </div>
                         </div>
                     </div>
