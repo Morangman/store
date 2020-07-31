@@ -20,6 +20,12 @@
                         </label>
                         <a :href="$r('admin.order.edit', { order: model.data.order_id })">{{ model.data.order_id }}</a>
                     </div>
+                    <div class="form-group" v-if="model.data.comment_id">
+                        <label>
+                            <strong>{{ $t('admin.notification.form.comment_id') }}</strong>
+                        </label>
+                        <a :href="$r('admin.comment.edit', { comment: model.data.comment_id })">{{ model.data.comment_id }}</a>
+                    </div>
                     <div class="form-group">
                         <label>
                             <strong>{{ $t('admin.notification.form.created_at') }}</strong>

@@ -568,7 +568,7 @@ $('.basket-icon, .basket-icon-active').click(function(){
             input.addClass('not-valid shake animated');
         },0.01);
      }
-    if ($('#buy-in-click-popup2 form input[name="phone"]').length === 0) {
+    if (this_form.find('input[name=phone]').length == 0 || this_form.find('input[name=phone]').val().match( /\d/g ).length < 12) {
       flagChekout = true;
       $('#buy-in-click-popup2 form input[name="phone"]').removeClass('not-valid shake animated');
       setTimeout(function() {
@@ -614,44 +614,8 @@ $('.basket-icon, .basket-icon-active').click(function(){
             input.addClass('not-valid shake animated');
         },0.01);
      }
+
     if (flagChekout) return false;
-                //Отправка данных на сервер
-    			var data = new FormData();
-          data.append('name',this_form.find('input[name=name]').val());
-          data.append('phone',this_form.find('input[name=phone]').val());
-      data.append('address',this_form.find('input[name=address]').val());
-      data.append('ip-model',this_form.find('input[name=ip-model]').val());
-          data.append('phone-price',$('#ip_newprice').text());
-          data.append('phone-old-price',$('#ip_oldprice').text());
-          data.append('phone-color',$('#ip_color').text());
-          data.append('phone-memory',$('#ip_memory').text());
-          data.append('formData',this_form.find('input[name=formData]').val());
-          data.append('ip_model',$('#ip_model').text());
-
-
-
-    			//отправка через аякс
-    		// 	$.ajax({
-    		// 		url: 'send.php',
-    		// 		data: data,
-    		// 		processData: false,
-    		// 		contentType: false,
-    		// 		type: 'POST',
-    		// 		dataType:'json',
-    		// 		success: function(dataItem){
-            //   $('#buy-in-click-popup form').html(dataItem);
-            //   setInterval(function() {
-            //     window.location.reload(true);
-            //   }, 3000);
-    		// 		},
-            // error: function (error) {
-            //   $('#buy-in-click-popup form').html(error.responseText);
-            //   setInterval(function() {
-            //     window.location.reload(true);
-            //   }, 3000);
-            // }
-    		// 	});
-
 
     return false;
   });

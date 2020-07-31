@@ -25931,8 +25931,7 @@ __webpack_require__.r(__webpack_exports__);
         },
         "roles": {
           "manager": [],
-          "admin": [],
-          "superadmin": []
+          "admin": []
         },
         "create": {
           "title": "Створити користувача"
@@ -25957,6 +25956,7 @@ __webpack_require__.r(__webpack_exports__);
         "form": {
           "text": "Текст сповіщення",
           "order_id": "Замовлення:",
+          "comment_id": "Відгук:",
           "created_at": "Дата створення"
         },
         "index": {

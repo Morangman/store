@@ -8,13 +8,16 @@ use App\Category;
 use App\Comment;
 use App\Http\Requests\Admin\Order\StoreRequest;
 use App\Http\Requests\Client\Order\StoreRequest as ClientOrderStoreRequest;
+use App\Notifications\CommentNotification;
 use App\Order;
 use App\Product;
 use App\Setting;
+use App\User;
 use Butschster\Head\Packages\Entities\OpenGraphPackage;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\View;
 use Butschster\Head\Facades\Meta;
 
@@ -146,7 +149,12 @@ class HomeController extends Controller
      */
     public function addComment(\App\Http\Requests\Admin\Comment\StoreRequest $request): JsonResponse
     {
-        Comment::create($request->all());
+        $comment = Comment::create(array_merge($request->all(), ['is_hidden' => true]));
+
+        Notification::send(
+            User::query()->scopes(['notifiableUsers'])->get(),
+            new CommentNotification($comment->getKey())
+        );
 
         return $this->json()->noContent();
     }

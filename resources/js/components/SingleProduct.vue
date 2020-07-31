@@ -217,13 +217,20 @@
                         <div class="modal_forma">
                             <form id="form1" v-if="!orderSuccess">
                                 <input name="name" placeholder="Имя" type="text" v-model="name" required>
-                                <input-mask v-model="phone" mask="+38\ 999 999 99 99" placeholder="+38 999 999 99 99" maskChar=" " required></input-mask>
+                                <input-mask v-model="phone" :class="{ 'danger-input': isValidPhoneText }" v-on:input="validatePhone" mask="+38\ 999 999 99 99" placeholder="+38 999 999 99 99" maskChar="" required></input-mask>
+                                <p class="text-danger" v-if="isValidPhoneText">Введите корректный номер</p>
                                 <input type="text" name="address" v-model="email" placeholder="Почта" required>
                                 <span style="font-size: 0.8em;" class="oft"><input class="oftt2" checked="" type="checkbox"> Я согласен с <a target="_blank" :href="$r('guarantee')">публичной офертой</a></span>
-                                <button class="b_o_c modal_btn" type="submit" v-on:click="makeOrder">Купить</button><br><br>
+                                <button v-if="!validateButton" class="b_o_c modal_btn" type="submit" v-on:click="makeOrder">Купить</button><br><br>
                             </form>
-                            <p class="text-danger text-center" v-if="colorError">Сначала выберите цвет</p>
-                            <p class="text-success text-center" v-if="orderSuccess">Спасибо за Ваш заказ!</p>
+                            <div class="isa_warning" v-if="colorError">
+                                <i class="icon-notification2"></i>
+                                Сначала выберите цвет
+                            </div>
+                            <div class="isa_success" v-if="orderSuccess">
+                                <i class="icon-checkmark-circle"></i>
+                                Спасибо за Ваш заказ!
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,6 +272,9 @@
                 colorError: false,
                 orderSuccess: false,
                 ordered_product: [],
+                isValidPhone: false,
+                isValidPhoneText: false,
+                validateButton: false,
             };
         },
 
@@ -286,36 +296,55 @@
                 this.$forceUpdate();
             },
 
+            validatePhone() {
+                if (this.phone.length < 17) {
+                    this.isValidPhone = false;
+                } else {
+                    this.isValidPhone = true;
+                }
+            },
+
             makeOrder() {
                 this.colorError = false;
+                this.isValidPhoneText = false;
+                this.validateButton = false;
 
-                this.orderData = {
-                    name: this.name,
-                    email: this.email,
-                    phone: this.phone,
-                    ordered_product: this.ordered_product,
-                };
+                if (this.isValidPhone) {
+                    this.validateButton = true;
 
-                this.errors = {};
-                this.formData = new FormData();
-                this.collectFormData(this.orderData);
+                    this.orderData = {
+                        name: this.name,
+                        email: this.email,
+                        phone: this.phone,
+                        ordered_product: this.ordered_product,
+                    };
 
-                axios.post(
-                    Router.route('order'),
-                    this.orderData,
-                ).then(() => {
-                    this.orderSuccess = true;
+                    this.errors = {};
+                    this.formData = new FormData();
+                    this.collectFormData(this.orderData);
 
-                    setTimeout(() => location.href = Router.route('home'), 2000);
-                }).catch(({ response: { data: { errors } } }) => {
-                    this.errors = errors;
+                    axios.post(
+                        Router.route('order'),
+                        this.orderData,
+                    ).then(() => {
+                        this.orderSuccess = true;
+                        this.validateButton = false;
 
-                    if (this.errors.ordered_product) {
-                        this.colorError = true;
-                    } else {
-                        this.colorError = false;
-                    }
-                });
+                        setTimeout(() => location.href = Router.route('home'), 2000);
+                    }).catch(({ response: { data: { errors } } }) => {
+                        this.errors = errors;
+
+                        this.validateButton = false;
+
+                        if (this.errors.ordered_product) {
+                            this.colorError = true;
+                        } else {
+                            this.colorError = false;
+                        }
+                    });
+                } else {
+                    this.isValidPhoneText = true;
+                }
             },
         },
     }

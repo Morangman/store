@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
                 'max:255',
             ],
             'email' => [
+                'nullable',
                 'string',
                 'max:255',
             ],
