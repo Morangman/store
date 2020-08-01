@@ -8,6 +8,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Http\Requests\Admin\Category\UpdateRequest;
+use App\Product;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -66,6 +67,7 @@ class CategoryController extends Controller
             'admin.category.edit',
             [
                 'category' => $category,
+                'products' => $category->getAttribute('products'),
             ]
         );
     }
@@ -79,6 +81,28 @@ class CategoryController extends Controller
     public function update(UpdateRequest $request, Category $category): JsonResponse
     {
         $category->update($request->all());
+
+        if ($request->get('products')) {
+            foreach ($request->get('products') as $product) {
+                $variations = [];
+
+                foreach ($product['variations'] as $variation) {
+                    $variations[] = [
+                        'color_name' => $variation['color_name'],
+                        'color' => $variation['color'],
+                        'price' =>  $product['price'] ?? $variation['price'],
+                        'old_price' => $product['old_price'] ?? $variation['old_price'],
+                        'image' => $variation['image'],
+                    ];
+                }
+
+                Product::query()->find($product['id'])->update([
+                    'price' => $product['price'],
+                    'old_price' => $product['old_price'],
+                    'variations' => $variations,
+                ]);
+            }
+        }
 
         Session::flash(
             'success',

@@ -186,3 +186,8 @@
         width: 1280px;
     }
 }
+
+.product-title {
+    display: flex;
+    flex-direction: column-reverse;
+}

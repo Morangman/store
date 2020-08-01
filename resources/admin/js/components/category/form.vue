@@ -21,6 +21,39 @@
                             {{ error }}
                         </div>
                     </div>
+                    <div v-for="(product, i) in model.products" :key="`product_${i}`" class="row" v-if="model.id">
+                        <div class="product-title col-md-2">
+                            <div class="form-group">
+                                <a :href="$r('admin.product.edit', { product: product.id })">{{ product.title }}</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>
+                                    <strong>{{ $t('admin.category.form.price') }}</strong>
+                                </label>
+                                <input
+                                    name="price"
+                                    v-model="product.price"
+                                    type="number"
+                                    class="form-control"
+                                >
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>
+                                    <strong>{{ $t('admin.category.form.old_price') }}</strong>
+                                </label>
+                                <input
+                                    name="old_price"
+                                    v-model="product.old_price"
+                                    type="number"
+                                    class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>
                             <strong>{{ $t('admin.product.form.status') }}</strong>
@@ -71,6 +104,10 @@
             model: {
                 type: Object,
                 required: true,
+            },
+            products: {
+                type: Array,
+                required: false,
             },
             errors: {
                 type: Object,

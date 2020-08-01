@@ -25651,7 +25651,9 @@ __webpack_require__.r(__webpack_exports__);
           "edit": "Редагувати категорію"
         },
         "form": {
-          "name": "Ім'я"
+          "name": "Ім'я",
+          "price": "Ціна",
+          "old_price": "Стара ціна"
         },
         "index": {
           "title": "Категорії",

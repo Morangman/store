@@ -13,6 +13,6 @@
 
 @section('content')
     <setting-index
-        :settings="{{ $settings }}"
+        :settings="{{ json_encode($settings) }}"
     ></setting-index>
 @endsection

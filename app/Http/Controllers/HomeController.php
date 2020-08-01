@@ -33,7 +33,7 @@ class HomeController extends Controller
      */
     public function index(): ViewContract
     {
-        $settings = Setting::query()->where('id', 1)->first() ?? null;
+        $settings = Setting::latest('updated_at')->first() ?? null;
 
         $productByCategory = [];
 
@@ -56,10 +56,10 @@ class HomeController extends Controller
             }
         }
 
-        $seoTitle = isset($settings) && isset( $settings->getAttribute('general_settings')['seo_title'])
+        $seoTitle = isset($settings) && isset($settings->getAttribute('general_settings')['seo_title'])
             ? $settings->getAttribute('general_settings')['seo_title']
             : '';
-        $seoImage = isset($settings) && isset( $settings->getAttribute('general_settings')['seo_image'])
+        $seoImage = isset($settings) && isset($settings->getAttribute('general_settings')['seo_image'])
             ? $settings->getAttribute('general_settings')['seo_image']
             : '';
 
@@ -79,7 +79,7 @@ class HomeController extends Controller
             ->setDescription($seoTitle);
 
         return View::make('home', [
-            'settings' => $settings,
+            'settings' => $settings ?? [],
             'products' => $productByCategory,
             'categories' => $categories,
         ]);
@@ -92,7 +92,7 @@ class HomeController extends Controller
     {
         return View::make('comments', [
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
-            'settings' => $settings = Setting::query()->where('id', 1)->first() ?? null,
+            'settings' => Setting::latest('updated_at')->first() ?? null,
             'comments' => Comment::query()->where('is_hidden', false)->get() ?? [],
         ]);
     }
@@ -104,7 +104,7 @@ class HomeController extends Controller
     {
         return View::make('guarantee', [
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
-            'settings' => $settings = Setting::query()->where('id', 1)->first() ?? null,
+            'settings' => Setting::latest('updated_at')->first() ?? null,
         ]);
     }
 
@@ -187,7 +187,7 @@ class HomeController extends Controller
             [
                 'product' => $product,
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
-                'settings' => $settings = Setting::query()->where('id', 1)->first() ?? null,
+                'settings' => Setting::latest('updated_at')->first() ?? null,
                 'recommended' => Product::query()->whereIn('id', $ids)->get(),
             ]
         );
@@ -222,7 +222,7 @@ class HomeController extends Controller
             [
                 'products' => $productByCategory,
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
-                'settings' => $settings = Setting::query()->where('id', 1)->first() ?? null,
+                'settings' => Setting::latest('updated_at')->first() ?? null,
             ]
         );
     }

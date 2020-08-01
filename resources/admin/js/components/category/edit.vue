@@ -2,6 +2,7 @@
     <category-form
         v-if="model"
         :model.sync="model"
+        :products.sync="products"
         :errors.sync="errors"
         @submit="update"
         @delete="deleteCategory"
@@ -21,6 +22,10 @@
         props: {
             category: {
                 type: Object,
+                required: true,
+            },
+            products: {
+                type: Array,
                 required: true,
             },
         },
@@ -51,7 +56,7 @@
                         },
                     },
                 ).then(() => {
-                    location.href = Router.route('admin.category.index');
+                    location.href = Router.route('admin.category.edit', { category: this.category.id });
                 }).catch(({ response: { data: { errors } } }) => {
                     this.errors = errors;
                     this.scrollToError();

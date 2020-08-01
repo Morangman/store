@@ -186,7 +186,7 @@
 
         props: {
             settings: {
-                type: Array,
+                type: Object,
                 required: false,
             },
         },

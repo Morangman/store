@@ -17,5 +17,6 @@
 @section('content')
     <category-edit
         :category="{{ $category }}"
+        :products="{{ $products }}"
     ></category-edit>
 @endsection

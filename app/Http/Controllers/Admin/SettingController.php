@@ -28,7 +28,7 @@ class SettingController extends Controller
     public function index(): ViewContract
     {
         return View::make('admin.setting.index', [
-            'settings' => Setting::query()->where('id', 1)->first() ?? []
+            'settings' => Setting::latest('updated_at')->first() ?? (object)[]
         ]);
     }
 
@@ -41,7 +41,15 @@ class SettingController extends Controller
      */
     public function store(StoreRequest $request): JsonResponse
     {
-        $setting = Setting::create($request->all());
+        $settingData = $request->except(
+                [
+                    'code_insert',
+                ]
+            ) + [
+                'code_insert' => $request->get('code_insert') ?? '',
+            ];
+
+        $setting = Setting::create($settingData);
 
         $this->handleDocuments($request, $setting);
 
@@ -66,7 +74,15 @@ class SettingController extends Controller
      */
     public function update(UpdateRequest $request, Setting $setting): JsonResponse
     {
-        $setting->update($request->all());
+        $settingData = $request->except(
+                [
+                    'code_insert',
+                ]
+            ) + [
+                'code_insert' => $request->get('code_insert') ?? '',
+            ];
+
+        $setting->update($settingData);
 
         $this->handleDocuments($request, $setting);
 

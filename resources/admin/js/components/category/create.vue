@@ -22,7 +22,8 @@
             return {
                 model: {
                     name: null,
-                    is_hidden: null,
+                    price: null,
+                    products: null,
                 },
                 errors: {},
                 formData: null,
