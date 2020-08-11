@@ -34,6 +34,9 @@ class UpdateRequest extends FormRequest
             'text' => [
                 'required',
             ],
+            'value' => [
+                'required',
+            ],
             'is_hidden' => [
                 'nullable',
                 'boolean',

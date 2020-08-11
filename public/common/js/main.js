@@ -25867,6 +25867,7 @@ __webpack_require__.r(__webpack_exports__);
           "name": "Ім'я",
           "email": "Email",
           "text": "Текст",
+          "value": "Оцінка",
           "is_hidden": "Приховано"
         },
         "index": {

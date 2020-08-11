@@ -2622,3 +2622,39 @@ img.mbi {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.comment-block {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.reviews .reviews__item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #eee;
+}
+
+.reviews .reviews__item-header {
+    margin-bottom: 5px;
+}
+
+.reviews .reviews__item-name {
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.reviews .reviews__item-date {
+    font-weight: 400;
+    font-size: 12px;
+    border-left: 1px dotted #ccc;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.reviews .reviews__item-rate {
+    float: right;
+    position: relative;
+    top: -5px;
+}
+
+

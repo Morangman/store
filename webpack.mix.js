@@ -23,6 +23,7 @@ mix.js([
         'resources/client/themes/site/js/jquery.scrollTo.min95c495c4.js',
         'resources/client/themes/site/js/vch95c495c4.js',
         'resources/client/themes/site/js/mask95c495c4.js',
+        'resources/client/plugins/auxiliary-rater/rater.min.js',
         'resources/client/themes/site/js/common95c495c4.js',
         'resources/client/plugins/dropdown/dropdown95c495c4.js',
         'resources/client/themes/site/js/jquery.livequery.min95c495c4.js',

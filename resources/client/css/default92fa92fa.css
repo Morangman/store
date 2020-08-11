@@ -12,7 +12,7 @@ body, html { font-size: 100%; 	padding: 0; margin: 0;}
 	box-sizing: border-box;
 }
 .carousel-caption{
-top:25%!important;}
+top:21%!important;}
 
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -244,6 +244,7 @@ width: 100% !important;}
     color: #00529B;
     background-color: #BDE5F8;
 }
+
 .isa_success {
     color: #4F8A10;
     background-color: #DFF2BF;
@@ -264,4 +265,12 @@ width: 100% !important;}
     margin:10px 22px;
     font-size:2em;
     vertical-align:middle;
+}
+
+.site-title {
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 900;
+    font-stretch: ultra-expanded;
+    text-shadow: 2px 2px 4px #191970;
 }

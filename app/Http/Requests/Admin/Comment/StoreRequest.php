@@ -34,6 +34,9 @@ class StoreRequest extends FormRequest
             'text' => [
                 'required',
             ],
+            'value' => [
+                'required',
+            ],
             'is_hidden' => [
                 'nullable',
                 'boolean',

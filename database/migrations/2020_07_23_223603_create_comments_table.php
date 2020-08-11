@@ -23,6 +23,7 @@ class CreateCommentsTable extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->text('text');
+            $table->tinyInteger('value')->unsigned()->default(1);
             $table->boolean('is_hidden')->default(0);
             $table->timestamps();
         });

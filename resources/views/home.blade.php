@@ -12,8 +12,7 @@
             <div class="item active">
                 <img width="100%" src="{{ asset('client/fon.jpg') }}">
                 <div class="carousel-caption">
-                    <h3>
-                        Оригинальная техника Apple со скидкой до 30%</h3>
+                    <p class="site-title">Оригинальная техника Apple со скидкой до 30%</p>
                     <p>
                         <button class="know-more hidden-opacity">Купить</button>
                     </p>
@@ -66,7 +65,7 @@
             <div class="row">
                 <div id="present" class="module test2 presents-box" style="margin-top:  20px; padding-bottom: 40px;">
                     <div class="container-12 relative">
-                        <div id="header3" class="module-header">Защитное стекло и чехол от Apple в подарок!</div>
+                        <div id="header3" class="module-header">Защитное стекло и чехол премиум качества!</div>
                         <div style=""></div>
                         <div style="float: left; width: 450px; font-size: 18px; font-weight: 400; padding-top: 40px; padding-left: 40px; visibility: visible; animation-duration: 1s; animation-name: slideInLeft;" class="wow slideInLeft moduleee" data-wow-duration="1s">
                             <div>
@@ -101,7 +100,7 @@
                     <div id="test2-text3" style="margin-top: 20px; margin-left: 10px; font-size: 23px;" class="test2-text3">Расширенная гарантия – 1 год</div>
                     <div id="test2-text5" class="test2-text4" contenteditable="false" style="line-height: 23px; font-size: 16px; margin-left: 10px; padding-bottom: 40px">
                         <div>Если в течение 1 года смартфон сломается - специалисты
-                            <div> отремонтируют его бесплатно. Вы просто приезжаете</div> с телефоном и гарантийным талоном в сервисный центр.
+                            <div> отремонтируют его бесплатно.</div>
                         </div>
                     </div>
                 </div>
@@ -117,10 +116,10 @@
                 </div>
                 <div class="row delivery-icons advantages-row">
                     <div class="col-md-3 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/dost.png') }}">
-                        <p>Доставка за 2 часа!*
+                        <p>Отправка в день заказа!*
                         </p>
                     </div>
-                    <div class="col-md-3 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/rub.png') }}">
+                    <div class="col-md-3 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/uah.png') }}">
                         <p>Оплата при получении товара</p>
                     </div>
                     <div class="col-md-3 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/kass.png') }}">
@@ -130,7 +129,7 @@
                         <p>Гарантийный талон**</p>
                     </div>
                 </div>
-                <div class="row delivery-desc hidden-opacity">*Доставка осуществляется в течении 2-3х часов с момента оформления заказа.<br>
+                <div class="row delivery-desc hidden-opacity">*Доставка осуществляется в день оформления заказа.<br>
                     **Предоставляется при покупке.</div>
             </div>
         </div>

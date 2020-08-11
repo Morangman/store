@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="row hr">
                                                 <p><img class="hr" src="client/uploads/punkt.png">Магазин</p>
-                                                <p><img class="hr" src="client/uploads/dost.png">Доставка за 2 часа</p>
+                                                <p><img class="hr" src="client/uploads/dost.png">Отправка в день заказа</p>
                                                 <p><img class="hr" src="client/uploads/orig.png">Оригинальная техника</p>
                                                 <p><img class="hr" src="client/uploads/gar.png">Гарантия 1 год</p>
                                                 <p><img class="hr" src="client/uploads/test.png">Тест драйв 30 дней</p>

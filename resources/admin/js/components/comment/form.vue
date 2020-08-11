@@ -59,6 +59,24 @@
                     </div>
                     <div class="form-group">
                         <label>
+                            <strong>{{ $t('admin.comment.form.value') }}</strong>
+                        </label>
+                        <select class="form-control" name="ordered_status" v-model="model.value" required :class="{ 'border-danger': errors.value }">
+                            <option :value="1">1</option>
+                            <option :value="2">2</option>
+                            <option :value="3">3</option>
+                            <option :value="4">4</option>
+                            <option :value="5">5</option>
+                        </select>
+                        <div v-for="(error, i) in errors.value"
+                             :key="`value__error__${i}`"
+                             class="text-danger error"
+                        >
+                            {{ error }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
                             <strong>{{ $t('admin.comment.form.is_hidden') }}</strong>
                         </label>
                         <b-form-checkbox

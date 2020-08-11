@@ -644,9 +644,12 @@ $('.basket-icon, .basket-icon-active').click(function(){
             return false;
         }
 
+        let ratingValue = $(".rating").rate("getValue");
+
         axios.post(Router.route('comment', {
             name: this_form.find('input[name=name]').val(),
             text: this_form.find('textarea[name=text]').val(),
+            value: ratingValue,
         }))
             .then((data) => {
                 $.fancybox.close();

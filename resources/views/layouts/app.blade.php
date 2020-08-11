@@ -111,6 +111,13 @@
                     x.style.display = "block";
                 }
             });
+
+            $(".rating").rate({
+                max_value: 5,
+                step_size: 1,
+                selected_symbol_type: 'utf8_star',
+                cursor: 'pointer',
+            });
         });
     </script>
     @yield('scripts')

@@ -25,6 +25,7 @@ class Comment extends Model
         'name',
         'email',
         'text',
+        'value',
         'is_hidden',
     ];
 
@@ -35,6 +36,7 @@ class Comment extends Model
         'name' => 'string',
         'email' => 'string',
         'text' => 'string',
+        'value' => 'int',
         'is_hidden' => 'bool',
     ];
 }

@@ -24,6 +24,7 @@
                     name: null,
                     email: null,
                     text: null,
+                    value: null,
                     is_hidden: null,
                 },
                 errors: {},

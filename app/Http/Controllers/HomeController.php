@@ -93,7 +93,7 @@ class HomeController extends Controller
         return View::make('comments', [
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
             'settings' => Setting::latest('updated_at')->first() ?? null,
-            'comments' => Comment::query()->where('is_hidden', false)->get() ?? [],
+            'comments' => Comment::query()->where('is_hidden', false)->paginate(5) ?? [],
         ]);
     }
 
