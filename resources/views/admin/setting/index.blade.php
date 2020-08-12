@@ -14,5 +14,6 @@
 @section('content')
     <setting-index
         :settings="{{ json_encode($settings) }}"
+        :content="{{ json_encode($content) }}"
     ></setting-index>
 @endsection

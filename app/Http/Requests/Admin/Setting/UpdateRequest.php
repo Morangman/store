@@ -25,6 +25,10 @@ class UpdateRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'content' => [
+                'required',
+                'array',
+            ],
             'code_insert' => [
                 'nullable',
                 'string',

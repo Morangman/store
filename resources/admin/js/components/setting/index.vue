@@ -137,6 +137,165 @@
                         </div>
                     </div>
                 </b-tab>
+                <b-tab :title="$t('admin.setting.form.modify.title')">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <h4>{{ $t('admin.setting.form.modify.site-title') }}</h4>
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.site_title.value"
+                                    class="form-control"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <h4>{{ $t('admin.setting.form.modify.site-benefits') }}</h4>
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_1.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_2.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_3.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_4.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_5.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_6.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.benefits_7.value"
+                                    class="form-control"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <h4>{{ $t('admin.setting.form.modify.site-present') }}</h4>
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.present_1.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.present_2.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.present_3.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.present_4.value"
+                                    class="form-control"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <h4>{{ $t('admin.setting.form.modify.site-guarantee') }}</h4>
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.guarantee_1.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.guarantee_2.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.guarantee_3.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.guarantee_4.value"
+                                    class="form-control"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <h4>{{ $t('admin.setting.form.modify.site-delivery') }}</h4>
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_1.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_2.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_3.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_4.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_5.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_6.value"
+                                    class="form-control"
+                                >
+                                <input
+                                    name="site-title"
+                                    type="text"
+                                    v-model="model.content.delivery_7.value"
+                                    class="form-control"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </b-tab>
             </b-tabs>
         </b-card>
         <div v-for="(error, i) in errors.general_settings"
@@ -189,6 +348,10 @@
                 type: Object,
                 required: false,
             },
+            content: {
+                type: Object,
+                required: false,
+            },
         },
 
         data() {
@@ -207,6 +370,7 @@
                         seo_keywords: null,
                         seo_image: null,
                     },
+                    content: {},
                     code_insert: null,
                 },
             };
@@ -274,6 +438,8 @@
         created() {
             if (this.settings.id) {
                 this.model = this.settings;
+
+                this.model.content = this.content;
 
                 this.seoPreviewImage = this.model.general_settings.seo_image;
 

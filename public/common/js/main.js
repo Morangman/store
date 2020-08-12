@@ -25848,6 +25848,14 @@ __webpack_require__.r(__webpack_exports__);
           },
           "code_insert": {
             "title": "Вставка коду"
+          },
+          "modify": {
+            "title": "Редагувати контент",
+            "site-title": "Заголовок",
+            "site-benefits": "Блок \"Преимущества\"",
+            "site-present": "Блок \"Защитное стекло\"",
+            "site-guarantee": "Блок \"Гарантия\"",
+            "site-delivery": "Блок \"Доставка и оплата\""
           }
         },
         "messages": {

@@ -68,6 +68,11 @@ return [
             'driver' => 'local',
             'root' => $app->publicPath().'/media',
         ],
+
+        'file' => [
+            'driver' => 'local',
+            'root' => $app->publicPath().'/file',
+        ],
     ],
 
 ];

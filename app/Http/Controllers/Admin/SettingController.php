@@ -13,6 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
 /**
@@ -24,11 +25,14 @@ class SettingController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\View
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function index(): ViewContract
     {
         return View::make('admin.setting.index', [
-            'settings' => Setting::latest('updated_at')->first() ?? (object)[]
+            'settings' => Setting::latest('updated_at')->first() ?? (object)[],
+            'content' => json_decode(Storage::disk('file')->get('content.json'), true)
         ]);
     }
 
@@ -86,10 +90,33 @@ class SettingController extends Controller
 
         $this->handleDocuments($request, $setting);
 
+        if ($content = $request->get('content')) {
+            //Storage::disk('public')->delete('content.json');
+
+            Storage::disk('file')->put('content.json', json_encode($content));
+        }
+
         Session::flash(
             'success',
             Lang::get('admin/setting.messages.update')
         );
+
+        return $this->json()->noContent();
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function modify(Request $request): JsonResponse
+    {
+        $data = [
+            'attribute' => $request->get('attribute'),
+            'value' => $request->get('value'),
+        ];
+
+        Storage::disk('public')->put('content.json', json_encode($data));
 
         return $this->json()->noContent();
     }

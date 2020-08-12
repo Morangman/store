@@ -18,6 +18,7 @@ use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Butschster\Head\Facades\Meta;
 
@@ -30,6 +31,8 @@ class HomeController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\View
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function index(): ViewContract
     {
@@ -82,6 +85,7 @@ class HomeController extends Controller
             'settings' => $settings ?? [],
             'products' => $productByCategory,
             'categories' => $categories,
+            'content' => json_decode(Storage::disk('file')->get('content.json'), true)
         ]);
     }
 
@@ -223,6 +227,7 @@ class HomeController extends Controller
                 'products' => $productByCategory,
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
                 'settings' => Setting::latest('updated_at')->first() ?? null,
+                'content' => json_decode(Storage::disk('file')->get('content.json'), true)
             ]
         );
     }

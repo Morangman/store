@@ -12,6 +12,11 @@ Route::post('', [
     'uses' => 'SettingController@store',
 ]);
 
+Route::post('/modify', [
+    'as' => '.modify',
+    'uses' => 'SettingController@modify',
+]);
+
 Route::patch('{setting}', [
     'as' => '.update',
     'uses' => 'SettingController@update',
