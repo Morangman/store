@@ -10,9 +10,6 @@
     <title>Apple iPhone - магазин оригинальной техники Apple</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
     <link href="{{ asset('client/css/app.css') }}" rel="stylesheet" type="text/css">
     <style type="text/css">
         .fancybox-margin {
@@ -104,6 +101,15 @@
             $preloader.delay(350).fadeOut('slow');
 
             $( "#mobile-menu" ).click(() => {
+                let x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            });
+
+            $("#myLinks ul li").click(() => {
                 let x = document.getElementById("myLinks");
                 if (x.style.display === "block") {
                     x.style.display = "none";

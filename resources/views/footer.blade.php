@@ -46,11 +46,7 @@
                         микрофоном
                     </p>
                 </div>
-                <div class="col-md-6 package-phone">
-                    <figure>
-                        <a href="#"><img alt="" src="#"></a>
-                    </figure>
-                </div>
+                <div class="col-md-6 package-phone"></div>
                 <div class="col-md-3 adapter">
                     <figure>
                         <a href="#"><img alt="" src="{{ asset('client/themes/site/img/adapter.jpg') }}"></a>
