@@ -15,5 +15,6 @@
     <setting-index
         :settings="{{ json_encode($settings) }}"
         :content="{{ json_encode($content) }}"
+        :slimages="{{ json_encode($slimages) }}"
     ></setting-index>
 @endsection

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
+use McMatters\Helpers\Helpers\ModelHelper;
+use Spatie\MediaLibrary\Models\Media;
 
 /**
  * Class SettingController
@@ -30,8 +32,18 @@ class SettingController extends Controller
      */
     public function index(): ViewContract
     {
+        $setting = Setting::latest('updated_at')->first() ?? (object)[];
+
         return View::make('admin.setting.index', [
-            'settings' => Setting::latest('updated_at')->first() ?? (object)[],
+            'settings' => $setting,
+            'slimages' => $setting->getMedia(Setting::MEDIA_COLLECTION_SLIDER)
+                ->map(static function (Media $media) {
+                    return [
+                        'id' => $media->getKey(),
+                        'url' => $media->getFullUrl(),
+                        'title' => $media->getCustomProperty('title'),
+                    ];
+                })->toArray(),
             'content' => json_decode(Storage::disk('file')->get('content.json'), true)
         ]);
     }
@@ -85,6 +97,15 @@ class SettingController extends Controller
             ) + [
                 'code_insert' => $request->get('code_insert') ?? '',
             ];
+
+        if (null !== $request->get('slimages') && $files = $request->file('slimages', [])) {
+            $reqFiles = $request->get('slimages');
+            foreach($files as $key => $file) {
+                $setting->addMedia($file['file'])
+                    ->withCustomProperties(['title' => $reqFiles[$key]['title']])
+                    ->toMediaCollection(Setting::MEDIA_COLLECTION_SLIDER);
+            }
+        }
 
         $setting->update($settingData);
 
@@ -161,5 +182,27 @@ class SettingController extends Controller
                 'iframe_map' => $request->get('general_settings')['iframe_map'] ?? null,
             ]]);
         }
+    }
+
+    /**
+     * @param \Spatie\MediaLibrary\Models\Media $media
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteMedia(Media $media): JsonResponse
+    {
+        $setting = Setting::latest('updated_at')->first() ?? (object)[];
+
+        try {
+            if ($media->getAttribute('collection_name') === Setting::MEDIA_COLLECTION_SLIDER
+                && ModelHelper::doesMorphedBelongToParent($media, $setting, 'model')
+            ) {
+                $setting->deleteMedia($media->getKey());
+            }
+        } catch (Throwable $e) {
+            return $this->json()->badRequest(['message' => $e->getMessage()]);
+        }
+
+        return $this->json()->noContent();
     }
 }

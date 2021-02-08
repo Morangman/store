@@ -287,11 +287,6 @@
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
-	.header-baner {
-		min-height: 620px;
-		background: url(../../../fon.jpg) top center no-repeat;
-		background-size: cover;
-	}
 
 div#carousel-example-generic {
     display: none;
@@ -719,17 +714,6 @@ section#delivery {
   #add-popup{
     min-height: 368px;
   }
-  .header-baner {
-      background: url(../../../fon.jpg) top center no-repeat;
-    //
-    background-attachment: fixed;
-    /* max-height: 400px; */
-    /* max-height: 389px; */
-    max-height:;
-  }
-  .header-baner .header-baner-title .know-more {
-    //font-size: 18px;
-  }
 }
 
 /* Medium Devices, Desktops */
@@ -757,11 +741,6 @@ section#delivery {
 }
 
  /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1679px) {
-	.header-baner {
-		min-height: 950px;
-	}
-}
 @media only screen and (min-width : 1400px) and (max-width : 1700px) {
   .fancybox-wrap22 {
     top: 9100px !important;
@@ -785,12 +764,6 @@ section#delivery {
 @media only screen and (min-width : 992px) and (max-width : 1199px) {
   .fancybox-wrap22 {
     top: 8500px !important;
-  }
-}
-@media only screen and (min-width : 1200px) {
-  .header-baner {
-    //background-attachment: fixed;
-    //max-height: 1000px;
   }
 }
 @media only screen and (min-width : 768px) and (max-width : 991px) {

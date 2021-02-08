@@ -19,6 +19,8 @@ Route::get('/comments', 'HomeController@comments')->name('comments');
 
 Route::get('/guarantee', 'HomeController@guarantee')->name('guarantee');
 
+Route::get('/credit', 'HomeController@credit')->name('credit');
+
 Route::get('/product/{product}', 'HomeController@product')->name('product');
 
 Route::get('/accessories', 'HomeController@accessories')->name('accessories');

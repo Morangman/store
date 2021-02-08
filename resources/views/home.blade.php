@@ -3,18 +3,28 @@
 @section('content')
     @yield('header', View::make('header', ['categories' => $categories, 'settings' => $settings]))
     <section class="header-baner">
-        <div class="header-baner-title">
-            <p class="header-baner-title-head hidden-opacity">{{ $content['site_title']['value'] }}</p>
-            <button class="know-more hidden-opacity">Товары со скидкой</button>
-        </div>
-        <div class="carousel slide" data-ride="carousel" id="carousel-example-generic">usel-inner">
-            <div class="item active">
-                <img width="100%" src="{{ asset('client/fon.jpg') }}">
-                <div class="carousel-caption">
-                    <p class="site-title">{{ $content['site_title']['value'] }}</p>
-                    <p>
-                        <button class="know-more hidden-opacity">Купить</button>
-                    </p>
+        <div class="owl-carousel owl-loaded">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
+                    @foreach($slimages as $key => $image)
+                        <div class="owl-item slider-item-{{$key}}">
+                            <div class="item active">
+                                <img width="100%" src="{{ $image['url'] }}">
+                                <div class="carousel-caption">
+                                    <p class="site-title">{{ $image['title'] }}</p>
+                                    <p>
+                                        <button class="know-more hidden-opacity buy-btn">Купить</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="owl-controls">
+                <div class="owl-nav">
+                    <div class="owl-prev"></div>
+                    <div class="owl-next"></div>
                 </div>
             </div>
         </div>

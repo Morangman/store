@@ -11,6 +11,8 @@
 
     <!-- Fonts -->
     <link href="{{ asset('client/css/app.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ URL::asset('client/plugins/owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('client/plugins/owlcarousel/assets/owl.theme.default.min.css') }}">
     <style type="text/css">
         .fancybox-margin {
             margin-right: 17px;
@@ -78,6 +80,10 @@
                 background-color: #ddd;
                 color: black;
             }
+
+            .buy-buttons{
+                padding-top: 0;
+            }
         }
     </style>
 
@@ -98,6 +104,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('client/plugins/jquery95c495c4.js?ver12') }}"></script>
     <script src="{{ asset('client/themes/site/js/jquery-ui92fa92fa.js?ver1131') }}"></script>
+    <script src="{{ URL::asset('client/plugins/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('client/js/client.js') }}"></script>
     <script>
         $(window).on('load', function () {

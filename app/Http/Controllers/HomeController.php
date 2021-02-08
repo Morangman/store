@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Butschster\Head\Facades\Meta;
 use LiqPay;
+use Spatie\MediaLibrary\Models\Media;
 
 /**
  * Class HomeController
@@ -88,7 +89,15 @@ class HomeController extends Controller
             'settings' => $settings ?? [],
             'products' => $productByCategory,
             'categories' => $categories,
-            'content' => json_decode(Storage::disk('file')->get('content.json'), true)
+            'content' => json_decode(Storage::disk('file')->get('content.json'), true),
+            'slimages' => $settings->getMedia(Setting::MEDIA_COLLECTION_SLIDER)
+                ->map(static function (Media $media) {
+                    return [
+                        'id' => $media->getKey(),
+                        'url' => $media->getFullUrl(),
+                        'title' => $media->getCustomProperty('title'),
+                    ];
+                })->toArray()
         ]);
     }
 
@@ -110,6 +119,17 @@ class HomeController extends Controller
     public function guarantee(): ViewContract
     {
         return View::make('guarantee', [
+            'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
+            'settings' => Setting::latest('updated_at')->first() ?? null,
+        ]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function credit(): ViewContract
+    {
+        return View::make('credit', [
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
             'settings' => Setting::latest('updated_at')->first() ?? null,
         ]);

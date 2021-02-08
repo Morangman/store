@@ -13708,6 +13708,19 @@ $(document).ready(function () {
     $(this).parent().parent().find('.phone-preview button, .phone-preview .show-gallery').addClass('visible animated full-visible fadeInLeft');
     $(this).parent().parent().find('.phone-preview img').addClass('visible animated fadeInleft full-visible');
   });
+  $('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: false,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      }
+    },
+    autoplay: 5000,
+    stopOnHover: false
+  });
 });
 
 /***/ }),

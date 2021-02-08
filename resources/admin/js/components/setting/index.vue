@@ -296,6 +296,47 @@
                         </div>
                     </div>
                 </b-tab>
+                <b-tab title="Фото для слайдеру">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                            <span v-for="(file, index) in slimages">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="files">
+                                            <p>{{ file.title }}</p>
+                                            <a :href="file.url">{{ file.url }}</a>
+                                            <span class="input-group-btn">
+                                                <button v-on:click="deleteFile(file.id)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                                <span v-for="(file, index) in model.slimages">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="input-group">
+                                        <input type="text" v-model="file.title" class="form-control">
+                                        <b-form-file
+                                            class="form-control"
+                                            accept=".png,.jpg,.jpeg,.gif"
+                                            @change="addFileEvent($event, index)"
+                                        ></b-form-file>
+                                        <span class="input-group-btn">
+                                            <button v-on:click="removeFile(index)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            </span>
+                                <div class="card-body">
+                                    <button v-on:click="addFile" class="btn btn-info">{{ $t('common.word.add') }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </b-tab>
             </b-tabs>
         </b-card>
         <div v-for="(error, i) in errors.general_settings"
@@ -352,6 +393,10 @@
                 type: Object,
                 required: false,
             },
+            slimages: {
+                type: Array,
+                required: false,
+            },
         },
 
         data() {
@@ -370,6 +415,7 @@
                         seo_keywords: null,
                         seo_image: null,
                     },
+                    slimages: [],
                     content: {},
                     code_insert: null,
                 },
@@ -394,6 +440,39 @@
                 notify.success(
                     this.$t('admin.setting.messages.seo_image_delete')
                 );
+            },
+
+            deleteFile(media) {
+                confirmation.delete(() => {
+                    axios.delete(
+                        Router.route('admin.setting.media.delete', {media: media}),
+                    ).then((response) => {
+                        location.href = Router.route('admin.setting.index');
+                    }).catch(({response: {data: {errors}}}) => {
+                        this.errors = errors;
+                    });
+                });
+            },
+
+            addFileEvent(event, index) {
+                const file = event.target.files[0];
+
+                this.model.slimages[index].file = file;
+            },
+
+            addFile() {
+                this.model.slimages.push({
+                    title: null,
+                    file: null,
+                });
+
+                this.$forceUpdate();
+            },
+
+            removeFile(index) {
+                this.model.slimages.splice(index, 1);
+
+                this.$forceUpdate();
             },
 
             save() {
@@ -444,6 +523,8 @@
                 this.seoPreviewImage = this.model.general_settings.seo_image;
 
                 this.model.general_settings.seo_image = null;
+
+                this.model.slimages = [];
             }
         },
     };

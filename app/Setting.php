@@ -18,6 +18,7 @@ class Setting extends Model implements HasMedia
     use HasMediaTrait;
 
     public const MEDIA_COLLECTION_SETTING = 'setting';
+    public const MEDIA_COLLECTION_SLIDER = 'slider';
 
     /**
      * @var string

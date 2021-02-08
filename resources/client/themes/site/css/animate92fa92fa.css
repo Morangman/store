@@ -3352,3 +3352,50 @@ Copyright (c) 2013 Daniel Eden
     border-bottom: 1px dotted #f0f0f0;
     font-weight: 700;
 }
+
+.hr img{
+    width: 25px;
+    height: auto;
+}
+
+.buy-buttons{
+    padding-top: 45px;
+}
+
+.owl-nav{
+    margin: 0!important;
+    height: 0!important;
+}
+
+.owl-theme .owl-dots .owl-dot{
+    margin: 0!important;
+}
+.owl-carousel .owl-item {
+    position: relative;
+    background-color: lightgray;
+}
+
+.owl-prev, .owl-next {
+    display: none!important;
+}
+.disabled {
+    display: none !important;
+}
+
+.owl-carousel .owl-item img {
+    height: auto;
+}
+
+.base-title{
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.buy-btn{
+    width: 200px;
+    padding: 15px 10px;
+}
+
+.header-baner{
+    height: auto!important;
+}
