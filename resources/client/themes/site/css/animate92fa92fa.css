@@ -3295,3 +3295,60 @@ Copyright (c) 2013 Daniel Eden
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
+
+.order-box{
+    padding: 26px 30px 30px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.order-title{
+    padding-top: 40px;
+}
+
+.order-box h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.order-info_row, .p-info{
+    display: flex;
+    align-items: center;
+}
+
+.p-info-right{
+    margin-left: 20px;
+}
+
+.order-i-cost{
+    color: #050831;
+    font-family: "Roboto",sans-serif;
+}
+
+.o-inf{
+    width: 130px;
+    padding: 8px 0;
+    color: #b8b8b8;
+}
+
+.p-image{
+    width: 58px;
+    height: 78px;
+}
+
+.ordered-products-info{
+    position: relative;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.order-products{
+    padding: 15px 20px 14px;
+    border-bottom: 1px dotted #f0f0f0;
+    font-weight: 700;
+}

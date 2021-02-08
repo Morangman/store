@@ -24,7 +24,7 @@ body, html { font-size: 100%; 	padding: 0; margin: 0;}
 }
 .carousel-caption{
 top:25%!important;}
-	
+
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
@@ -44,7 +44,7 @@ top:25%!important;}
     margin: 0 auto;
     overflow: hidden;
     padding-top: 50px;}
-	
+
 	#header3{
     text-align: center;
     font-size: 45px;
@@ -54,7 +54,7 @@ top:25%!important;}
 	.container-12 {
     margin: 0 auto;
     width: 960px;}
-	
+
 	.test2-text2, .test2-text3 {
     font-style: normal;
     font-weight: 400;
@@ -66,7 +66,7 @@ top:25%!important;}
     display: inline-block;
     color: #000;
     margin-left: 45px;}
-	
+
 	.test2-text4 {
     font-size: 21px;
     font-style: normal;
@@ -229,7 +229,7 @@ width: 100% !important;}
 		width: 100%;
 		min-width: auto;
 		min-height: auto;
-		padding: 3em 2em; 
+		padding: 3em 2em;
 	}
 
 	.column p {

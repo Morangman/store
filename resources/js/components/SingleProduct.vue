@@ -94,7 +94,9 @@
                                             </div>
                                             <div class="single_variation_wrap">
                                                 <div class="woocommerce-variation-add-to-cart variations_button buy-buttons hidden-opacity">
-                                                    <button class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup">Заказать сейчас</button>
+                                                    <button v-on:click="orderStatus = 1" class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup">Заказать сейчас</button>
+                                                    <button v-on:click="orderStatus = 6"  class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup">Купить на сайте</button>
+                                                    <button v-on:click="orderStatus = 7" class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup">Купить в кредит</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -126,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel slide" data-interval="false" data-ride="carousel" id="">
+            <div class="carousel slide" data-interval="false" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <div class="container">
@@ -223,6 +225,7 @@
                                 <span style="font-size: 0.8em;" class="oft"><input class="oftt2" checked="" type="checkbox"> Я согласен с <a target="_blank" :href="$r('guarantee')">публичной офертой</a></span>
                                 <button v-if="!validateButton" class="b_o_c modal_btn" type="submit" v-on:click="makeOrder">Купить</button><br><br>
                             </form>
+                            <span id="liqpayForm" v-html="liqpay"></span>
                             <div class="isa_warning" v-if="colorError">
                                 <i class="icon-notification2"></i>
                                 Сначала выберите цвет
@@ -275,6 +278,8 @@
                 isValidPhone: false,
                 isValidPhoneText: false,
                 validateButton: false,
+                liqpay: null,
+                orderStatus: 1,
             };
         },
 
@@ -317,6 +322,7 @@
                         email: this.email,
                         phone: this.phone,
                         ordered_product: this.ordered_product,
+                        order_status: this.orderStatus,
                     };
 
                     this.errors = {};
@@ -326,11 +332,17 @@
                     axios.post(
                         Router.route('order'),
                         this.orderData,
-                    ).then(() => {
+                    ).then((data) => {
                         this.orderSuccess = true;
                         this.validateButton = false;
 
-                        setTimeout(() => location.href = Router.route('home'), 2000);
+                        if (this.orderStatus === 1 || this.orderStatus === 7) {
+                            setTimeout(() => location.href = Router.route('home'), 2000);
+                        }
+
+                        if (this.orderStatus === 6) {
+                            this.liqpay = data.data.form;
+                        }
                     }).catch(({ response: { data: { errors } } }) => {
                         this.errors = errors;
 

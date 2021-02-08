@@ -14,13 +14,16 @@ use App\Product;
 use App\Setting;
 use App\User;
 use Butschster\Head\Packages\Entities\OpenGraphPackage;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Butschster\Head\Facades\Meta;
+use LiqPay;
 
 /**
  * Class HomeController
@@ -121,9 +124,70 @@ class HomeController extends Controller
     {
         $orderData = array_merge($request->all(), ['ip_address' => $request->ip()]);
 
-        Order::create($orderData);
+        $order = Order::create($orderData);
 
-        return $this->json()->noContent();
+        switch ($request->get('order_status')) {
+            case Order::STATUS_NEW:
+                return $this->json()->noContent();
+            case Order::STATUS_PAYED:
+                $price = 0;
+                $description = '';
+
+                foreach ($order->getAttribute('ordered_product') as $product) {
+                    $price += $product['price'];
+                    $description .= $product['product_title'].' ';
+                }
+
+                $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
+
+                $form = $liqpay->cnb_form(array(
+                    'action' => 'pay',
+                    'sandbox' => 1,
+                    'amount' => $price,
+                    'currency' => 'UAH',
+                    'description' => $description,
+                    'order_id' => $order->getKey(),
+                    'version' => '3',
+                    'server_url' => route('check-order', ['order' => $order->getKey()]),
+                    'result_url' => route('check-order', ['order' => $order->getKey()]),
+                ));
+
+                return $this->json()->ok(['form' => $form]);
+            case Order::STATUS_NEW_CREDIT:
+                $order->update(['ordered_status' => Order::STATUS_NEW_CREDIT]);
+
+                return $this->json()->noContent();
+        }
+    }
+
+    /**
+     * @param \App\Order $order
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function checkOrder(Order $order): ViewContract
+    {
+        $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
+
+        $res = $liqpay->api("payment/status", array(
+            'version' => '3',
+            'order_id' => $order->getKey(),
+        ));
+
+        if ($res->result == 'ok') {
+            $order->update(['ordered_status' => Order::STATUS_PAYED]);
+        } elseif($res->result == 'error') {
+            return View::make('guarantee', [
+                'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
+                'settings' => Setting::latest('updated_at')->first() ?? null,
+            ]);
+        }
+
+        return View::make('succes_payed', [
+            'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
+            'settings' => Setting::latest('updated_at')->first() ?? null,
+            'order' => $order
+        ]);
     }
 
     /**

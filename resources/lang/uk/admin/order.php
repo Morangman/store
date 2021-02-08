@@ -61,6 +61,8 @@ return [
         Order::STATUS_PAYMENT_EXPECTED => 'Очікується оплата',
         Order::STATUS_COMPLETED => 'Успішно виконано',
         Order::STATUS_POSTPONED => 'Рішення відкладено',
+        Order::STATUS_PAYED => 'Оплачений',
+        Order::STATUS_NEW_CREDIT => 'Замовлення в кредит',
     ],
     'create' => [
         'title' => 'Створити заявку',

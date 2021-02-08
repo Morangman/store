@@ -18,6 +18,8 @@ class Order extends Model
     public const STATUS_PAYMENT_EXPECTED = 3;
     public const STATUS_COMPLETED = 4;
     public const STATUS_POSTPONED = 5;
+    public const STATUS_PAYED = 6;
+    public const STATUS_NEW_CREDIT = 7;
 
     /**
      * @var string

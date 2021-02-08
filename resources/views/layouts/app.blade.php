@@ -40,6 +40,10 @@
             display: none;
         }
 
+        #liqpayForm input{
+            border: 0px!important;
+        }
+
         @media only screen and (max-width: 768px) {
             .topnav {
                 display: block;
@@ -78,6 +82,8 @@
     </style>
 
     {!! $settings->getAttribute('code_insert') !!}
+
+    <script src="//code.jivosite.com/widget/x5rr4dneol" async></script>
 </head>
 <body>
     <div id="app">

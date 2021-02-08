@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "liqpay/liqpay": "^1.2",
         "lord/laroute": "^2.5",
         "mcmatters/laravel-helpers": "^2.3",
         "mcmatters/laravel-roles": "dev-master",

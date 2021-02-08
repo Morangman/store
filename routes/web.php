@@ -23,6 +23,8 @@ Route::get('/product/{product}', 'HomeController@product')->name('product');
 
 Route::get('/accessories', 'HomeController@accessories')->name('accessories');
 
+Route::get('/check-order/{order}', 'HomeController@checkOrder')->name('check-order');
+
 Route::post('/order', 'HomeController@makeOrder')->name('order');
 
 Route::post('/call', 'HomeController@callMe')->name('call');

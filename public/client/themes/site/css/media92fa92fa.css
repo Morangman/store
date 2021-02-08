@@ -3,16 +3,16 @@
     font-size: 42px;
     line-height: 1.1;
   }
-  
+
   .header-baner button, .dream button, .bonus button {
     width: 180px;
     padding: 12px 10px;
   }
-  
+
   .dream button {
     margin-top: 20px;
   }
-  
+
 }
 
 /*==========  Desktop First Method  ==========*/
@@ -21,16 +21,16 @@
     /*width: 60%;*/
     max-width: 500px;
   }
-  
+
   .guaranty .guaranty-text p {
     font-size: 18px;
     text-align: left;
-  } 
-  
+  }
+
   .guaranty .guaranty-text .guaranty-text-head {
     font-size: 24px;
   }
-  
+
   .guaranty .dream-text > p.guaranty-title {
     font-size: 42px;
   }
@@ -41,40 +41,40 @@
     font-size: 38px;
     line-height: 1.1;
   }
-  
+
 	.basket-icon {
 		text-align: center;
 	}
 	.basket-icon li {
 		padding: 0 5px;
 	}
-	
+
 	.top-menu li {
 		padding: 0 5px;
 		padding-top: 5px;
 	}
-	
+
 	.dream-text p {
 		font-size: 36px;
 	}
-	
+
 
 	.guaranty .dream-text .guaranty-title, .press-about-title {
 		font-size: 44px;
 	}
-	
+
 	.guaranty-text-head, .press-about-text {
 		font-size: 20px;
 	}
-	
+
 	.guaranty .dream-text p {
 		font-size: 16px;
 	}
-	
+
 	.footer-menu, .copyright {
 		text-align: center;
 	}
-	
+
 	.copyright {
 		margin-bottom: 10px;
 	}
@@ -84,12 +84,12 @@
   }
   .guaranty .guaranty-text p {
     font-size: 14px;
-  } 
-  
+  }
+
   .guaranty .guaranty-text .guaranty-text-head {
     font-size: 18px;
   }
-  
+
   .guaranty .dream-text > p {
     font-size: 40px;
   }
@@ -108,7 +108,7 @@
 	    margin-top: 10px;
 	    display: none;
 	}
-	
+
 	.top-menu li {
 	    list-style-type: none;
 	    display: block;
@@ -116,11 +116,11 @@
 	    vertical-align: middle;
 	    padding-top: 5px;
 	}
-	
+
 	.top-menu li a {
 	   line-height: 2.5;
-	} 
-	
+	}
+
 	.top-menu li .phone-header {
 	 float: none;
 	 text-align: center;
@@ -152,30 +152,30 @@
 		margin: 15px auto;
 		border: none;
 	}
-	
+
 	.check-color {
 		text-align: center;
 		margin-bottom: 10px;
-	} 
-	
+	}
+
 	.memory-div {
 		width: 120px;
 		margin: 5px 10px
 	}
-	
+
 	.memory-div:last-of-type {
 		width: 200px;
 		margin: 10px auto;
 	}
-	
+
 	.diagonal-row {
 		text-align: center;
 	}
-	
+
 	.diagonal-size {
 		float: inherit
 	}
-	
+
 	 .phone-container .carousel-indicators {
 		position: absolute;
 		right: 10px;
@@ -186,89 +186,89 @@
 		-o-transform: translateY(0%);
 		transform: translateY(0%);
 	}
-	
+
 	.dream-text {
 		position: relative !important;
 		top: initial;
     	transform: none;
     	margin-bottom: 20px;
 	}
-	
+
 	.dream .col-md-4 img.dream-img {
 		max-width: 700px;
 	}
-	
+
 	.talon-img {
 		max-width: 100%;
 		display: inline-block;
 		margin-right: 0;
 		float: inherit;
 	}
-	
+
 	.press-about-img {
 		margin: 20px auto;
 	}
-	
+
 	.advantages-box img {
 		max-width: 80%;
 	}
-	
+
 	.bonus-img-row {
 		text-align: center;
 		margin-top: 30px;
 		height: 28vw
 	}
-	
+
 	.bonus-img-row img {
 		max-width: 80%;
 	}
-	
+
 	.bottom-menu {
 		margin-top: 10px;
-	} 
-	
+	}
+
 	.fancybox-close {
 	//	display: none !important;
       top: 10px !important;
       right: 10px !important;
 	}
-	
-	
+
+
 	.buy-in-click-popup-title, .present-title {
-		margin: 10px auto;	
+		margin: 10px auto;
 	}
-	
+
 	.product-name, .product-price {
 	   text-align: center;
-	} 
-	
+	}
+
 	.delete-product {
 	 top: 10px;
 	 right: 10px;
-	} 
+	}
 	.products-ordering form p {
 	 width: 100%;
 	}
-	
+
 	.delivery-time-block {
 	 width: 100%;
 	 text-align: left;
 	 margin-top: 0;
 	}
-	
+
 	.header-baner-shadow {
 	 background: rgba(0,0,0,.5);
 	}
-	
+
 	.video-bg {
 	 display: none;
 	}
-		
+
 	.gallery-desktop-head img {
     width: auto;
     max-width: 400px;
   }
-  
+
   .dream .col-md-5 img {
     width: 80%;
     max-width: 600px;
@@ -299,13 +299,13 @@ div#carousel-example-generic {
 	#lptr_phone_div, #lptrack_div {
 	 display: none;
 	}
-	
+
 	.header-baner-title .know-more {
 		padding: 15px;
 		font-size: 18px;
 		margin-top: 20px;
 	}
-	
+
 	.memory-div {
 		width: 50%;
 		margin: 5px 10px;
@@ -313,13 +313,13 @@ div#carousel-example-generic {
 	.memory-div:last-of-type {
 		width: 100%;
 	}
-	
+
 	.buy-buttons button {
 		width: 90%;
 		margin: 10px auto;
 		display: block;
 	}
-	
+
 	.buy-buttons {
 		padding-right: 0;
 	}
@@ -327,24 +327,24 @@ div#carousel-example-generic {
 .row.hr {
     margin-bottom: 0px;
 }
-	
+
 	.phone-preview img {
 		max-width: 220px;
 	}
-	
+
 	.dream-text p {
 		font-size: 28px;
 		padding: 0px 5px;
 	}
-	
+
 	.dream .col-md-4 img.dream-img {
 		max-width: 80%;
 	}
-	
+
 	.advantages-box img  {
 		max-width: 300px;
 	}
-	
+
 	.products-ordering form button, a.blue-button {
     width: 100%;
     margin: 20px auto 0px !important;
@@ -353,7 +353,7 @@ div#carousel-example-generic {
     text-align: right;
   }
   header {
-    height: 64px; 
+    height: 64px;
     padding-top: 16px;
   }
   .toggle-menu p {
@@ -394,7 +394,7 @@ div#carousel-example-generic {
     max-width: auto !important;
     margin: auto;
   }
-  
+
   .thanks-img {
     width: 180px;
   }
@@ -514,7 +514,7 @@ button.present.fancybox-2 {
     /* margin-top: 200px; */
     position: absolute;
     height: 200px;
-    margin-top: 70px;
+    margin-top: 175px;
     /* margin-bottom: -206px; */
 }
 
@@ -654,7 +654,7 @@ section#delivery {
   #buy-in-click-popup button {
     margin: 5px auto;
     margin-top: 15px;
-  } 
+  }
   .popup {
     overflow-y: visible;
     margin: 27px;
@@ -750,7 +750,7 @@ section#delivery {
 	.top-menu {
 		display: block !important;
 	}
-	
+
 	header {
 		height: auto !important;
 	}
@@ -791,7 +791,7 @@ section#delivery {
   .header-baner {
     //background-attachment: fixed;
     //max-height: 1000px;
-  } 
+  }
 }
 @media only screen and (min-width : 768px) and (max-width : 991px) {
   .fancybox-wrap22 {
