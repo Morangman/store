@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mobi-discount",
+  "private_key_id": "c958e2268a849433888dcbbf68d38efa21d760b6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDbks7biXRIjtPR\nr/1ZPEKn3sf5lazwYQaagEMihxYQOZUY6jyPvun+Xso2fTe9Q2uySJzZm0MBj75D\n2kvqACZiEbs7cHsIwgvSGpQ9DE+OBu8HzXCqJPdwXnS+8njpU6ltfW8pJDdSq2XA\netLEP6gdewZFJDr5PwvcGjHeolmiFdpJjMs/5ugp87KR8TABSrun2AKwimJ5gKZw\nelU22gcmGfZHDtOh54rX132UtGagEiJceAgh29qGj4D2H1faFCBMWWG+v8/HLSYQ\nM7pDNvpTtijwKNsxx+q/88tG2vaWyX2wwHQ855eCdU8Qw5VXkz8OzLkca9GJFws4\nW/7X990rAgMBAAECggEAEqoNN1zpxR+O72x14D34R7i7zhvKklKzcv9wG+E+7BLy\nksAADqzI/lXxLmYnQZYXjRVEoyKvGwgS9Kv7qmDOfAuYNMDZuuOm7/pRm31BmrsJ\nwOOi4UBr+a56kgVrNCCbO3/FqsoCgd51gCg9ZKOPymG78k8Jsq7vQ4uRraRADKaF\nxUr+Bl4O9pnTUVcW8kchpTgQdGxiu0LnjT+01h6fwV1k7SyY9XTtWGwi1v1AEEAu\nJ60oV43bQQB+Jexj/BB6AZEz96BwoJtKfHrKhHGcdK9s99HJirVbOp0R60rDIxJO\nXB1GlxOwtA2flRuTWS1Kmt298H0YNGHwGaFMO3ucYQKBgQDxjmtHs2WeaBVz1jfk\nClFk68+4PAPU3AZNNKbiFm2TET08fBhB2qGtE54fCwOsp/6ePhlvZPyD6l+F37bp\nSBzP2Bj0hBLmlx658lUg6EQ3LRxwT12n+0uzq6JOARV+sOmm3dJ7LGqU08Q7WXca\nkFweuOvgSD+P9o6/GL7BxjE4EwKBgQDos+PpbjVZDqYAT6PQXAOLSidQxj+HZme1\nhT1AA/mz/qQm/WyN+I8ilIeGWxIQRmhBPBZbM0uyfzFmAyf0IMm5ihtfWYmpaSc5\nVsZ5L5lCBmt4gtoscatZLbU4ur0aeNxMnK8YDtIzYw4RVF8BcZU/+zRaqmF+eeUC\nmUXNxR0ZiQKBgQCn6f2PQRixrd7DwDTn83gzNG0Xv7hWHoDO6HvdjAOtiP1Nb2IZ\nXRaoTovLPofWXI11iOt7cPLL7H9se2AV+Af3P1vRlYHiA0jbr6YXkv3gcR5kv/b1\nz40HH5darAw6Hla9pVMsRmrse+zb6MwPjixLOvbU2MQ+mgEOu+/WmaQbOwKBgQC5\njYf0wN5lLxsLMHXtVRG2ZeDHte0+aFfWFHJssz7PWgNG29lNs59e8ZTHe6MBu0Ky\nkdk5y8NWh7m6IFYhgmuYORnuhBUTMzgFrr4AMAZC8Z+MrrqNqe355EqW+8CCdVEk\n/eNYiajvNNMo2mAPZKSgKgzrJuUq1sPXuKRCmiTEEQKBgEjSk0cVA7luvMUv19F2\njpSEMJ5IwlevogHDts9uq1yMJn/kL0GOPxRR6s85sCmmtF5yVSyTWdISSWPfz3YV\njagIzNf/YxlYlO95jXwtSqncIurMmGzJQ43ET956dKWGSH8xiJ2mEPQ6aXepln54\nHEJJY05IliZYqeXVKgO1gX1L\n-----END PRIVATE KEY-----\n",
+  "client_email": "mobi-discount@mobi-discount.iam.gserviceaccount.com",
+  "client_id": "112774664120268126310",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mobi-discount%40mobi-discount.iam.gserviceaccount.com"
+}

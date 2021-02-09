@@ -13,18 +13,18 @@ use App\Order;
 use App\Product;
 use App\Setting;
 use App\User;
+use Butschster\Head\Facades\Meta;
 use Butschster\Head\Packages\Entities\OpenGraphPackage;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
-use Butschster\Head\Facades\Meta;
 use LiqPay;
 use Spatie\MediaLibrary\Models\Media;
+use App\Http\Controllers\Traits\SpreadsheetTrait;
+use App\Http\Controllers\Traits\TelegramTrait;
 
 /**
  * Class HomeController
@@ -33,6 +33,9 @@ use Spatie\MediaLibrary\Models\Media;
  */
 class HomeController extends Controller
 {
+    use SpreadsheetTrait;
+    use TelegramTrait;
+
     /**
      * @return \Illuminate\Contracts\View\View
      *
@@ -148,16 +151,7 @@ class HomeController extends Controller
 
         switch ($request->get('order_status')) {
             case Order::STATUS_NEW:
-                $botApiToken = env('TELEGRAM_BOT_API');
-
-                $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
-
-                $data = [
-                    'chat_id' => env('TELEGRAM_CHAT_ID'),
-                    'text' => "Новая заявка! $ordedrUrl",
-                ];
-
-                file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
+                $this->sendMessage($order, 'Новая заявка!');
 
                 return $this->json()->noContent();
             case Order::STATUS_PAYED:
@@ -183,31 +177,15 @@ class HomeController extends Controller
                     'result_url' => route('check-order', ['order' => $order->getKey()]),
                 ));
 
-                $botApiToken = env('TELEGRAM_BOT_API');
-
-                $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
-
-                $data = [
-                    'chat_id' => env('TELEGRAM_CHAT_ID'),
-                    'text' => "Заявка с оплатой! $ordedrUrl",
-                ];
-
-                file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
+                $this->sendMessage($order, 'Заявка с оплатой!');
 
                 return $this->json()->ok(['form' => $form]);
             case Order::STATUS_NEW_CREDIT:
-                $botApiToken = env('TELEGRAM_BOT_API');
-
-                $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
-
-                $data = [
-                    'chat_id' => env('TELEGRAM_CHAT_ID'),
-                    'text' => "Покупка в кредит! $ordedrUrl",
-                ];
-
-                file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
-
                 $order->update(['ordered_status' => Order::STATUS_NEW_CREDIT]);
+
+                $this->sendMessage($order, 'Покупка в кредит!');
+
+                $this->setDataToSpreadsheet($order);
 
                 return $this->json()->noContent();
         }
@@ -230,16 +208,7 @@ class HomeController extends Controller
         if ($res->result == 'ok') {
             $order->update(['ordered_status' => Order::STATUS_PAYED]);
 
-            $botApiToken = env('TELEGRAM_BOT_API');
-
-            $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
-
-            $data = [
-                'chat_id' => env('TELEGRAM_CHAT_ID'),
-                'text' => "Заявка оплачена! $ordedrUrl",
-            ];
-
-            file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
+            $this->sendMessage($order, 'Заявка оплачена!');
         } elseif($res->result == 'error') {
             return View::make('guarantee', [
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
