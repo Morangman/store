@@ -3,7 +3,11 @@
 @section('content')
     @yield('header', View::make('header', ['categories' => $categories, 'settings' => $settings]))
     <section class="header-baner">
-        <div class="owl-carousel owl-loaded">
+        <div class="header-baner-title">
+            <p class="header-baner-title-head hidden-opacity">Оригинальная техника Apple со скидкой до 30%</p>
+            <button class="know-more hidden-opacity">Товары со скидкой</button>
+        </div>
+        <div class="pc-carousel owl-carousel owl-loaded">
             <div class="owl-stage-outer">
                 <div class="owl-stage">
                     @foreach($slimages as $key => $image)

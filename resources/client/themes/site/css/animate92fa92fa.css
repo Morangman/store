@@ -3397,5 +3397,11 @@ Copyright (c) 2013 Daniel Eden
 }
 
 .header-baner{
-    height: auto!important;
+    height: auto;
+}
+
+@media only screen and (max-width : 767px) {
+    .pc-carousel{
+        display: none!important;
+    }
 }

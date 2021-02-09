@@ -148,6 +148,17 @@ class HomeController extends Controller
 
         switch ($request->get('order_status')) {
             case Order::STATUS_NEW:
+                $botApiToken = env('TELEGRAM_BOT_API');
+
+                $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
+
+                $data = [
+                    'chat_id' => env('TELEGRAM_CHAT_ID'),
+                    'text' => "Новая заявка! $ordedrUrl",
+                ];
+
+                file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
+
                 return $this->json()->noContent();
             case Order::STATUS_PAYED:
                 $price = 0;
@@ -172,8 +183,30 @@ class HomeController extends Controller
                     'result_url' => route('check-order', ['order' => $order->getKey()]),
                 ));
 
+                $botApiToken = env('TELEGRAM_BOT_API');
+
+                $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
+
+                $data = [
+                    'chat_id' => env('TELEGRAM_CHAT_ID'),
+                    'text' => "Заявка с оплатой! $ordedrUrl",
+                ];
+
+                file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
+
                 return $this->json()->ok(['form' => $form]);
             case Order::STATUS_NEW_CREDIT:
+                $botApiToken = env('TELEGRAM_BOT_API');
+
+                $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
+
+                $data = [
+                    'chat_id' => env('TELEGRAM_CHAT_ID'),
+                    'text' => "Покупка в кредит! $ordedrUrl",
+                ];
+
+                file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
+
                 $order->update(['ordered_status' => Order::STATUS_NEW_CREDIT]);
 
                 return $this->json()->noContent();
@@ -196,6 +229,17 @@ class HomeController extends Controller
 
         if ($res->result == 'ok') {
             $order->update(['ordered_status' => Order::STATUS_PAYED]);
+
+            $botApiToken = env('TELEGRAM_BOT_API');
+
+            $ordedrUrl = route('admin.order.edit', ['order' => $order->getKey()]);
+
+            $data = [
+                'chat_id' => env('TELEGRAM_CHAT_ID'),
+                'text' => "Заявка оплачена! $ordedrUrl",
+            ];
+
+            file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data) );
         } elseif($res->result == 'error') {
             return View::make('guarantee', [
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
