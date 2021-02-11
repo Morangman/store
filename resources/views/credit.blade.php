@@ -8,7 +8,7 @@
                 <h2 class="base-title text-left">Кредитование</h2>
 
                 <div class="page-content">
-                    <div class="article-text __fullWidth text">
+                    <br class="article-text __fullWidth text">
                         <div class="owl-carousel owl-theme owl-loaded">
                             <div class="owl-stage-outer">
                                 <div class="owl-stage">
@@ -31,9 +31,9 @@
                             </div>
                         </div>
 
-                        <h1>Не сложилось с покупкой? Выбирай кредит от 0,01% до 25 платежей!</h1>
+                        <h1>Не сложилось с покупкой? Выбирай кредит от 0,01% до 24-36 платежей!</h1>
 
-                        <h2><span style="font-size:20px;"><strong><span style="background-color:#f1c40f;">КАК БЫСТРО ОФОРМИТЬ ПОКУПКУ РАССРОЧКУ</span></strong></span></h2>
+                        <h2><span style="font-size:20px;"><strong><span style="background-color:#f1c40f;">КАК БЫСТРО ОФОРМИТЬ ПОКУПКУ В РАССРОЧКУ</span></strong></span></h2>
 
                         <ol>
                             <li>
@@ -56,7 +56,7 @@
                                 <p><span style="font-size:18px;"><span style="background-color:#ecf0f1;">Какой тариф будет самым выгодным для Вас</span></span></p>
                             </li>
                             <li>
-                                <p><span style="font-size:18px;"><span style="background-color:#ecf0f1;">Как оформить рассрочку/оплату за 15 минут</span></span></p>
+                                <p><span style="font-size:18px;"><span style="background-color:#ecf0f1;">Как оформить рассрочку/оплату за 10 минут</span></span></p>
                             </li>
                             <li>
                                 <p><span style="font-size:18px;"><span style="background-color:#ecf0f1;">Как правильно подписать договор</span></span></p>
@@ -73,11 +73,11 @@
 
                         <h3>&nbsp;</h3>
 
-                        <h1 style="text-align: center;">Банки-партнеры компании Apple House</h1>
+                        <h1 style="text-align: center;">Банки-партнеры компании</h1>
 
                         <p>&nbsp;</p>
 
-                        <p><img alt="" style="width: 100%; height: auto" src="{{ asset('client/uploads/varianty_kredita_rassrichki_oplaty_chastiymy.jpg') }}" width="1440" /></p>
+                        <p><img alt="" style="width: 100%; height: auto" src="{{ asset('client/uploads/varianty_kredita_rassrichki_oplaty_chastiymy.png') }}" width="1440" /></p>
 
                         <p>&nbsp;</p>
 
@@ -100,15 +100,13 @@
                             - Возможно досрочное погашение без дополнительных комиссий;<br />
                             - Местная регистрация не обязательна.</p>
 
-                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Акция &quot;Силиконовый чехол + защитное стекло в подарок&quot; не распространяется на товары, оформленные в рассрочку, кредит или оплату частями</div>
-
                         <p><br />
                             <strong>Наши консультанты помогут подобрать кредитное решение, которое будет для тебя наиболее удобным.</strong></p>
 
                         <hr />
                         <p><a id="privatbank" name="privatbank"></a></p>
 
-                        <h2><img alt="" height="120" src="{{ asset('client/uploads/5--privatbank(2).png') }}" width="120" /></h2>
+                        <h2><img alt="" height="120" src="{{ asset('client/uploads/privatbank-kreditovaniye-apple-house(1).png') }}" width="120" /></h2>
 
                         <h2><strong>ПриватБанк </strong>(Оплата частями, рассрочка)</h2>
 
@@ -118,7 +116,7 @@
 
                         <p>Иметь карту с Кредитным лимитом (оплата частями или рассрочка), на сумму приобретаемого клиентом товара. Недостающую разницу кредитного лимита можно компенсировать наличными.</p>
 
-                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;"><strong>Например:</strong> клиент выбрал телефон за 15000 грн. Кредитный лимит на карте - 10000 грн. Клиент может оплатить 5000 грн. наличными, остальную сумму (10000 грн.) взять в рассрочку (оплату частями).</div>
+                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;"><strong>Например:</strong> клиент выбрал телефон за 25000 грн. Кредитный лимит на карте - 10000 грн. Клиент может оплатить 15000 грн. наличными, остальную сумму (10000 грн.) взять в рассрочку (оплату частями).</div>
 
                         <p>&nbsp;</p>
 
@@ -149,7 +147,7 @@
                                     <h3>Мгновенная рассрочка</h3>
 
                                     <ul>
-                                        <li>От 2-24 мес.</li>
+                                        <li>От 2-24-36 мес.</li>
                                         <li>Ежемесячная комиссия 2.9%.</li>
                                         <li>Все оформления происходит в Онлайн Режиме</li>
                                     </ul>
@@ -164,7 +162,7 @@
                         <hr />
                         <p>&nbsp;</p>
 
-                        <h2><img alt="" height="120" src="{{ asset('client/uploads/8--alfa-bank.png') }}" width="120" /></h2>
+                        <h2><img alt="" height="120" src="{{ asset('client/uploads/alfabank-kreditovaniye-apple-house(1).png') }}" width="120" /></h2>
 
                         <h2><strong>Альфа-Банк </strong>(&nbsp;Рассрочка до 10 месяцев)</h2>
 
@@ -199,6 +197,9 @@
                             <li>
                                 <p><strong>Рассрочка на 10 месяцев</strong><br />
                                     Переплата за весь период (10 мес.) - 5 % от суммы.</p>
+                                <br />
+                                <p>Переплата за весь период (24 мес.)-15% от суммы.</p>
+
                             </li>
                         </ul>
 
@@ -219,7 +220,7 @@
                             </li>
                             <li>
                                 <p><strong>Подписание договора</strong><br />
-                                    В отделение или можете заказать курьера Банка и он приедет куда вам удобно. Вся Украина, кроме Луганска, Донецка и Крыма.</p>
+                                    В отделение или можете заказать курьера Банка и он приедет куда вам удобно. Вся Украина, кроме Луганска, Донецка и АРК Крым.</p>
                             </li>
                         </ol>
 
@@ -266,7 +267,7 @@
                         <hr />
                         <p>&nbsp;</p>
 
-                        <h2><img alt="" height="120" src="{{ asset('client/uploads/7--ukrsibbank.png') }}" width="120" /></h2>
+                        <h2><img alt="" height="120" src="{{ asset('client/uploads/ukrsibbank-kreditovaniye-apple-house(1).png') }}" width="120" /></h2>
 
                         <h2><strong>УкрСибБанк&nbsp;</strong>(&nbsp;Кредит до 10 месяцев)</h2>
 
@@ -293,13 +294,13 @@
 
                         <h3><strong>Тарифная сетка:</strong></h3>
 
-                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 3 месяца - комиссия 3%</div>
+                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 4 месяца - комиссия 0% сумма делится на 4 части </div>
 
-                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 6 месяцев - комиссия 6%</div>
+                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 6 месяцев - комиссия 2.8% за весь период </div>
 
-                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 9 месяцев - комиссия 9%</div>
+                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 10 месяцев - комиссия 4.8% за весь период </div>
 
-                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование на 12 месяцев - комиссия 12%</div>
+                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">Кредитование в Пятницу –Субботу-Воскресение! действует акция на % (10мес-3.8%-2%)</div>
 
                         <p>&nbsp;</p>
 
@@ -329,34 +330,9 @@
                         <hr />
                         <p>&nbsp;</p>
 
-                        <h2><img alt="" height="120" src="{{ asset('client/uploads/otp-bank.png') }}" width="120" /></h2>
+                        <h2><img alt="" height="120" src="{{ asset('client/uploads/otpbank-kreditovaniye-apple-house(1).png') }}" width="120" /></h2>
 
                         <h2><strong>ОТП Банк&nbsp;</strong>(&nbsp;Онлайн рассрочка до 24 месяцев)</h2>
-
-                        <p>&nbsp;</p>
-
-                        <h3><strong>Условия кредитования Прозрачный от ОТП Банка:</strong></h3>
-
-                        <ul>
-                            <li>
-                                <p>Первоначальный взнос: от 0% до 80% (по желанию);</p>
-                            </li>
-                            <li>
-                                <p>Досрочное погашение без дополнительных комиссий;</p>
-                            </li>
-                            <li>
-                                <p>Срок кредитования - от 3 до 24 месяцев</p>
-                            </li>
-                            <li>
-                                <p>Разовая комиссия - 3%</p>
-                            </li>
-                            <li>
-                                <p>Ежемесячная комиссия &ndash; отсутствует</p>
-                            </li>
-                            <li>
-                                <p>Страхование &ndash; отсутствует</p>
-                            </li>
-                        </ul>
 
                         <p>&nbsp;</p>
 
@@ -383,48 +359,50 @@
 
                         <p>- Ежемесячная комиссия - 0% на 3 мес., 3% с 4 мес.;<br />
                             - Годовая ставка - 0.01%<br />
-                            - Срок кредитования &ndash; 24 месяца;<br />
-                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
-                            - Страхование &ndash; отсутствует<br />
-                            - Услуга СМС + Справка во всех кредитах &ndash; 350 грн<br />
+                            - Разовая комиссия –1 %<br />
+                            - Срок кредитования – 7 месяцев;<br />
+                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
+                            - Страхование – отсутствует<br />
                             &nbsp;</p>
 
                         <h3>Условия Рассрочка 5 платежа* от ОТП Кредит</h3>
 
                         <p>- Ежемесячная комиссия - 0% на 5 мес., 3% с 6 мес.;<br />
                             - Годовая ставка - 0.01%<br />
-                            - Срок кредитования &ndash; 24 месяца;<br />
+                            - Срок кредитования &ndash; 9 месяцев;<br />
                             - Первоначальный взнос: от 0% до 80% (по желанию);<br />
-                            - Страхование &ndash; отсутствует<br />
+                            - Страхование – 0.7% мес.<br />
+                            &nbsp;</p>
+
+
+                        <h3>Условия Рассрочка 6 платежа* от ОТП Кредит</h3>
+
+                        <p>- Ежемесячная комиссия - 0% на 6 мес., 3% с 7 мес.;<br />
+                            - Годовая ставка - 0.01%<br />
+                            - Разовая комиссия –4 %<br />
+                            - Срок кредитования – 10 месяцев;<br />
+                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
+                            - Страхование – отсутствует<br />
                             &nbsp;</p>
 
                         <h3>Условия Рассрочка 0% на 10 мес. от ОТП Банка:</h3>
 
-                        <p>- Ежемесячная комиссия &ndash; 0% на 9 мес., 3% с 10 мес.;<br />
+                        <p>- Ежемесячная комиссия &ndash; 0% на 10 мес., 3% с 10 мес.;<br />
+                            - Ежемесячная комиссия – 0% на 10 мес.<br />
                             - Годовая ставка - 0.01%<br />
-                            - Разовая комиссия &ndash;5 %.<br />
-                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
-                            - Срок кредитования &ndash; 24 месяца;<br />
-                            - Страхование &ndash; отсутствует<br />
+                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
+                            - Срок кредитования – 10 месяцев;<br />
+                            - Страхование – 0.7 % в мес.<br />
                             &nbsp;</p>
-
-                        <h3>Условия Рассрочка 0% на 12 мес. от ОТП Банка:</h3>
-
-                        <p>- Ежемесячная комиссия &ndash; 0% на 11 мес., 3% с 12 мес.;<br />
-                            - Годовая ставка - 0.01%<br />
-                            - Разовая комиссия &ndash;6 %.<br />
-                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
-                            - Срок кредитования &ndash; 24 месяца;<br />
-                            - Страхование &ndash; отсутствует</p>
 
                         <h3>Условия Рассрочка 0% на 24 мес от ОТП Банка:</h3>
 
-                        <p>- Первоначальный взнос: от 0% до 80% (по желанию);<br />
-                            - Досрочное погашение без дополнительных комиссий;<br />
-                            - Срок кредитования - от 3 до 24 месяцев<br />
-                            - Разовая комиссия - 15%<br />
-                            - Ежемесячная комиссия &ndash; отсутствует<br />
-                            - Страхование &ndash; отсутствует</p>
+                        <p>- Ежемесячная комиссия – 0%;<br />
+                            - Годовая ставка - 0.01%<br />
+                            - Разовая комиссия – 15%<br />
+                            - Первоначальный взнос: от 0% до 80% (по желанию);<br />
+                            - Срок кредитования –  24 месяца;<br />
+                            - Страхование – отсутствует</p>
 
                         <p>&nbsp;</p>
 
@@ -442,6 +420,40 @@
                         <p>&nbsp;</p>
 
                         <p>.*В зависимости от рисковой политики банка, покупателю может быть предложена покупка страховки от несчастного случае (покупка не обязательна). Банк не кредитует в зоне АРК Крым</p>
+
+
+
+                        <p>&nbsp;</p>
+
+                        <div class="forward-table">
+                        <center style="color: rgb(0, 0, 0); font-size: medium;"><table width="832" cellpadding="7" cellspacing="0"><colgroup><col width="78"><col width="52"><col width="78"><col width="51"><col width="32"><col width="35"><col width="39"><col width="35"><col width="40"><col width="65"><col width="171"></colgroup><tbody><tr><td width="78" height="126" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>Продукт</b></font></font></font></p></td><td width="52" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>льготный период</b></font></font></font></p></td><td width="78" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>комиссия после льготного периода (ежемесячная)</b></font></font></font></p></td><td width="51" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>разовая комиссия</b></font></font></font></p></td><td width="32" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>Дисконт партнера</b></font></font></font></p></td><td width="35" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>страховка</b></font></font></font></p></td><td width="39" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>смс</b></font></font></font></p></td><td width="35" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>минимальный срок</b></font></font></font></p></td><td width="40" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>максимальный срок</b></font></font></font></p></td><td width="65" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>первоначальный взнос</b></font></font></font></p></td><td width="171" bgcolor="#da9694" style="background: rgb(218, 150, 148);"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>сумма кредита</b></font></font></font></p></td></tr><tr valign="bottom"><td width="78" height="6" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">Grace 4-24 льготный период</font></font></font></p></td><td width="52" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>4</b></font></font></font></p></td><td width="78" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">3%</font></font></font></p></td><td width="51" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0,00%</font></font></font></p></td><td width="32" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">нет</font></font></font></p></td><td width="39" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">50 грн</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">12</font></font></font></p></td><td width="40" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">36</font></font></font></p></td><td width="65" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="171" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">85 000</font></font></font></p></td></tr><tr valign="bottom"><td width="78" height="6" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">Grace 5-24 льготный период</font></font></font></p></td><td width="52" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>5</b></font></font></font></p></td><td width="78" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">3%</font></font></font></p></td><td width="51" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">2,5%</font></font></font></p></td><td width="32" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">нет</font></font></font></p></td><td width="39" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">50 грн</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">12</font></font></font></p></td><td width="40" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">36</font></font></font></p></td><td width="65" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="171" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">85 000</font></font></font></p></td></tr><tr valign="bottom"><td width="78" height="6" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">Grace 7-24 льготный период</font></font></font></p></td><td width="52" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>7</b></font></font></font></p></td><td width="78" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">3%</font></font></font></p></td><td width="51" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0%</font></font></font></p></td><td width="32" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0,49</font></font></font></p></td><td width="39" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">50 грн</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">12</font></font></font></p></td><td width="40" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">36</font></font></font></p></td><td width="65" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="171" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">85 000</font></font></font></p></td></tr><tr valign="bottom"><td width="78" height="6" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">Grace&nbsp;12-24-льготный период</font></font></font></p></td><td width="52" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>10</b></font></font></font></p></td><td width="78" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">3%</font></font></font></p></td><td width="51" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">5%</font></font></font></p></td><td width="32" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">нет</font></font></font></p></td><td width="39" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">50 грн</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">15</font></font></font></p></td><td width="40" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">36</font></font></font></p></td><td width="65" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="171" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">85 000</font></font></font></p></td></tr><tr valign="bottom"><td width="78" height="5" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">Grace&nbsp;18-24-льготный период</font></font></font></p></td><td width="52" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;"><b>18</b></font></font></font></p></td><td width="78" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">3%</font></font></font></p></td><td width="51" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">10%</font></font></font></p></td><td width="32" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">нет</font></font></font></p></td><td width="39" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">50 грн</font></font></font></p></td><td width="35" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">21</font></font></font></p></td><td width="40" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">36</font></font></font></p></td><td width="65" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">0</font></font></font></p></td><td width="171" bgcolor="#ffffff" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><p align="center" style="margin-bottom: 0.25cm; direction: ltr; line-height: 17.15px; background: transparent;"><font color="#000000"><font face="Arial, serif"><font style="font-size: 8pt;">85 000</font></font></font></p></td></tr></tbody></table></center>
+                        </div>
+                        </br>
+                        <h2><strong>ФОРВАРД БАНК&nbsp;</strong></h2>
+
+                        <p>&nbsp;</p>
+
+                        <h3><strong>Требования:</strong></h3>
+
+                        <ul>
+                            <li>
+                                <p>Возраст заемщика - от 21 до 69 лет;</p>
+                            </li>
+                        </ul>
+
+                        <p>&nbsp;</p>
+
+                        <p>
+                            - Сумма кредита - от 1000 грн до 100 000 грн .;<br />
+                            - Льготный период – от 4 месяцев; ( можно проставлять любой)<br />
+                            - Срок кредитования – от 3 до 36 месяцев;<br />
+                            - Ежемесячная комиссия после грейс периода -  3 % ежемесячно;<br />
+                            - Авансовый взнос -   0% ;<br />
+                            - Процентная ставка - 0,01% годовых;<br />
+                            - Разовая комиссия - 0% ;<br />
+                            - Досрочное погашение - допускается без комиссий;<br />
+                            - Необходимые документы - паспорт и идентификационный код.<br />
+                            &nbsp;</p>
                     </div>
                 </div>
             </div>

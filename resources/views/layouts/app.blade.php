@@ -46,6 +46,11 @@
             border: 0px!important;
         }
 
+        .forward-table p{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
         @media only screen and (max-width: 768px) {
             .topnav {
                 display: block;
