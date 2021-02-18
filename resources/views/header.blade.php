@@ -31,9 +31,9 @@
                             <li>
                                 <a href="{{ URL::route('guarantee') }}">Гарантия</a>
                             </li>
-                            <li>
-                                <a href="{{ URL::route('credit') }}">Кредитование</a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ URL::route('credit') }}">Кредитование</a>--}}
+{{--                            </li>--}}
                             <li>
                                 <a href="/#delivery">Доставка и оплата</a>
                             </li>
@@ -77,9 +77,9 @@
                         <li>
                             <a href="{{ URL::route('guarantee') }}">Гарантия</a>
                         </li>
-                        <li>
-                            <a href="{{ URL::route('credit') }}">Кредитование</a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{ URL::route('credit') }}">Кредитование</a>--}}
+{{--                        </li>--}}
                         <li>
                             <a href="/#delivery">Доставка и оплата</a>
                         </li>
