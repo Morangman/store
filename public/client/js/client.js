@@ -13731,7 +13731,7 @@ $(document).ready(function () {
     responsiveClass: true,
     responsive: {
       0: {
-        items: 1,
+        items: 3,
         nav: true
       },
       600: {
