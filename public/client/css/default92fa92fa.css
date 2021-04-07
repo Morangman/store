@@ -297,7 +297,7 @@ width: 100% !important;}
 	-webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
     background-color: #f7f7f7;
-    height: 309px;
+    height: 200px;
     position: relative;
 }
 
@@ -306,7 +306,7 @@ width: 100% !important;}
 	margin-left: auto;
 	margin-right: auto;
 	width: auto;
-	height: 211px;
+	height: 100px;
 }
 
 .cat_name {

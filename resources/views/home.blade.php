@@ -30,14 +30,16 @@
             </div>
         </div>
     </section>
-    <div class="categories">
+    <div class="owl-carousel2 owl-theme" style="margin-top: 10px;">
         @foreach ($categories as $category)
+        <div class="item">
         <a class="category_href" href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">
             <div class="category">
                 <img src="{{ $category->getAttribute('image') }}">
                 <p class="cat_name">{{ $category->getAttribute('name') }}</p>
             </div>
         </a>
+        </div>
         @endforeach
     </div>
     <section class="advantages container-fluid" id="press-about">

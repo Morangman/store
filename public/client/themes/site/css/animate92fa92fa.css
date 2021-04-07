@@ -3375,6 +3375,16 @@ Copyright (c) 2013 Daniel Eden
     background-color: lightgray;
 }
 
+.owl-carousel2 .owl-item {
+  position: relative;
+  background-color: lightgray;
+}
+
+.owl-carousel2 .owl-dot {
+  width: 0!important;
+  display: none!important;
+}
+
 .owl-prev, .owl-next {
     display: none!important;
 }
@@ -3388,6 +3398,10 @@ Copyright (c) 2013 Daniel Eden
 
 .owl-dots {
   height: 0!important;
+}
+
+.owl-stage {
+  display: flex;
 }
 
 .base-title{
