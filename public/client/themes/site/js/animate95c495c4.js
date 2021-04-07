@@ -41,7 +41,7 @@ $(document).ready(function(){
         },
         autoplay: true,
         stopOnHover : false,
-		autoplayTimeout:1000,
+		autoplayTimeout:5000,
 		autoplayHoverPause:true
     });
 });
