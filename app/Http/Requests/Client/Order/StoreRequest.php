@@ -43,6 +43,10 @@ class StoreRequest extends FormRequest
                 'nullable',
                 'array',
             ],
+            'credit_data' => [
+                'nullable',
+                'array',
+            ],
             'ordered_status' => [
                 'nullable',
                 'integer',

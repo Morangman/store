@@ -269,8 +269,118 @@ width: 100% !important;}
 
 .site-title {
     text-decoration: none;
+	float: left;
     font-size: 40px;
     font-weight: 900;
     font-stretch: ultra-expanded;
     text-shadow: 2px 2px 4px #191970;
+}
+
+.header-baner {
+	height: 100%!important;
+	min-height: 100%!important;
+}
+
+.categories{
+	background-color: #fff;
+    display: grid;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 2px;
+}
+
+.category_href {
+	display: block;
+    padding-bottom: 15px;
+    padding-top: 40px;
+	-webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    background-color: #f7f7f7;
+    height: 309px;
+    position: relative;
+}
+
+.category img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	height: 211px;
+}
+
+.cat_name {
+	padding-top: 20px;
+	-webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    color: #999;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    line-height: 18px;
+    text-align: center;
+}
+
+.category_href:before {
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.category_href:hover{z-index:2}
+.category_href:hover:before{-webkit-box-shadow:0 2px 20px 0 rgba(0,0,0,0.2);box-shadow:0 2px 20px 0 rgba(0,0,0,0.2)}
+
+.category_href:last-child:nth-child(3n - 1) {
+	grid-column-end: -2;
+  }
+  
+  .category_href:nth-last-child(2):nth-child(3n + 1) {
+	grid-column-end: 3;
+  }
+  
+  .category_href:last-child:nth-child(3n - 2) {
+	grid-column-end: 4;
+  }
+
+@media screen and (max-width: 1024px) {
+	.categories { grid-template-columns: repeat(2, 1fr); }
+
+	.category_href:last-child:nth-child(3n - 1) {
+		grid-column-end: auto;
+	  }
+	  
+	  .category_href:nth-last-child(2):nth-child(3n + 1) {
+		grid-column-end: auto;
+	  }
+	  
+	  .category_href:last-child:nth-child(3n - 2) {
+		grid-column-end: auto;
+	  }
+  }
+
+@media screen and (max-width: 760px) {
+	.header-baner {
+		height: 800px!important;
+		min-height: 100%!important;
+	}
+
+	.categories {
+		display: flex;
+		flex-direction: column;
+	}
 }

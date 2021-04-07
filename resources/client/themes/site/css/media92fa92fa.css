@@ -549,7 +549,8 @@ section#product-66 br {
 }
 
 .phone-preview img {
-    height: 300px;
+  height: auto;
+  width: 100%;
 }
 
 .submenu {

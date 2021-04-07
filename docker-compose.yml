@@ -28,7 +28,7 @@ services:
       - php
 
   mysql:
-    image: mysql:5.7.27
+    image: mysql:5.7
     container_name: store_mysql
     restart: unless-stopped
     tty: true
@@ -49,6 +49,7 @@ services:
     ports:
       - 8080:80
     environment:
+      UPLOAD_LIMIT: 1G
       PMA_HOST: mysql
       PMA_PORT: 3306
       MYSQL_USER: root

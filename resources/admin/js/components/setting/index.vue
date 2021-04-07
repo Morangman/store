@@ -54,6 +54,17 @@
                                         class="form-control"
                                     >
                                 </div>
+                                <div class="form-group">
+                                    <label>
+                                        <strong>Кількість добавлень IP адреси в підозрілі щоб вона стала забанена</strong>
+                                    </label>
+                                    <input
+                                        name="block_ctn"
+                                        type="text"
+                                        v-model="model.general_settings.block_ctn"
+                                        class="form-control"
+                                    >
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -317,7 +328,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="input-group">
-                                        <input type="text" v-model="file.title" class="form-control">
+                                        <input type="text" placeholder="Текст для слайдера" v-model="file.title" class="form-control">
+                                        <input type="text" placeholder="Ссылка" v-model="file.target_url" class="form-control">
                                         <b-form-file
                                             class="form-control"
                                             accept=".png,.jpg,.jpeg,.gif"
@@ -463,6 +475,7 @@
             addFile() {
                 this.model.slimages.push({
                     title: null,
+                    target_url: null,
                     file: null,
                 });
 

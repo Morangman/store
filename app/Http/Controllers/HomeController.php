@@ -25,6 +25,8 @@ use LiqPay;
 use Spatie\MediaLibrary\Models\Media;
 use App\Http\Controllers\Traits\SpreadsheetTrait;
 use App\Http\Controllers\Traits\TelegramTrait;
+use App\SuspectIp;
+use Illuminate\Http\Request;
 
 /**
  * Class HomeController
@@ -99,8 +101,44 @@ class HomeController extends Controller
                         'id' => $media->getKey(),
                         'url' => $media->getFullUrl(),
                         'title' => $media->getCustomProperty('title'),
+                        'target_url' => $media->getCustomProperty('target_url'),
                     ];
                 })->toArray()
+        ]);
+    }
+
+    /**
+     * @param string $slug
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function categoryProduct(string $slug): ViewContract
+    {
+        $productByCategory = [];
+
+        $category = Category::query()->where('slug', $slug)->first();
+
+        $products = Product::query()->where('category_id', $category->getKey())->where('is_hidden', false)->get();
+
+        foreach ($products as $product) {
+            $productCategory = $product->category()->first();
+            if ($productCategory->getAttribute('name') !== Category::ACCESSORIES) {
+                $productByCategory[$productCategory->getAttribute('name')][] = [
+                    'id' => $product->getKey(),
+                    'title' => $product->getAttribute('title'),
+                    'image' => $product->getAttribute('image'),
+                    'price' => $product->getAttribute('price'),
+                    'old_price' => $product->getAttribute('old_price'),
+                    'general_info' => $product->getAttribute('general_info'),
+                    'variations' => $product->getAttribute('variations'),
+                ];
+            }
+        }
+
+        return View::make('category_product', [
+            'products' => $productByCategory,
+            'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
+            'settings' => Setting::latest('updated_at')->first() ?? null,
         ]);
     }
 
@@ -145,49 +183,58 @@ class HomeController extends Controller
      */
     public function makeOrder(StoreRequest $request): JsonResponse
     {
-        $orderData = array_merge($request->all(), ['ip_address' => $request->ip()]);
+        $settings = Setting::latest('updated_at')->first() ?? null;
 
-        $order = Order::create($orderData);
+        $suspectIp = SuspectIp::query()->where('ip_address', $request->ip())->get();
 
-        switch ($request->get('order_status')) {
-            case Order::STATUS_NEW:
-                $this->sendMessage($order, 'Новая заявка!');
+        if ($suspectIp->count() > 0 && isset($settings->getAttribute('general_settings')['block_ctn']) && $suspectIp->count() === (int) $settings->getAttribute('general_settings')['block_ctn']) {
 
-                return $this->json()->noContent();
-            case Order::STATUS_PAYED:
-                $price = 0;
-                $description = '';
+            return $this->json()->noContent();
+        } else {
+            $orderData = array_merge($request->all(), ['ip_address' => $request->ip()]);
 
-                foreach ($order->getAttribute('ordered_product') as $product) {
-                    $price += $product['price'];
-                    $description .= $product['product_title'].' ';
-                }
-
-                $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
-
-                $form = $liqpay->cnb_form(array(
-                    'action' => 'pay',
-                    'sandbox' => 1,
-                    'amount' => $price,
-                    'currency' => 'UAH',
-                    'description' => $description,
-                    'order_id' => $order->getKey(),
-                    'version' => '3',
-                    'server_url' => route('check-order', ['order' => $order->getKey()]),
-                    'result_url' => route('check-order', ['order' => $order->getKey()]),
-                ));
-
-                $this->sendMessage($order, 'Заявка с оплатой!');
-
-                return $this->json()->ok(['form' => $form]);
-            case Order::STATUS_NEW_CREDIT:
-                $order->update(['ordered_status' => Order::STATUS_NEW_CREDIT]);
-
-                $this->sendMessage($order, 'Покупка в кредит!');
-
-                $this->setDataToSpreadsheet($order);
-
-                return $this->json()->noContent();
+            $order = Order::create($orderData);
+    
+            switch ($request->get('order_status')) {
+                case Order::STATUS_NEW:
+                    $this->sendMessage($order, 'Новая заявка!');
+    
+                    return $this->json()->noContent();
+                case Order::STATUS_PAYED:
+                    $price = 0;
+                    $description = '';
+    
+                    foreach ($order->getAttribute('ordered_product') as $product) {
+                        $price += $product['price'];
+                        $description .= $product['product_title'].' ';
+                    }
+    
+                    $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
+    
+                    $form = $liqpay->cnb_form(array(
+                        'action' => 'pay',
+                        'sandbox' => 1,
+                        'amount' => $price,
+                        'currency' => 'UAH',
+                        'description' => $description,
+                        'order_id' => $order->getKey(),
+                        'version' => '3',
+                        'server_url' => route('check-order', ['order' => $order->getKey()]),
+                        'result_url' => route('check-order', ['order' => $order->getKey()]),
+                    ));
+    
+                    $this->sendMessage($order, 'Заявка с оплатой!');
+    
+                    return $this->json()->ok(['form' => $form]);
+                case Order::STATUS_NEW_CREDIT:
+                    $order->update(['ordered_status' => Order::STATUS_NEW_CREDIT]);
+    
+                    $this->sendMessage($order, 'Покупка в кредит!');
+    
+                    $this->setDataToSpreadsheet($order);
+    
+                    return $this->json()->noContent();
+            }
         }
     }
 

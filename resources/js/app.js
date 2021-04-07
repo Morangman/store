@@ -29,6 +29,8 @@ if (token) {
 
 Vue.component('products', require('./components/Products.vue').default);
 
+Vue.component('category-products', require('./components/CategoryProducts.vue').default);
+
 Vue.component('single-product', require('./components/SingleProduct.vue').default);
 
 /**

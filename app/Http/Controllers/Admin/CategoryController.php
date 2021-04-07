@@ -47,7 +47,9 @@ class CategoryController extends Controller
      */
     public function store(StoreRequest $request): JsonResponse
     {
-        Category::create($request->all());
+        $category = Category::create($request->all());
+
+        $this->handleDocuments($request, $category);
 
         Session::flash(
             'success',
@@ -104,6 +106,8 @@ class CategoryController extends Controller
                 ]);
             }
         }
+
+        $this->handleDocuments($request, $category);
 
         Session::flash(
             'success',
@@ -169,5 +173,21 @@ class CategoryController extends Controller
             ->paginate(20);
 
         return $this->json()->ok($categories);
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Category $category
+     *
+     * @return void
+     *
+     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded
+     */
+    protected function handleDocuments(Request $request, Category $category): void
+    {
+        $media = $category->addMedia($request->file('category_image'))
+            ->toMediaCollection(Category::MEDIA_COLLECTION_CATEGORY);
+
+        $category->update(['image' => $media->getFullUrl()]);
     }
 }

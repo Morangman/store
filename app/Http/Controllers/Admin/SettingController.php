@@ -102,7 +102,7 @@ class SettingController extends Controller
             $reqFiles = $request->get('slimages');
             foreach($files as $key => $file) {
                 $setting->addMedia($file['file'])
-                    ->withCustomProperties(['title' => $reqFiles[$key]['title']])
+                    ->withCustomProperties(['title' => $reqFiles[$key]['title'], 'target_url' => $reqFiles[$key]['target_url']])
                     ->toMediaCollection(Setting::MEDIA_COLLECTION_SLIDER);
             }
         }

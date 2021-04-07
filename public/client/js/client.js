@@ -13718,8 +13718,10 @@ $(document).ready(function () {
         items: 1
       }
     },
-    autoplay: 5000,
-    stopOnHover: false
+    autoplay: true,
+    stopOnHover: false,
+    autoplayTimeout: 1000,
+    autoplayHoverPause: true
   });
 });
 

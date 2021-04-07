@@ -181,12 +181,6 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 1520px) {
-    .table {
-        width: 1280px;
-    }
-}
-
 .product-title {
     display: flex;
     flex-direction: column-reverse;

@@ -848,7 +848,7 @@ p.Airpods:before  {
 .buy-buttons button {
 	margin-left: 10px;
 	margin-top: -50px;
-	width: 200px;
+	width: 50%;
 }
 
 .carousel-indicators li {
@@ -2506,7 +2506,8 @@ img.mbi {
 	font-weight: 600;
 }
 .modal_forma{
-	width: 50%;
+	width: 100%;
+	padding: 15px;
 	float: none;
 	margin: 0px auto;
 }
@@ -2553,6 +2554,119 @@ img.mbi {
 .mti_text .mti_template {
 	display: block;
 }
+.button-buy {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #e83587!important;
+    color: #ffffff!important;
+    display: inline-block;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    background: #f2f2f2;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: .25s ease;
+    cursor: pointer;
+    min-width: 100px;
+    padding: 0 20px;
+}
+
+.button-buy:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fa4923;
+    opacity: 0;
+    z-index: 1;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
+}
+
+.button-buy:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 100px;
+    margin-left: 60px;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .03) 1%, rgba(255, 255, 255, .6) 30%, rgba(255, 255, 255, .85) 50%, rgba(255, 255, 255, .85) 70%, rgba(255, 255, 255, .85) 71%, rgba(255, 255, 255, 0) 100%);
+	opacity: .3;
+    position: absolute;
+    left: -40px;
+    top: -20px;
+    z-index: 1;
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    -webkit-animation-name: slideme;
+    animation-name: slideme;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.woocommerce-variation-add-to-cart {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+@-webkit-keyframes slideme { 0% { left: -30px; margin-left: 0px; }
+  30% { left: 110%; margin-left: 280px; }
+  100% { left: 110%; margin-left: 280px; } }
+
+
+  @media only screen and (max-width : 720px) {
+	.woocommerce-variation-add-to-cart {
+		flex-direction: column;
+	}
+  }
+
+  .credit-btn{
+	display: inline-block;
+    border-radius: 5px;
+    height: 40px!important;
+    line-height: 40px;
+    background: #f2f2f2!important;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: .25s ease;
+    cursor: pointer;
+    min-width: 100px;
+    padding: 0 20px;
+  }
 @media only screen and (max-width : 499px) {
 	.mt_img{
 		width: 100%;
@@ -2657,4 +2771,175 @@ img.mbi {
     top: -5px;
 }
 
+.creditWindow {
+    width: auto;
+    max-width: 600px;
+    max-height: 100%;
+    background: #fff;
+    color: #000;
+    z-index: 99999;
+}
 
+#creditTitle {
+    padding: 0 30px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.creditWindow, .creditWindow * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.creditTypeTitle, .creditInfo {
+    padding: 14px 0 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.catalog_item_credit {
+    padding-top: 20px;
+}
+
+.creditWindow input {
+    -webkit-appearance: none;
+}
+
+.buttons-send {
+    background-color: #fd9427!important;
+}
+
+#ip_img {
+	margin-bottom: 20px;
+}
+
+.buttons_pl {
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 15px;
+    font: 20px "Arial", sans-serif;
+    background-color: #364551;
+    font-weight: 900;
+    border-radius: 25px;
+}
+
+.form-field-group input {
+    padding: 6px;
+    background-color: transparent;
+    border: solid #e4e4e4 1px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form-field-row input {
+    width: 65%;
+    padding: 6px;
+    background-color: transparent;
+    border: solid #e4e4e4 1px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 12px;
+    width: 30%;
+    float: left;
+}
+
+.form-field-row {
+    margin-bottom: 10px;
+}
+
+.form-field-group {
+    margin-bottom: 10px;
+}
+
+.form-field-day, .form-field-month {
+    width: 48px;
+    margin-right: 2%;
+}
+
+.form-buttons-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 15px 0 !important;
+}
+
+.buttons-group-half {
+    margin: 5px 10px;
+}
+
+.form-field-row#ch input {
+    width: auto !important;
+    -webkit-appearance: checkbox;
+}
+
+.form-column-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.form-bottom-group {
+    margin: 10px 0 5px;
+    font-size: 10px;
+}
+
+.creditInfoBottom {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+	.popup-credit-content table tr td {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.form-field-row {
+		margin: 0 auto 10px;
+		max-width: 350px;
+	}
+	.form-field-row input {
+		width: 100% !important;
+	}
+	.form-label {
+		float: none;
+	}
+	.form-field-group .form-field-day, .form-field-group .form-field-month, .form-field-group .form-field-year {
+		width: 30% !important;
+	}
+	.credit-tariff-i-uah {
+		background: none;
+	}
+	.catalog_item_credit {
+		max-width: 200px;
+		margin: 0 auto;
+	}
+	.table-mobile {
+		display: flex;
+    	flex-direction: column;
+	}
+	.table-mobile td{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.table-mobile td h3{
+		width: 100%;
+		text-align: center;
+	}
+}

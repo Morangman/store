@@ -22,7 +22,7 @@
                             </li>
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="/#{{ str_replace(' ','_',$category->getAttribute('name')) }}">{{ $category->getAttribute('name') }}</a>
+                                    <a href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">{{ $category->getAttribute('name') }}</a>
                                 </li>
                             @endforeach
                             <li>
@@ -31,9 +31,9 @@
                             <li>
                                 <a href="{{ URL::route('guarantee') }}">Гарантия</a>
                             </li>
-{{--                            <li>--}}
-{{--                                <a href="{{ URL::route('credit') }}">Кредитование</a>--}}
-{{--                            </li>--}}
+                           <li>
+                                <a href="{{ URL::route('credit') }}">Кредитование</a>
+                            </li>
                             <li>
                                 <a href="/#delivery">Доставка и оплата</a>
                             </li>
@@ -66,7 +66,7 @@
                             <ul class="submenu">
                                 @foreach($categories as $category)
                                     <li>
-                                        <a href="/#{{ str_replace(' ','_',$category->getAttribute('name')) }}">{{ $category->getAttribute('name') }}</a>
+                                        <a href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">{{ $category->getAttribute('name') }}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -77,9 +77,9 @@
                         <li>
                             <a href="{{ URL::route('guarantee') }}">Гарантия</a>
                         </li>
-{{--                        <li>--}}
-{{--                            <a href="{{ URL::route('credit') }}">Кредитование</a>--}}
-{{--                        </li>--}}
+                       <li>
+                            <a href="{{ URL::route('credit') }}">Кредитование</a>
+                        </li>
                         <li>
                             <a href="/#delivery">Доставка и оплата</a>
                         </li>

@@ -21,6 +21,24 @@
                             {{ error }}
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>{{ $t('admin.product.form.image') }}</strong>
+                        </label>
+                        <b-form-file
+                            v-model="model.category_image"
+                            class="mt-1"
+                            accept=".png,.jpg,.jpeg,.gif"
+                            @change="showCategoryPreviewImage"
+                        ></b-form-file>
+                        <img width="auto" height="100" class="center-image" v-if="previewImage" :src="previewImage">
+                        <div v-for="(error, i) in errors.image"
+                                :key="`image__error__${i}`"
+                                class="text-danger error"
+                        >
+                            {{ error }}
+                        </div>
+                    </div>
                     <div v-for="(product, i) in model.products" :key="`product_${i}`" class="row" v-if="model.id">
                         <div class="product-title col-md-2">
                             <div class="form-group">
@@ -115,6 +133,12 @@
             },
         },
 
+        data() {
+            return {
+                previewImage: null,
+            };
+        },
+
         mixins: [FormHelper],
 
         methods: {
@@ -127,11 +151,19 @@
                     this.$emit('delete');
                 });
             },
+
+            showCategoryPreviewImage(e) {
+                const file = e.target.files[0];
+
+                this.previewImage = URL.createObjectURL(file);
+            },
         },
 
         created() {
             if (this.model.id) {
                 this.model.is_hidden = Number(this.model.is_hidden);
+                this.previewImage = this.model.image;
+                this.model.image = null;
             }
         },
     };

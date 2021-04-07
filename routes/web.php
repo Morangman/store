@@ -25,6 +25,8 @@ Route::get('/product/{product}', 'HomeController@product')->name('product');
 
 Route::get('/accessories', 'HomeController@accessories')->name('accessories');
 
+Route::get('/category/{slug}', 'HomeController@categoryProduct')->name('category');
+
 Route::get('/check-order/{order}', 'HomeController@checkOrder')->name('check-order');
 
 Route::post('/order', 'HomeController@makeOrder')->name('order');

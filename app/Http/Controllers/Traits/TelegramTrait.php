@@ -23,11 +23,15 @@ trait TelegramTrait
     {
         $botApiToken = env('TELEGRAM_BOT_API');
 
+        $productTitle = $order->getAttribute('ordered_product')[0]['product']['title'];
+
+        $price = $order->getAttribute('ordered_product')[0]['price'];
+
         $orderUrl = route('admin.order.edit', ['order' => $order->getKey()]);
 
         $data = [
             'chat_id' => env('TELEGRAM_CHAT_ID'),
-            'text' => "$status $orderUrl",
+            'text' => "$status $price - $productTitle. $orderUrl",
         ];
 
         file_get_contents("https://api.telegram.org/bot{$botApiToken}/sendMessage?" . http_build_query($data));

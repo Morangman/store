@@ -93,8 +93,6 @@
     </style>
 
     {!! $settings->getAttribute('code_insert') !!}
-
-    <script src="//code.jivosite.com/widget/x5rr4dneol" async></script>
 </head>
 <body>
     <div id="app">

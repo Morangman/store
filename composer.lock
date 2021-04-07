@@ -4935,25 +4935,25 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.7.3",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "5d5fe9bb3d656b514d455645b3addc5f7ba7714d"
+                "reference": "d501fd2658d55491a2295ff600ae5978eaad7403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/5d5fe9bb3d656b514d455645b3addc5f7ba7714d",
-                "reference": "5d5fe9bb3d656b514d455645b3addc5f7ba7714d",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/d501fd2658d55491a2295ff600ae5978eaad7403",
+                "reference": "d501fd2658d55491a2295ff600ae5978eaad7403",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0",
+                "php": "^5.5.9 || ^7.0 || ^8.0",
                 "psr/log": "^1.0.1"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9 || ^1.0",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0",
+                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.3",
                 "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0 || ^5.0"
             },
             "suggest": {
@@ -4963,7 +4963,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -4992,7 +4992,17 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2020-06-14T09:00:00+00:00"
+            "support": {
+                "issues": "https://github.com/filp/whoops/issues",
+                "source": "https://github.com/filp/whoops/tree/2.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/denis-sokolov",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-30T12:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -5974,124 +5984,6 @@
             "time": "2020-01-08T08:45:45+00:00"
         },
         {
-            "name": "pulkitjalan/google-apiclient",
-            "version": "3.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pulkitjalan/google-apiclient.git",
-                "reference": "dcb8665faf5f5600e29a8633a94c5f69d5978b9d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pulkitjalan/google-apiclient/zipball/dcb8665faf5f5600e29a8633a94c5f69d5978b9d",
-                "reference": "dcb8665faf5f5600e29a8633a94c5f69d5978b9d",
-                "shasum": ""
-            },
-            "require": {
-                "google/apiclient": "^2.0",
-                "illuminate/support": "~5",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "PulkitJalan\\Google\\GoogleServiceProvider"
-                    ],
-                    "aliases": {
-                        "Google": "PulkitJalan\\Google\\Facades\\Google"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PulkitJalan\\Google\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pulkit Jalan"
-                }
-            ],
-            "description": "Google api php client wrapper with Cloud Platform and Laravel 4 & 5 support",
-            "homepage": "https://github.com/pulkitjalan/google-apiclient",
-            "keywords": [
-                "cloud platform",
-                "google",
-                "laravel"
-            ],
-            "time": "2017-08-24T11:58:12+00:00"
-        },
-        {
-            "name": "revolution/laravel-google-sheets",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kawax/laravel-google-sheets.git",
-                "reference": "8530b89f15b4635fa95fc1c3a21029a8d8e209c4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-google-sheets/zipball/8530b89f15b4635fa95fc1c3a21029a8d8e209c4",
-                "reference": "8530b89f15b4635fa95fc1c3a21029a8d8e209c4",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "^5.8",
-                "php": ">=7.1.3",
-                "pulkitjalan/google-apiclient": "^3.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "orchestra/testbench": "~3.8",
-                "phpunit/phpunit": "^7.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Revolution\\Google\\Sheets\\Providers\\SheetsServiceProvider"
-                    ],
-                    "aliases": {
-                        "Sheets": "Revolution\\Google\\Sheets\\Facades\\Sheets"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Revolution\\Google\\Sheets\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "kawax",
-                    "email": "kawaxbiz@gmail.com"
-                }
-            ],
-            "description": "Google Sheets API v4",
-            "keywords": [
-                "google",
-                "laravel",
-                "sheets"
-            ],
-            "time": "2019-02-27T02:23:22+00:00"
-        },
-        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.1",
             "source": {
@@ -6757,5 +6649,6 @@
     "platform": {
         "php": "^7.1.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

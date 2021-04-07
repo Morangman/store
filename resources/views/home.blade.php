@@ -12,15 +12,12 @@
                 <div class="owl-stage">
                     @foreach($slimages as $key => $image)
                         <div class="owl-item slider-item-{{$key}}">
-                            <div class="item active">
+                            <a href="{{ isset($image['target_url']) ? $image['target_url'] : ''}}"><div class="item active">
                                 <img width="100%" src="{{ $image['url'] }}">
                                 <div class="carousel-caption">
-                                    <p class="site-title">{{ $image['title'] }}</p>
-                                    <p>
-                                        <button class="know-more hidden-opacity buy-btn">Купить</button>
-                                    </p>
+                                    <p class="site-title">{{ isset($image['title']) ? $image['title'] : '' }}</p>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
                     @endforeach
                 </div>
@@ -33,6 +30,16 @@
             </div>
         </div>
     </section>
+    <div class="categories">
+        @foreach ($categories as $category)
+        <a class="category_href" href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">
+            <div class="category">
+                <img src="{{ $category->getAttribute('image') }}">
+                <p class="cat_name">{{ $category->getAttribute('name') }}</p>
+            </div>
+        </a>
+        @endforeach
+    </div>
     <section class="advantages container-fluid" id="press-about">
         <div class="container" id="advantages">
             <div class="row">

@@ -35,6 +35,7 @@ class Order extends Model
         'email',
         'notes',
         'ordered_product',
+        'credit_data',
         'ordered_status',
         'ip_address',
     ];
@@ -48,6 +49,7 @@ class Order extends Model
         'email' => 'string',
         'notes' => 'string',
         'ordered_product' => 'array',
+        'credit_data' => 'array',
         'ordered_status' => 'int',
         'ip_address' => 'string',
     ];

@@ -30,7 +30,7 @@ $(document).ready(function(){
 	});
 
     $('.owl-carousel').owlCarousel({
-        loop:true,
+        loop: true,
         margin:10,
         nav : false,
         navText: ['', ''],
@@ -39,7 +39,9 @@ $(document).ready(function(){
                 items:1
             }
         },
-        autoplay : 5000,
-        stopOnHover : false
+        autoplay: true,
+        stopOnHover : false,
+		autoplayTimeout:1000,
+		autoplayHoverPause:true
     });
 });

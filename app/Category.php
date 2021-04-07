@@ -6,15 +6,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 
 /**
  * Class Category
  *
  * @package App
  */
-class Category extends Model
+class Category extends Model implements HasMedia
 {
+    use HasMediaTrait;
+    
     public const ACCESSORIES = 'Аксессуары';
+    public const MEDIA_COLLECTION_CATEGORY = 'category';
 
     /**
      * @var string
@@ -26,6 +32,8 @@ class Category extends Model
      */
     protected $fillable = [
         'name',
+        'slug',
+        'image',
         'is_hidden',
     ];
 
@@ -34,6 +42,8 @@ class Category extends Model
      */
     protected $casts = [
         'name' => 'string',
+        'slug' => 'string',
+        'iamge' => 'string',
         'is_hidden' => 'bool',
     ];
 

@@ -26,6 +26,16 @@ class UpdateRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+            'slug' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'image' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
         ];
     }
 }

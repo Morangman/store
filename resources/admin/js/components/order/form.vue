@@ -60,6 +60,44 @@
                             {{ error }}
                         </div>
                     </div>
+                    <div v-if="model.ordered_status === 7">
+                    <div class="form-group">
+                        <label>
+                            <strong>Дата рождения:</strong>
+                        </label>
+                        {{ model.credit_data.birth_date + '.' +  model.credit_data.birth_month + '.' +  model.credit_data.birth_year }}
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>Идентификационный код:</strong>
+                        </label>
+                        {{ model.credit_data.ind_code }}
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>ID паспорт:</strong>
+                        </label>
+                        {{ model.credit_data.id_passport ? 'Да' : 'Нет' }}
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>Серия и номер паспорта:</strong>
+                        </label>
+                        {{ model.credit_data.passport_serial }}
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>Срок рассрочки:</strong>
+                        </label>
+                        {{ model.credit_data.term_payment_cnt }} месяцев
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>Сумма рассрочки:</strong>
+                        </label>
+                        {{ model.credit_data.term_payment_summ }} грн
+                    </div>
+                    </div>
                     <div class="form-group">
                         <label>
                             <strong>{{ $t('admin.order.form.notes') }}</strong>
