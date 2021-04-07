@@ -3386,6 +3386,10 @@ Copyright (c) 2013 Daniel Eden
     height: auto;
 }
 
+.owl-dots {
+  height: 0!important;
+}
+
 .base-title{
     padding-top: 30px;
     margin-bottom: 30px;
