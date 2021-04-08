@@ -237,9 +237,9 @@ class HomeController extends Controller
                 case Order::STATUS_NEW_FREE_LOAN:
                         $order->update(['ordered_status' => Order::STATUS_NEW_FREE_LOAN]);
         
-                        //$this->sendMessage($order, 'Покупка в беспроцентный кредит!');
+                        $this->sendMessage($order, 'Покупка в беспроцентный кредит!');
         
-                        //$this->setDataToSpreadsheet($order);
+                        $this->setDataToSpreadsheet($order);
         
                         return $this->json()->noContent();
             }

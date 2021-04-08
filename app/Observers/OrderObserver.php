@@ -27,9 +27,9 @@ class OrderObserver
      */
     public function created(Order $order): void
     {
-        // Notification::send(
-        //     User::query()->scopes(['notifiableUsers'])->get(),
-        //     new OrderNotification($order->getKey())
-        // );
+        Notification::send(
+            User::query()->scopes(['notifiableUsers'])->get(),
+            new OrderNotification($order->getKey())
+        );
     }
 }
