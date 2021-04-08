@@ -2,9 +2,9 @@
 
 @section('content')
     @yield('header', View::make('header', ['categories' => $categories, 'settings' => $settings]))
-    <section class="header-baner">
+    <section class="header-baner" style="background: url({{ asset('client/mobile-baner.jpeg')  }}) top center no-repeat; background-size: cover;">
         <div class="header-baner-title">
-            <p class="header-baner-title-head hidden-opacity">Оригинальная техника Apple со скидкой до 30%</p>
+            <p class="header-baner-title-head hidden-opacity"></p>
             <button class="know-more hidden-opacity">Товары со скидкой</button>
         </div>
         <div class="pc-carousel owl-carousel owl-loaded">

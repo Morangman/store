@@ -375,8 +375,9 @@ width: 100% !important;}
 
 @media screen and (max-width: 760px) {
 	.header-baner {
-		height: 800px!important;
+		height: 400px!important;
 		min-height: 100%!important;
+		margin-top: 60px;
 	}
 
 	.categories {
