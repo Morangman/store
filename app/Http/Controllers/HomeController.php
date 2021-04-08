@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         $products = Product::query()->where('is_hidden', false)->get() ?? [];
 
-        $categories = Category::query()->where('is_hidden', false)->get() ?? [];
+        $categories = Category::query()->where('is_hidden', false)->orderBy('seq', 'desc')->get() ?? [];
 
         foreach ($products as $product) {
             $productCategory = $product->category()->first();
@@ -234,6 +234,14 @@ class HomeController extends Controller
                     $this->setDataToSpreadsheet($order);
     
                     return $this->json()->noContent();
+                case Order::STATUS_NEW_FREE_LOAN:
+                        $order->update(['ordered_status' => Order::STATUS_NEW_FREE_LOAN]);
+        
+                        //$this->sendMessage($order, 'Покупка в беспроцентный кредит!');
+        
+                        //$this->setDataToSpreadsheet($order);
+        
+                        return $this->json()->noContent();
             }
         }
     }

@@ -91,15 +91,17 @@
                                                 <p><img class="hr" :src="'../client/uploads/gar.png'">Гарантия 1 год</p>
                                                 <a :href="$r('credit')"><img class="hr" :src="'../client/uploads/credit.png'">Рассрочка / оплата частями</a>
                                             </div>
-                                        <div class="single_variation_wrap">
-                                            <div class="woocommerce-variation-add-to-cart variations_button buy-buttons hidden-opacity">
-                                                <button v-on:click="orderCheck(product)" class="buy-in-click buy-in-click_act fancybox button-buy button button-animated add-to-basket button-animated--no-after " href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
-                                                    <span class="button-animated__gradient"></span>
-                                                    Заказать сейчас
-                                                </button>
-                                                <button v-on:click="orderCreditCheck" class="buy-in-click buy-in-click_act fancybox credit-btn" href="#creedit-popup">Купить в рассрочку</button>
+                                            <div class="single_variation_wrap">
+                                                <div class="woocommerce-variation-add-to-cart variations_button buy-buttons hidden-opacity">
+                                                    <button v-on:click="orderCheck" class="buy-in-click buy-in-click_act fancybox button-buy button button-animated add-to-basket button-animated--no-after " href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
+                                                        Заказать сейчас
+                                                    </button>
+                                                    <button v-on:click="orderFreeLoanCheck" class="buy-in-click buy-in-click_act fancybox button-buy button add-to-basket" href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
+                                                        Беспроцентный кредит
+                                                    </button>
+                                                    <button v-on:click="orderCreditCheck" class="buy-in-click buy-in-click_act fancybox credit-btn" href="#creedit-popup">Купить в рассрочку</button>
+                                                </div>
                                             </div>
-                                        </div>
                                         </form>
                                     </div>
                                 </div>
@@ -420,6 +422,8 @@
                 } else {
                     this.colorError = true;
                 }
+
+                this.$forceUpdate();
             },
 
             orderCheck() {
@@ -430,6 +434,24 @@
                 } else {
                     this.colorError = true;
                 }
+
+                this.$forceUpdate();
+            },
+
+            orderFreeLoanCheck() {
+                this.orderStatus = 8;
+                this.isTermSelected = false;
+                this.creditDataError = false;
+                this.creditData.term_payment_cnt = null;
+                this.creditData.term_payment_summ = null;
+
+                if (this.ordered_product.length) {
+                        this.colorError = false;
+                } else {
+                    this.colorError = true;
+                }
+
+                this.$forceUpdate();
             },
 
             selectPaymentTerm(ctn, summ) {

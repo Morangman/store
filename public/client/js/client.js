@@ -13725,7 +13725,7 @@ $(document).ready(function () {
   });
   $('.owl-carousel2').owlCarousel({
     loop: true,
-    margin: 10,
+    margin: 5,
     nav: false,
     navText: ['', ''],
     responsiveClass: true,
@@ -13739,9 +13739,9 @@ $(document).ready(function () {
         nav: false
       },
       1000: {
-        items: 5,
-        nav: true,
-        loop: false
+        items: 6,
+        nav: false,
+        loop: true
       }
     }
   });

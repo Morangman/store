@@ -33,6 +33,7 @@ class Category extends Model implements HasMedia
     protected $fillable = [
         'name',
         'slug',
+        'seq',
         'image',
         'is_hidden',
     ];
@@ -43,6 +44,7 @@ class Category extends Model implements HasMedia
     protected $casts = [
         'name' => 'string',
         'slug' => 'string',
+        'seq' => 'string',
         'iamge' => 'string',
         'is_hidden' => 'bool',
     ];

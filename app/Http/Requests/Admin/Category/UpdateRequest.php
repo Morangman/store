@@ -31,6 +31,11 @@ class UpdateRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+            'seq' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
             'image' => [
                 'nullable',
                 'string',

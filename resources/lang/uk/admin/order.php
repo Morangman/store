@@ -63,6 +63,7 @@ return [
         Order::STATUS_POSTPONED => 'Рішення відкладено',
         Order::STATUS_PAYED => 'Оплачений',
         Order::STATUS_NEW_CREDIT => 'Замовлення в кредит',
+        Order::STATUS_NEW_FREE_LOAN => 'Замовлення в беспроцентний кредит',
     ],
     'create' => [
         'title' => 'Створити заявку',

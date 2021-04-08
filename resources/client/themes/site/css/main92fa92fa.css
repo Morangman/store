@@ -2588,7 +2588,7 @@ img.mbi {
     padding: 0 20px;
 }
 
-.button-buy:before {
+.button-animated:before {
     content: "";
     display: block;
     width: 100%;
@@ -2603,11 +2603,11 @@ img.mbi {
     transition: ease 0.3s;
 }
 
-.button-buy:after {
+.button-animated:after {
     content: "";
     display: block;
     width: 30px;
-    height: 100px;
+    height: 200px;
     margin-left: 60px;
 	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .03) 1%, rgba(255, 255, 255, .6) 30%, rgba(255, 255, 255, .85) 50%, rgba(255, 255, 255, .85) 70%, rgba(255, 255, 255, .85) 71%, rgba(255, 255, 255, 0) 100%);
 	opacity: .3;
@@ -2639,8 +2639,8 @@ img.mbi {
 }
 
 @-webkit-keyframes slideme { 0% { left: -30px; margin-left: 0px; }
-  30% { left: 110%; margin-left: 280px; }
-  100% { left: 110%; margin-left: 280px; } }
+  30% { left: 110%; margin-left: 360px; }
+  100% { left: 110%; margin-left: 360px; } }
 
 
   @media only screen and (max-width : 720px) {

@@ -78,8 +78,10 @@
                                             <div class="single_variation_wrap">
                                                 <div class="woocommerce-variation-add-to-cart variations_button buy-buttons hidden-opacity">
                                                     <button v-on:click="orderCheck(product)" class="buy-in-click buy-in-click_act fancybox button-buy button button-animated add-to-basket button-animated--no-after " href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
-                                                        <span class="button-animated__gradient"></span>
                                                         Заказать сейчас
+                                                    </button>
+                                                    <button v-on:click="orderFreeLoanCheck(product)" class="buy-in-click buy-in-click_act fancybox button-buy button add-to-basket" href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
+                                                        Беспроцентный кредит
                                                     </button>
                                                     <button v-on:click="orderCreditCheck(product)" class="buy-in-click buy-in-click_act fancybox credit-btn" href="#creedit-popup">Купить в рассрочку</button>
                                                 </div>
@@ -314,6 +316,7 @@
                 } else {
                     this.colorError = true;
                 }
+                this.$forceUpdate();
             },
 
             orderCheck(product) {
@@ -328,6 +331,22 @@
                 } else {
                     this.colorError = true;
                 }
+                this.$forceUpdate();
+            },
+
+            orderFreeLoanCheck(product) {
+                this.orderStatus = 8;
+
+                if (this.ordered_product.length) {
+                    if (this.ordered_product[0].product.id !== product.id) {
+                        this.colorError = true;
+                    } else {
+                        this.colorError = false;
+                    }
+                } else {
+                    this.colorError = true;
+                }
+                this.$forceUpdate();
             },
 
             selectPaymentTerm(ctn, summ) {

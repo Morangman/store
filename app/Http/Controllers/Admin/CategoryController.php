@@ -185,9 +185,11 @@ class CategoryController extends Controller
      */
     protected function handleDocuments(Request $request, Category $category): void
     {
-        $media = $category->addMedia($request->file('category_image'))
+        if ($image = $request->file('category_image')) {
+            $media = $category->addMedia($image)
             ->toMediaCollection(Category::MEDIA_COLLECTION_CATEGORY);
 
-        $category->update(['image' => $media->getFullUrl()]);
+            $category->update(['image' => $media->getFullUrl()]);
+        }
     }
 }

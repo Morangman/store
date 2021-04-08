@@ -23,6 +23,42 @@
                     </div>
                     <div class="form-group">
                         <label>
+                            <strong>Slug</strong>
+                        </label>
+                        <input
+                            name="slug"
+                            type="text"
+                            v-model="model.slug"
+                            class="form-control"
+                            :class="{ 'border-danger': errors.slug }"
+                        >
+                        <div v-for="(error, i) in errors.slug"
+                             :key="`slug__error__${i}`"
+                             class="text-danger error"
+                        >
+                            {{ error }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>Порядковий номер</strong>
+                        </label>
+                        <input
+                            name="seq"
+                            type="text"
+                            v-model="model.seq"
+                            class="form-control"
+                            :class="{ 'border-danger': errors.seq }"
+                        >
+                        <div v-for="(error, i) in errors.seq"
+                             :key="`seq__error__${i}`"
+                             class="text-danger error"
+                        >
+                            {{ error }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
                             <strong>{{ $t('admin.product.form.image') }}</strong>
                         </label>
                         <b-form-file

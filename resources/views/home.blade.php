@@ -30,7 +30,7 @@
             </div>
         </div>
     </section>
-    <div class="owl-carousel2 owl-theme" style="margin-top: 10px;">
+    <div class="owl-carousel2 owl-theme" style="margin-top: 5px;">
         @foreach ($categories as $category)
         <div class="item">
         <a class="category_href" href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">
