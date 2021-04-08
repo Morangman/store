@@ -29,8 +29,16 @@ $(document).ready(function(){
 		$(this).parent().parent().find('.phone-preview img').addClass('visible animated fadeInleft full-visible');
 	});
 
-    $('.owl-carousel').owlCarousel({
-        loop: true,
+	var carousel = $('.owl-carousel');
+	carousel.on({
+	
+		'initialized.owl.carousel': function () {
+			 carousel.find('.item').show();
+			 carousel.find('.loading-placeholder').hide();
+		}
+	
+	}).owlCarousel({
+		loop: true,
         margin:10,
         nav : false,
         navText: ['', ''],
@@ -43,9 +51,17 @@ $(document).ready(function(){
         stopOnHover : false,
 		autoplayTimeout:5000,
 		autoplayHoverPause:true
-    });
+	});
 
-	$('.owl-carousel2').owlCarousel({
+	var carousel = $('.owl-carousel2');
+	carousel.on({
+
+		'initialized.owl.carousel': function () {
+			carousel.find('.item').show();
+			carousel.find('.loading-placeholder').hide();
+		}
+
+	}).owlCarousel({
 		loop: true,
 		margin:5,
 		nav: false,
@@ -72,5 +88,6 @@ $(document).ready(function(){
         stopOnHover : false,
 		autoplayTimeout:2000,
 		autoplayHoverPause:true
-    });
+	});
+
 });

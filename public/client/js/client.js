@@ -13708,7 +13708,13 @@ $(document).ready(function () {
     $(this).parent().parent().find('.phone-preview button, .phone-preview .show-gallery').addClass('visible animated full-visible fadeInLeft');
     $(this).parent().parent().find('.phone-preview img').addClass('visible animated fadeInleft full-visible');
   });
-  $('.owl-carousel').owlCarousel({
+  var carousel = $('.owl-carousel');
+  carousel.on({
+    'initialized.owl.carousel': function initializedOwlCarousel() {
+      carousel.find('.item').show();
+      carousel.find('.loading-placeholder').hide();
+    }
+  }).owlCarousel({
     loop: true,
     margin: 10,
     nav: false,
@@ -13723,7 +13729,13 @@ $(document).ready(function () {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   });
-  $('.owl-carousel2').owlCarousel({
+  var carousel = $('.owl-carousel2');
+  carousel.on({
+    'initialized.owl.carousel': function initializedOwlCarousel() {
+      carousel.find('.item').show();
+      carousel.find('.loading-placeholder').hide();
+    }
+  }).owlCarousel({
     loop: true,
     margin: 5,
     nav: false,
