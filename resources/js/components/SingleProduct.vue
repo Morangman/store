@@ -211,7 +211,7 @@
                 <div class="popup-credit-content" style="font-size:12px;">
                     <div style="padding:15px;">Вы подписываете электронный договор рассрочки и оплачиваете первый платеж до получения товара согласно полученных инструкций.<br>Остальные платежи оплачиваете до 20 числа каждого месяца. Указанные суммы платежей - окончательные.
                     <p>Полное онлайн оформление, без визитов в банк и справок, никаких скрытых платежей и страховок. После выплаты рассрочки Вы получаете лимит на покупки в рассрочку в нашем магазине</p>
-                    <p>Рассрочка оформляется на безналичную стоимость товара — <b>26249</b>&nbsp;грн.</p>
+                    <p>Рассрочка оформляется на безналичную стоимость товара — <b>{{ number_format(creditTotalSumm, 2) }}</b>&nbsp;грн.</p>
                 </div>
                 <div class="creditTypeTitle">Варианты рассрочки:</div>
                 <table style="margin:auto;width: 100%;">
@@ -220,20 +220,20 @@
                             <td class="credit-tariff-i" style="display:true;">
                                 <h3 class="credit-tariff-i-title" style="background-color:#4e6bb2">3 платежа</h3>
                                 <p class="credit-tariff-i-payments"><b>3</b>&nbsp;платежa&nbsp;по</p>
-                                <div class="credit-tariff-i-uah">9511<span class="credit-tariff-i-uah-sign">&nbsp;грн.</span></div>
-                                <div class="catalog_item_credit"><input type="submit" class="buttons_pl buttons-send" value="Оформить" v-on:click="selectPaymentTerm(3, 9511)"></div>
+                                <div class="credit-tariff-i-uah">{{ number_format(creditThreeMonth, 2) }}<span class="credit-tariff-i-uah-sign">&nbsp;грн.</span></div>
+                                <div class="catalog_item_credit"><input type="submit" class="buttons_pl buttons-send" value="Оформить" v-on:click="selectPaymentTerm(3, number_format(creditThreeMonth, 2))"></div>
                             </td>
                             <td class="credit-tariff-i" style="display:true;">
                                 <h3 class="credit-tariff-i-title" style="background-color:#4e6bb2">6 платежей</h3>
                                 <p class="credit-tariff-i-payments"><b>6</b>&nbsp;платежей&nbsp;по</p>
-                                <div class="credit-tariff-i-uah">5147<span class="credit-tariff-i-uah-sign">&nbsp;грн.</span></div>
-                                <div class="catalog_item_credit"><input type="submit" class="buttons_pl buttons-send" value="Оформить" v-on:click="selectPaymentTerm(6, 5147)"></div>
+                                <div class="credit-tariff-i-uah">{{ number_format(creditSixMonth, 2) }}<span class="credit-tariff-i-uah-sign">&nbsp;грн.</span></div>
+                                <div class="catalog_item_credit"><input type="submit" class="buttons_pl buttons-send" value="Оформить" v-on:click="selectPaymentTerm(6, number_format(creditSixMonth, 2))"></div>
                             </td>
                             <td class="credit-tariff-i" style="display:true;">
                                 <h3 class="credit-tariff-i-title" style="background-color:#4e6bb2">10 платежей</h3>
                                 <p class="credit-tariff-i-payments"><b>10</b>&nbsp;платежей&nbsp;по</p>
-                                <div class="credit-tariff-i-uah">3500<span class="credit-tariff-i-uah-sign">&nbsp;грн.</span></div>
-                                <div class="catalog_item_credit"><input type="submit" class="buttons_pl buttons-send" value="Оформить" v-on:click="selectPaymentTerm(10, 3500)"></div>
+                                <div class="credit-tariff-i-uah">{{ number_format(creditTenMonth, 2) }}<span class="credit-tariff-i-uah-sign">&nbsp;грн.</span></div>
+                                <div class="catalog_item_credit"><input type="submit" class="buttons_pl buttons-send" value="Оформить" v-on:click="selectPaymentTerm(10, number_format(creditTenMonth, 2))"></div>
                             </td>
                         </tr>
                     </tbody>
@@ -406,6 +406,10 @@
                 validateButton: false,
                 liqpay: null,
                 orderStatus: 1,
+                creditTotalSumm: null,
+                creditThreeMonth: null,
+                creditSixMonth: null,
+                creditTenMonth: null,
             };
         },
 
@@ -417,13 +421,29 @@
                 this.creditData.term_payment_cnt = null;
                 this.creditData.term_payment_summ = null;
 
+                this.creditTotalSumm = null;
+
+                this.creditThreeMonth = null;
+                this.creditSixMonth = null;
+                this.creditTenMonth = null;
+
                 if (this.ordered_product.length) {
-                        this.colorError = false;
+                    this.creditTotalSumm = parseFloat(this.ordered_product[0].price) * 5 / 100 + parseFloat(this.ordered_product[0].price);
+
+                    this.creditThreeMonth = this.creditTotalSumm / 0.92 / 3;
+                    this.creditSixMonth = this.creditTotalSumm / 0.85 / 6;
+                    this.creditTenMonth = this.creditTotalSumm / 0.75 / 10;
+
+                    this.colorError = false;
                 } else {
                     this.colorError = true;
                 }
 
                 this.$forceUpdate();
+            },
+
+            number_format(number, decimals) {
+                return Number(Math.round(number+"e"+decimals)+"e-"+decimals); 
             },
 
             orderCheck() {

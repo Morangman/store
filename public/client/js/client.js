@@ -13732,18 +13732,24 @@ $(document).ready(function () {
     responsive: {
       0: {
         items: 3,
-        nav: true
+        nav: true,
+        loop: true
       },
       600: {
         items: 3,
-        nav: false
+        nav: false,
+        loop: true
       },
       1000: {
         items: 6,
         nav: false,
         loop: true
       }
-    }
+    },
+    autoplay: true,
+    stopOnHover: false,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: true
   });
 });
 

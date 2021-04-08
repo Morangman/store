@@ -46,25 +46,31 @@ $(document).ready(function(){
     });
 
 	$('.owl-carousel2').owlCarousel({
-		loop:true,
+		loop: true,
 		margin:5,
 		nav: false,
 		navText: ['', ''],
-		responsiveClass:true,
+		responsiveClass: true,
 		responsive:{
 			0:{
 				items:3,
-				nav:true
+				nav:true,
+				loop:true
 			},
 			600:{
 				items:3,
-				nav:false
+				nav:false,
+				loop:true
 			},
 			1000:{
 				items:6,
 				nav:false,
 				loop:true
 			}
-		}
+		},
+        autoplay: true,
+        stopOnHover : false,
+		autoplayTimeout:2000,
+		autoplayHoverPause:true
     });
 });
