@@ -50,24 +50,24 @@
                 </div>
             </div>
             <div class="row advantages-row">
-                <div class="col-md-4 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/advantages-1.png') }}">
+                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/uploads/1.png') }}">
                     <p>{!! $content['benefits_2']['value'] !!}</p>
                 </div>
-                <div class="col-md-4 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/advantages-2.png') }}">
+                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/uploads/2.png') }}">
                     <p>{!! $content['benefits_3']['value'] !!}</p>
                 </div>
-                <div class="col-md-4 col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/advantages-3.png') }}">
+                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/uploads/3.png') }}">
                     <p>{!! $content['benefits_4']['value'] !!}</p>
                 </div>
             </div>
             <div class="row advantages-row">
-                <div class="col-md-4  col-xs-12 hidden-opacity"><img src="{{ asset('client/themes/site/img/advantages-4.png') }}">
+                <div class="col-md-4  col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/uploads/4.png') }}">
                     <p>{!! $content['benefits_5']['value'] !!}</p>
                 </div>
-                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/themes/site/img/5i.jpg') }}">
+                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/uploads/5.png') }}">
                     <p>{!! $content['benefits_6']['value'] !!}</p>
                 </div>
-                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/themes/site/img/pe.png') }}">
+                <div class="col-md-4 col-xs-12 hidden-opacity"><img width="100px" src="{{ asset('client/uploads/6.png') }}">
                     <p>{!! $content['benefits_7']['value'] !!}</p>
                 </div>
             </div>
