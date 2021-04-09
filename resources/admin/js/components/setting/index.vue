@@ -340,7 +340,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <p style="margin-left: 20px;">Размер фото: 1440 * 316 px</p>
+                                <p style="margin-left: 20px;">Размер фото: height: 418 px, width: 1903 px</p>
                             </div>
                             </span>
                                 <div class="card-body">
