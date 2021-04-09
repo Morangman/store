@@ -13711,7 +13711,7 @@ $(document).ready(function () {
   var carousel = $('.owl-carousel');
   carousel.on({
     'initialized.owl.carousel': function initializedOwlCarousel() {
-      carousel.find('.item').show();
+      carousel.find('.owl-item').show();
       carousel.find('.loading-placeholder').hide();
     }
   }).owlCarousel({
@@ -13732,7 +13732,7 @@ $(document).ready(function () {
   var carousel = $('.owl-carousel2');
   carousel.on({
     'initialized.owl.carousel': function initializedOwlCarousel() {
-      carousel.find('.item').show();
+      carousel.find('.owl-item').show();
       carousel.find('.loading-placeholder').hide();
     }
   }).owlCarousel({

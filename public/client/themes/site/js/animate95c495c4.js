@@ -33,7 +33,7 @@ $(document).ready(function(){
 	carousel.on({
 	
 		'initialized.owl.carousel': function () {
-			 carousel.find('.item').show();
+			 carousel.find('.owl-item').show();
 			 carousel.find('.loading-placeholder').hide();
 		}
 	
@@ -57,7 +57,7 @@ $(document).ready(function(){
 	carousel.on({
 
 		'initialized.owl.carousel': function () {
-			carousel.find('.item').show();
+			carousel.find('.owl-item').show();
 			carousel.find('.loading-placeholder').hide();
 		}
 

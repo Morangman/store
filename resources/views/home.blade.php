@@ -2,7 +2,7 @@
 
 @section('content')
     @yield('header', View::make('header', ['categories' => $categories, 'settings' => $settings]))
-    <section class="header-baner" style="background: url({{ asset('client/mobile-baner.jpeg')  }}) top center no-repeat; background-size: cover;">
+    <section class="header-baner">
         <div class="header-baner-title">
             <p class="header-baner-title-head hidden-opacity"></p>
             <button class="know-more hidden-opacity">Товары со скидкой</button>
@@ -20,12 +20,6 @@
                             </div></a>
                         </div>
                     @endforeach
-                </div>
-            </div>
-            <div class="owl-controls">
-                <div class="owl-nav">
-                    <div class="owl-prev"></div>
-                    <div class="owl-next"></div>
                 </div>
             </div>
         </div>
