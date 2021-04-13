@@ -27,6 +27,7 @@ use App\Http\Controllers\Traits\SpreadsheetTrait;
 use App\Http\Controllers\Traits\TelegramTrait;
 use App\SuspectIp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class HomeController
@@ -45,6 +46,94 @@ class HomeController extends Controller
      */
     public function index(): ViewContract
     {
+        // $deleteProducts = Product::query()->where('id', '>', 39)->where('category_id', 1)->delete();
+
+        // $products = DB::connection('mysql2')->table('catalog')->where('viewType', 'case')->get();
+
+        // foreach($products as $p) {
+        //     $info = DB::connection('mysql2')->table('catalog_langs')->where('relation_id', $p->id)->first();
+        //     // $info = DB::connection('mysql2')->table('catalog_langs')->where('relation_id', 48)->first();
+
+        //     // dd(json_decode($info->color_data, true));
+
+        //     $product = Product::query()->create([
+        //         'category_id' => 1,
+        //         'title' => $info->title,
+        //         'general_info' => $info->description,
+        //         'price' => (float) $info->price,
+        //         'old_price' => (float) $info->old_price,
+        //         'image' => '',
+        //         'variations' => [],
+        //         'recommended_products' => [],
+        //         'seo' => [],
+        //         'is_hidden' => $p->published === 'show' ? 0 : 1,
+        //     ]);
+
+
+        //     $media = $product->addMediaFromUrl("https://imobi-sale.shop/uploads/catalog/$p->id/base_$p->id.jpg")
+        //         ->toMediaCollection(Category::MEDIA_COLLECTION_CATEGORY);
+
+        //     $product->update(['image' => $media->getFullUrl()]);
+
+        //     $colors = json_decode($info->color_data, true);
+
+        //     $variations = [];
+
+        //     if ($colors) {
+        //         foreach($colors as $color) {
+        //             $colorImg = $color['img'];
+
+        //             $colorImageUrl = "https://imobi-sale.shop/uploads/catalog/$p->id/$colorImg";
+
+        //             $mediaColor = $product->addMediaFromUrl($colorImageUrl)
+        //                 ->toMediaCollection(Product::MEDIA_COLLECTION_VARIATIONS);
+
+        //             $imgUrl = $mediaColor->getFullUrl();
+
+        //             $variations[] = [
+        //                 'color_name' => $color['title'],
+        //                 'color' => $color['color'],
+        //                 'price' => (float) $color['price'],
+        //                 'old_price' => (float) $color['old_price'],
+        //                 'image' => $imgUrl,
+        //             ];
+        //         }
+        //     }
+
+        //     $product->update(['variations' => $variations]);
+        // }
+
+        // $comments = DB::connection('mysql2')->table('reviews')->get();
+
+        // Comment::query()->delete();
+
+        // foreach ($comments as $c) {
+        //     Comment::query()->create([
+        //         'name' => $c->name,
+        //         'email' => $c->email,
+        //         'text' => $c->message,
+        //         'value' => $c->rate,
+        //         'is_hidden' => $c->published === 'show' ? 0 : 1,
+        //         'created_at' => date("Y-m-d H:i:s", $c->created_date),
+        //         'updated_at' => date("Y-m-d H:i:s", $c->created_date),
+        //     ]);
+        // }
+
+        // foreach(Product::query()->where('category_id', '!=', 1)->get() as $product) {
+        //     $product->update([
+        //         'recommended_products' => [
+        //                 [
+        //                     "id" => "123",
+        //                     "title" => "Портативное зарядное устройство U32 13500mAh"
+        //                 ],
+        //                 [
+        //                     "id" =>  "114",
+        //                     "title" =>  "Защитное стекло на все модели iPhone 5/5s/6/6s/7/7+/8/8+/X"
+        //                 ]
+        //         ]
+        //     ]);
+        // }
+        
         $settings = Setting::latest('updated_at')->first() ?? null;
 
         $productByCategory = [];
@@ -54,6 +143,7 @@ class HomeController extends Controller
         $categories = Category::query()->where('is_hidden', false)->orderBy('seq', 'desc')->get() ?? [];
 
         foreach ($products as $product) {
+            $ids = Arr::pluck($product->getAttribute('recommended_products'), 'id');
             $productCategory = $product->category()->first();
             if ($productCategory->getAttribute('name') !== Category::ACCESSORIES) {
                 $productByCategory[$productCategory->getAttribute('name')][] = [
@@ -64,6 +154,7 @@ class HomeController extends Controller
                     'old_price' => $product->getAttribute('old_price'),
                     'general_info' => $product->getAttribute('general_info'),
                     'variations' => $product->getAttribute('variations'),
+                    'recommended' => Product::query()->whereIn('id', $ids)->get(),
                 ];
             }
         }
@@ -121,6 +212,7 @@ class HomeController extends Controller
         $products = Product::query()->where('category_id', $category->getKey())->where('is_hidden', false)->get();
 
         foreach ($products as $product) {
+            $ids = Arr::pluck($product->getAttribute('recommended_products'), 'id');
             $productCategory = $product->category()->first();
             if ($productCategory->getAttribute('name') !== Category::ACCESSORIES) {
                 $productByCategory[$productCategory->getAttribute('name')][] = [
@@ -131,6 +223,7 @@ class HomeController extends Controller
                     'old_price' => $product->getAttribute('old_price'),
                     'general_info' => $product->getAttribute('general_info'),
                     'variations' => $product->getAttribute('variations'),
+                    'recommended' => Product::query()->whereIn('id', $ids)->get(),
                 ];
             }
         }
