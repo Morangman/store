@@ -46,18 +46,71 @@ class HomeController extends Controller
      */
     public function index(): ViewContract
     {
-        // $deleteProducts = Product::query()->where('id', '>', 39)->where('category_id', 1)->delete();
+        // $deleteProducts = Product::query()->delete();
 
-        // $products = DB::connection('mysql2')->table('catalog')->where('viewType', 'case')->get();
+        // $products = DB::connection('mysql2')->table('catalog')->get();
 
         // foreach($products as $p) {
         //     $info = DB::connection('mysql2')->table('catalog_langs')->where('relation_id', $p->id)->first();
-        //     // $info = DB::connection('mysql2')->table('catalog_langs')->where('relation_id', 48)->first();
 
-        //     // dd(json_decode($info->color_data, true));
+        //     $c_id = 2;
+
+        //     if ($p->viewType === 'case') {
+        //         $c_id = 1;
+        //     } else {
+        //         if (str_contains($info->title, '6')) {
+        //             $c_id = 3;
+        //         }
+        //         if (str_contains($info->title, '6s')) {
+        //             $c_id = 5;
+        //         }
+        //         if (str_contains($info->title, '6 Plus')) {
+        //             $c_id = 4;
+        //         }
+        //         if (str_contains($info->title, '5s')) {
+        //             $c_id = 2;
+        //         }
+        //         if (str_contains($info->title, 'SE')) {
+        //             $c_id = 13;
+        //         }
+        //         if (str_contains($info->title, '6S Plus')) {
+        //             $c_id = 6;
+        //         }
+        //         if (str_contains($info->title, '7')) {
+        //             $c_id = 7;
+        //         }
+        //         if (str_contains($info->title, 'X')) {
+        //             $c_id = 11;
+        //         }
+        //         if (str_contains($info->title, '7 Plus')) {
+        //             $c_id = 8;
+        //         }
+        //         if (str_contains($info->title, '8')) {
+        //             $c_id = 9;
+        //         }
+        //         if (str_contains($info->title, '8 Plus')) {
+        //             $c_id = 10;
+        //         }
+        //         if (str_contains($info->title, 'XR')) {
+        //             $c_id = 12;
+        //         }
+        //         if (str_contains($info->title, 'XS')) {
+        //             $c_id = 14;
+        //         }
+        //         if (str_contains($info->title, 'XS Max')) {
+        //             $c_id = 15;
+        //         }
+        //         if (str_contains($info->title, '11')) {
+        //             $c_id = 16;
+        //         }
+        //         if (str_contains($info->title, '11 Pro')) {
+        //             $c_id = 17;
+        //         }
+        //     }
 
         //     $product = Product::query()->create([
-        //         'category_id' => 1,
+        //         'id' => $p->id,
+        //         'category_id' => $c_id,
         //         'title' => $info->title,
         //         'general_info' => $info->description,
         //         'price' => (float) $info->price,
@@ -70,10 +123,12 @@ class HomeController extends Controller
         //     ]);
 
 
-        //     $media = $product->addMediaFromUrl("https://imobi-sale.shop/uploads/catalog/$p->id/base_$p->id.jpg")
+        //     try{
+        //         $media = $product->addMediaFromUrl("https://imobi-sale.shop/uploads/catalog/$p->id/$p->img_big")
         //         ->toMediaCollection(Category::MEDIA_COLLECTION_CATEGORY);
 
         //     $product->update(['image' => $media->getFullUrl()]);
+        //     } catch(\Exception $e){}
 
         //     $colors = json_decode($info->color_data, true);
 
@@ -81,14 +136,16 @@ class HomeController extends Controller
 
         //     if ($colors) {
         //         foreach($colors as $color) {
-        //             $colorImg = $color['img'];
+        //             $colorImg = $color['img_big'];
 
         //             $colorImageUrl = "https://imobi-sale.shop/uploads/catalog/$p->id/$colorImg";
 
-        //             $mediaColor = $product->addMediaFromUrl($colorImageUrl)
-        //                 ->toMediaCollection(Product::MEDIA_COLLECTION_VARIATIONS);
+        //             try{
+        //                 $mediaColor = $product->addMediaFromUrl($colorImageUrl)
+        //                     ->toMediaCollection(Product::MEDIA_COLLECTION_VARIATIONS);
 
-        //             $imgUrl = $mediaColor->getFullUrl();
+        //                 $imgUrl = $mediaColor->getFullUrl();
+        //             } catch(\Exception $e){$imgUrl = '';}
 
         //             $variations[] = [
         //                 'color_name' => $color['title'],

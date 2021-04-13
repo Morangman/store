@@ -19,6 +19,8 @@ class Product extends Model implements HasMedia
 {
     use HasMediaTrait;
 
+    public $incrementing = false;
+
     public const MEDIA_COLLECTION_PRODUCT = 'product';
     public const MEDIA_COLLECTION_VARIATIONS = 'recommended';
     public const MEDIA_COLLECTION_SEO = 'seo';
@@ -35,6 +37,7 @@ class Product extends Model implements HasMedia
      * @var array
      */
     protected $fillable = [
+        'id',
         'category_id',
         'title',
         'general_info',
@@ -51,6 +54,7 @@ class Product extends Model implements HasMedia
      * @var array
      */
     protected $casts = [
+        'id' => 'int',
         'category_id' => 'int',
         'title' => 'string',
         'general_info' => 'string',

@@ -133,6 +133,14 @@
                     x.style.display = "block";
                 }
             });
+            
+            function openModal() {
+                document.getElementById("callback-button").click();
+            }
+
+            setTimeout(function() {
+                openModal();
+            }, 5000);
 
             $(".rating").rate({
                 max_value: 5,

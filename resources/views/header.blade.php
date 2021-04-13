@@ -102,7 +102,7 @@
               <span class="lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
             </a>
           </span>
-                <button class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup2">Заказать звонок</button>
+                <button id="callback-button" class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup2">Заказать звонок</button>
             </div>
         </div>
     </div>
