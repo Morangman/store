@@ -19,8 +19,6 @@ class Product extends Model implements HasMedia
 {
     use HasMediaTrait;
 
-    public $incrementing = false;
-
     public const MEDIA_COLLECTION_PRODUCT = 'product';
     public const MEDIA_COLLECTION_VARIATIONS = 'recommended';
     public const MEDIA_COLLECTION_SEO = 'seo';
