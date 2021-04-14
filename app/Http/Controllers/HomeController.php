@@ -180,11 +180,11 @@ class HomeController extends Controller
         //     $product->update([
         //         'recommended_products' => [
         //                 [
-        //                     "id" => "123",
+        //                     "id" => "66",
         //                     "title" => "Портативное зарядное устройство U32 13500mAh"
         //                 ],
         //                 [
-        //                     "id" =>  "114",
+        //                     "id" =>  "47",
         //                     "title" =>  "Защитное стекло на все модели iPhone 5/5s/6/6s/7/7+/8/8+/X"
         //                 ]
         //         ]

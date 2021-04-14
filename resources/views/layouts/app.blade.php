@@ -140,7 +140,7 @@
 
             setTimeout(function() {
                 openModal();
-            }, 5000);
+            }, 10000);
 
             $(".rating").rate({
                 max_value: 5,
