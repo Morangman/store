@@ -98,11 +98,11 @@ class SettingController extends Controller
                 'code_insert' => $request->get('code_insert') ?? '',
             ];
 
-        if (null !== $request->get('slimages') && $files = $request->file('slimages', [])) {
+        if ($files = $request->file('slimages', [])) {
             $reqFiles = $request->get('slimages');
             foreach($files as $key => $file) {
                 $setting->addMedia($file['file'])
-                    ->withCustomProperties(['title' => $reqFiles[$key]['title'], 'target_url' => $reqFiles[$key]['target_url']])
+                    ->withCustomProperties(['title' => isset($reqFiles[$key]['title']) ? $reqFiles[$key]['title'] : '', 'target_url' => isset($reqFiles[$key]['target_url']) ? $reqFiles[$key]['target_url'] : ''])
                     ->toMediaCollection(Setting::MEDIA_COLLECTION_SLIDER);
             }
         }
