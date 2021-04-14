@@ -86,6 +86,7 @@
                                     </span>
                                             </div>
                                             <div class="row hr">
+                                                <p v-if="!accessories"><img class="hr" :src="'../client/giftbox.png'">Защитное стекло в подарок!</p>
                                                 <p><img class="hr" :src="'../client/uploads/dost.png'">Доставка за 2 часа</p>
                                                 <p><img class="hr" :src="'../client/uploads/orig.png'">Оригинальная техника</p>
                                                 <p><img class="hr" :src="'../client/uploads/gar.png'">Гарантия 1 год</p>
