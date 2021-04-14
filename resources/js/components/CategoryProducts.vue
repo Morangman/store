@@ -29,6 +29,7 @@
                                         <div class="clear"></div>
                                         <div class="preview-buttons">
                                             <button v-if="!accessories" class="delivery-kit fancybox-2 link_modal" href="#package-popup">Комплект поставки</button>
+                                            <img v-if="!accessories" class="product-giftbox" :src="'../client/giftbox.png'">
                                             <button class="characteristics fancybox-2 hidden-xs" href="#characteristics-popup">Характеристики</button>
                                             <div style="display: none">
                                                 <p class="text-center">
@@ -70,7 +71,6 @@
                                     </span>
                                             </div>
                                             <div class="row hr">
-                                                <p v-if="!accessories"><img class="hr" :src="'../client/giftbox.png'">Защитное стекло в подарок!</p>
                                                 <p><img class="hr" :src="'../client/uploads/dost.png'">Отправка в день заказа</p>
                                                 <p><img class="hr" :src="'../client/uploads/orig.png'">Оригинальная техника</p>
                                                 <p><img class="hr" :src="'../client/uploads/gar.png'">Гарантия 1 год</p>

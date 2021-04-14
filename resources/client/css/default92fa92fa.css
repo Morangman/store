@@ -189,6 +189,11 @@ top:21%!important;}
     margin-right: 0;
 }
 
+.product-giftbox {
+    width: 36px!important;
+    height: auto!important;
+}
+
 .plus-minus {
     position: relative;
     text-align: center;
