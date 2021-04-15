@@ -24,12 +24,15 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-5 phone-preview">
-                                        <img class="hidden-opacity" :src="selectedColors[product.id] ? selectedColors[product.id].image ? selectedColors[product.id].image : product.image : product.image">
+                                        <div class="product-gift">
+                                            <img class="hidden-opacity" :src="selectedColors[product.id] ? selectedColors[product.id].image ? selectedColors[product.id].image : product.image : product.image">
+                                            <img v-if="!accessories" class="product-giftbox_plus" :src="'../client/plus.png'">
+                                            <img v-if="!accessories" class="product-giftbox" :src="'../client/giftbox.png'">
+                                        </div>
                                         <div class="clear"></div>
                                         <div class="clear"></div>
                                         <div class="preview-buttons">
                                             <button class="delivery-kit fancybox-2 link_modal" href="#package-popup">Комплект поставки</button>
-                                            <img v-if="!accessories" class="product-giftbox" :src="'../client/giftbox.png'">
                                             <button class="characteristics fancybox-2 hidden-xs" href="#characteristics-popup">Характеристики</button>
                                             <div style="display: none">
                                                 <p class="text-center">

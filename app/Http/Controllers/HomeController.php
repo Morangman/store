@@ -203,7 +203,7 @@ class HomeController extends Controller
             $ids = Arr::pluck($product->getAttribute('recommended_products'), 'id');
             $productCategory = $product->category()->first();
             if ($productCategory->getAttribute('name') !== Category::ACCESSORIES) {
-                $productByCategory[$productCategory->getAttribute('name')][] = [
+                $productByCategory[$productCategory->getAttribute('slug')][] = [
                     'id' => $product->getKey(),
                     'title' => $product->getAttribute('title'),
                     'image' => $product->getAttribute('image'),
@@ -272,7 +272,7 @@ class HomeController extends Controller
             $ids = Arr::pluck($product->getAttribute('recommended_products'), 'id');
             $productCategory = $product->category()->first();
             if ($productCategory->getAttribute('name') !== Category::ACCESSORIES) {
-                $productByCategory[$productCategory->getAttribute('name')][] = [
+                $productByCategory[$productCategory->getAttribute('slug')][] = [
                     'id' => $product->getKey(),
                     'title' => $product->getAttribute('title'),
                     'image' => $product->getAttribute('image'),
@@ -511,7 +511,7 @@ class HomeController extends Controller
         foreach ($accessories as $product) {
             $productCategory = $product->category()->first();
             if ($productCategory->getAttribute('name') === Category::ACCESSORIES) {
-                $productByCategory[$productCategory->getAttribute('name')][] = [
+                $productByCategory[$productCategory->getAttribute('slug')][] = [
                     'id' => $product->getKey(),
                     'title' => $product->getAttribute('title'),
                     'image' => $product->getAttribute('image'),
