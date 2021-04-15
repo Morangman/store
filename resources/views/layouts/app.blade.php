@@ -67,7 +67,7 @@
             /* Style navigation menu links */
             .topnav a {
                 color: white;
-                padding: 6px 12px;
+                padding: 2px 12px;
                 text-decoration: none;
                 font-size: 17px;
                 display: block;
