@@ -82,7 +82,7 @@
                                             <div class="single_variation_wrap">
                                                 <div class="woocommerce-variation-add-to-cart variations_button buy-buttons hidden-opacity">
                                                     <button v-on:click="addToBox(product)" class="buy-in-click buy-in-click_act fancybox button-buy button button-animated add-to-basket button-animated--no-after " href="#cart-popup" data-id="2776830" data-classes="pink-bttn-normal">
-                                                        Добавити в корзину
+                                                        Добавить в корзину
                                                     </button>
                                                     <button v-on:click="orderFreeLoanCheck(product)" class="buy-in-click buy-in-click_act fancybox button-buy button add-to-basket" href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
                                                         Беспроцентный кредит

@@ -23,7 +23,7 @@
             <div class="buy-in-click-popup-content">
                 <div class="modal_top_wp clearfix">
                     <div class="mt_info">
-                        <p class="mti_title">Оставьте свои данные и наш менеджер свяжется с вами.</p>
+                        <p class="mti_title">Оставьте свои данные и получите подарок!) <br> Наш менеджер уже звонит вам!)</p>
                         <div class="modal_forma">
                             <form id="contact-form" method="post">
                                 <input name="name" placeholder="Имя" required="" type="text">
