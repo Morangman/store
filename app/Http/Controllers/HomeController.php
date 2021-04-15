@@ -300,7 +300,7 @@ class HomeController extends Controller
         return View::make('comments', [
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
             'settings' => Setting::latest('updated_at')->first() ?? null,
-            'comments' => Comment::query()->where('is_hidden', false)->paginate(5) ?? [],
+            'comments' => Comment::query()->where('is_hidden', false)->orderBy('created_at', 'desc')->paginate(5) ?? [],
         ]);
     }
 
