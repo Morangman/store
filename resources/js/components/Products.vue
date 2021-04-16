@@ -318,7 +318,7 @@
                     </span>
 
                     <div class="modal_forma" v-if="orders['order'].length">
-                        <form id="form1" v-if="!orderSuccess">
+                        <form id="form2" v-if="!orderSuccess">
                             <input name="name" :class="{ 'border-danger': errors.name }" placeholder="Имя" type="text" v-model="name" required><br>
                             <input-mask v-model="phone" :class="{ 'danger-input': isValidPhoneText }" v-on:input="validatePhone" mask="+38\ 999 999 99 99" placeholder="+38 999 999 99 99" maskChar="" required></input-mask>
                             <p class="text-danger" v-if="isValidPhoneText">Введите корректный номер</p>

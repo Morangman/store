@@ -88,8 +88,8 @@
                         </li>
                         <li>
                 <span class="phone-header hidden-lg hidden-md">
-                  <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
-                    <span class="lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
+                  <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}" onclick="gtag('event', 'Click', {'event_category': 'Call'});" replaced="by Phonet" ct-phonet="true">
+                    <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
                   </a>
                 </span>
                         </li>
@@ -99,7 +99,7 @@
             <div class="col-lg-3 col-md-2 col-xs-4 header-info">
           <span class="phone-header hidden-sm hidden-xs hidden-md">
             <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
-              <span class="lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
+              <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
             </a>
           </span>
                 <button id="callback-button" class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup2">Заказать звонок</button>
