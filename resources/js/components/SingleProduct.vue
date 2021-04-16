@@ -92,6 +92,7 @@
                                             <div class="row hr">
                                                 <p><img class="hr" :src="'../client/uploads/dost.png'">Доставка за 2 часа</p>
                                                 <p><img class="hr" :src="'../client/uploads/orig.png'">Оригинальная техника</p>
+                                                <p><img class="hr" :src="'../client/uploads/gar.png'">Гарантия</p>
                                                 <a :href="$r('credit')"><img class="hr" :src="'../client/uploads/credit.png'">Рассрочка / оплата частями</a>
                                             </div>
                                             <div class="single_variation_wrap">
