@@ -9,14 +9,14 @@
             <div class="col-lg-1 col-md-2 col-xs-3 logo-header">
                 <a alt="Apple Store – интернет магазин Apple" class="logo-link" data-ajax="false" href="/" title="Apple Store – интернет магазин Apple"><img alt="Apple Store – интернет магазин Apple" src="{{ asset('client/themes/site/img/apple-logo.png') }}" title="Apple Store – интернет магазин Apple"></a>
             </div>
-            <div class="col-lg-1 col-md-2 mobile-phone">
+            <div class="mobile-phone">
                 <span class="phone-header">
                     <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
                     <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
                     </a>
                 </span>
             </div>
-            <div class="col-lg-8 col-md-8 col-xs-4 header-nav">
+            <div class="col-lg-8 col-md-8 col-xs-5 header-nav">
                 <div class="topnav">
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     <a href="javascript:void(0);" class="icon" id="mobile-menu">
@@ -24,14 +24,21 @@
                     </a>
                     <div id="myLinks">
                         <ul style="margin-left: 0px;">
-                            <li>
-                                <a href="/">Главная</a>
-                            </li>
-                            @foreach($categories as $category)
-                                <li>
-                                    <a href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">{{ $category->getAttribute('name') }}</a>
-                                </li>
-                            @endforeach
+                            <div class="topnav">
+                                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                                <a href="javascript:void(0);" class="icon" id="mobile-menu-2">
+                                    Каталог<i class="icon-arrow-down5"></i>
+                                </a>
+                                <div id="myLinks-2">
+                                    <ul style="margin-left: 0px;">
+                                        @foreach($categories as $category)
+                                            <li>
+                                                <a href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">{{ $category->getAttribute('name') }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
                             <li>
                                 <a href="{{ URL::route('accessories') }}">Аксессуары</a>
                             </li>
@@ -46,11 +53,6 @@
                             </li>
                             <li>
                                 <a href="{{ URL::route('comments') }}">Отзывы</a>
-                            </li>
-                            <li>
-                              <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}" onclick="gtag('event', 'Click', {'event_category': 'Call'});" replaced="by Phonet" ct-phonet="true">
-                                <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
-                              </a>
                             </li>
                         </ul>
                     </div>

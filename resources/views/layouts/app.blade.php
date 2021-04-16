@@ -54,10 +54,15 @@
 
         .mobile-phone {
           display: none;
+          font-size: 17px;
         }
 
         .mobile-header_row {
           display: flex;
+        }
+        
+        #myLinks-2 {
+          display: none;
         }
 
         @media only screen and (max-width: 768px) {
@@ -84,7 +89,7 @@
             /* Style navigation menu links */
             .topnav a {
                 color: white;
-                padding: 2px 12px;
+                padding: 5px 12px;
                 text-decoration: none;
                 font-size: 17px;
                 display: block;
@@ -428,8 +433,26 @@
                 }
             });
 
+            $( "#mobile-menu-2" ).click(() => {
+                let x = document.getElementById("myLinks-2");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            });
+
             $("#myLinks ul li").click(() => {
                 let x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            });
+
+            $("#myLinks-2 ul li").click(() => {
+                let x = document.getElementById("myLinks-2");
                 if (x.style.display === "block") {
                     x.style.display = "none";
                 } else {
