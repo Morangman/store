@@ -3362,6 +3362,12 @@ Copyright (c) 2013 Daniel Eden
     padding-top: 45px;
 }
 
+.owl-carousel, .owl-carousel2
+{
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+}
+
 .owl-nav{
     margin: 0!important;
     height: 0!important;
