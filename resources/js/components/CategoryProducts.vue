@@ -432,17 +432,31 @@
 
                 let variation = this.selectedColors[product.id] ? this.selectedColors[product.id] : product.variations[0];
 
-                this.orders.order = [{
-                    id: product.id,
-                    image: product.image,
-                    product: product,
-                    summ: product.price,
-                    price: product.price,
-                    product_color: variation.color_name,
-                    product_title: product.title,
-                    quantity: 1,
-                    variation: variation,
-                }];
+                if (product.category_id === 1) {
+                    this.orders.order.push({
+                        id: product.id,
+                        product: product,
+                        image: product.image,
+                        summ: product.price,
+                        price: product.price,
+                        product_color: variation.color_name,
+                        product_title: product.title,
+                        quantity: 1,
+                        variation: variation,
+                    });
+                } else {
+                    this.orders.order = [{
+                        id: product.id,
+                        image: product.image,
+                        product: product,
+                        summ: product.price,
+                        price: product.price,
+                        product_color: variation.color_name,
+                        product_title: product.title,
+                        quantity: 1,
+                        variation: variation,
+                    }];
+                }
 
                 if(localValue){
                     //Добавляем или изменяем значение:
