@@ -82,7 +82,7 @@
                                             <div class="single_variation_wrap">
                                                 <div class="woocommerce-variation-add-to-cart variations_button buy-buttons hidden-opacity">
                                                     <button v-on:click="addToBox(product)" class="buy-in-click buy-in-click_act fancybox button-buy button button-animated add-to-basket button-animated--no-after " href="#cart-popup" data-id="2776830" data-classes="pink-bttn-normal">
-                                                        Добавить в корзину
+                                                        Купить в один клик
                                                     </button>
                                                     <button v-on:click="orderFreeLoanCheck(product)" class="buy-in-click buy-in-click_act fancybox button-buy button add-to-basket" href="#buy-in-click-popup" data-id="2776830" data-classes="pink-bttn-normal">
                                                         Беспроцентный кредит
@@ -325,7 +325,7 @@
                             <div class="promo">
                                 <p class="mti_title">ОСТАВЬТЕ ЗАЯВКУ</p>
                                 <p>и получите в подарок защитное стекло!</p>
-                                <b style="color: #1a86d6;">Цена снижена до 16 апреля</b>
+                                <b style="color: #1a86d6;">Цена снижена до {{ date }}</b>
                             </div>
                             <span style="font-size: 0.8em;" class="oft"><input class="oftt2" checked="" type="checkbox"> Я согласен с <a target="_blank" :href="$r('guarantee')">публичной офертой</a></span>
                             <button v-if="!validateButton" class="b_o_c modal_btn" type="submit" v-on:click="makeOrder">Купить</button><br><br>
@@ -347,7 +347,7 @@
             </div>
         </div>
 
-    <a class="fancybox add-to-cart" href="#cart-popup"><div class="count">{{ ctn }}</div></a>
+    <a class="fancybox add-to-cart" href="#cart-popup"><div class="count"></div></a>
         
     </div>
 </template>
@@ -366,6 +366,10 @@
         props: {
             products: {
                 type: Object,
+                required: true,
+            },
+            date: {
+                type: String,
                 required: true,
             },
             accessories: {

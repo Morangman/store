@@ -26,6 +26,7 @@ use Spatie\MediaLibrary\Models\Media;
 use App\Http\Controllers\Traits\SpreadsheetTrait;
 use App\Http\Controllers\Traits\TelegramTrait;
 use App\SuspectIp;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -190,6 +191,24 @@ class HomeController extends Controller
         //         ]
         //     ]);
         // }
+
+        $today = Carbon::now();
+
+        $date = $today;
+
+        if (Storage::disk('public')->exists('date.json')) {
+            $actionDate = json_decode(Storage::disk('public')->get('date.json'), true)['date'];
+        } else {
+            $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
+        }
+
+        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+            $date = Carbon::parse($actionDate)->addDays(3);
+
+            Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
+        } else {
+            $date = Carbon::parse($actionDate);
+        }
         
         $settings = Setting::latest('updated_at')->first() ?? null;
 
@@ -242,6 +261,7 @@ class HomeController extends Controller
             'settings' => $settings ?? [],
             'products' => $productByCategory,
             'categories' => $categories,
+            'date' => $date->format('d.m'),
             'content' => json_decode(Storage::disk('file')->get('content.json'), true),
             'slimages' => $settings->getMedia(Setting::MEDIA_COLLECTION_SLIDER)
                 ->map(static function (Media $media) {
@@ -262,6 +282,24 @@ class HomeController extends Controller
      */
     public function categoryProduct(string $slug): ViewContract
     {
+        $today = Carbon::now();
+
+        $date = $today;
+
+        if (Storage::disk('public')->exists('date.json')) {
+            $actionDate = json_decode(Storage::disk('public')->get('date.json'), true)['date'];
+        } else {
+            $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
+        }
+
+        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+            $date = Carbon::parse($actionDate)->addDays(3);
+
+            Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
+        } else {
+            $date = Carbon::parse($actionDate);
+        }
+
         $productByCategory = [];
 
         $category = Category::query()->where('slug', $slug)->first();
@@ -288,6 +326,7 @@ class HomeController extends Controller
         return View::make('category_product', [
             'products' => $productByCategory,
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
+            'date' => $date->format('d.m'),
             'settings' => Setting::latest('updated_at')->first() ?? null,
         ]);
     }
@@ -341,7 +380,7 @@ class HomeController extends Controller
 
             return $this->json()->noContent();
         } else {
-            $orderData = array_merge($request->all(), ['ip_address' => $request->ip()]);
+            $orderData = array_merge($request->all(), ['ip_address' => $request->ip(), 'notes' => $request->header('referer')]);
 
             $order = Order::create($orderData);
     
@@ -472,6 +511,24 @@ class HomeController extends Controller
      */
     public function product(Product $product): ViewContract
     {
+        $today = Carbon::now();
+
+        $date = $today;
+
+        if (Storage::disk('public')->exists('date.json')) {
+            $actionDate = json_decode(Storage::disk('public')->get('date.json'), true)['date'];
+        } else {
+            $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
+        }
+
+        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+            $date = Carbon::parse($actionDate)->addDays(3);
+
+            Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
+        } else {
+            $date = Carbon::parse($actionDate);
+        }
+
         $og = new OpenGraphPackage('product_og');
 
         $og->setType('OG META TAGS')
@@ -492,6 +549,7 @@ class HomeController extends Controller
             'product',
             [
                 'product' => $product,
+                'date' => $date->format('d.m'),
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
                 'settings' => Setting::latest('updated_at')->first() ?? null,
                 'recommended' => Product::query()->whereIn('id', $ids)->get(),

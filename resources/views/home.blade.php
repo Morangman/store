@@ -72,6 +72,7 @@
 
     <products
         :products="{{ json_encode($products) }}"
+        :date="{{ json_encode($date) }}"
     ></products>
 
 
