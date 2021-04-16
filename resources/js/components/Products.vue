@@ -432,34 +432,46 @@
 
                 let variation = this.selectedColors[product.id] ? this.selectedColors[product.id] : product.variations[0];
 
+                this.orders.order = [{
+                    id: product.id,
+                    image: product.image,
+                    product: product,
+                    summ: product.price,
+                    price: product.price,
+                    product_color: variation.color_name,
+                    product_title: product.title,
+                    quantity: 1,
+                    variation: variation,
+                }];
+
                 if(localValue){
                     //Добавляем или изменяем значение:
-                    storedNames.order.push({
-                        id: product.id,
-                        image: product.image,
-                        product: product,
-                        summ: product.price,
-                        price: product.price,
-                        product_color: variation.color_name,
-                        product_title: product.title,
-                        quantity: 1,
-                        variation: variation,
-                    });
-                    localStorage.setItem("orders", JSON.stringify(storedNames));
+                    // storedNames.order.push({
+                    //     id: product.id,
+                    //     image: product.image,
+                    //     product: product,
+                    //     summ: product.price,
+                    //     price: product.price,
+                    //     product_color: variation.color_name,
+                    //     product_title: product.title,
+                    //     quantity: 1,
+                    //     variation: variation,
+                    // });
+                    localStorage.setItem("orders", JSON.stringify(this.orders));
 
-                    this.orders = JSON.parse(localStorage.getItem("orders"));
+                    //this.orders = JSON.parse(localStorage.getItem("orders"));
                 }else{
-                    this.orders.order.push({
-                        id: product.id,
-                        product: product,
-                        image: product.image,
-                        summ: product.price,
-                        price: product.price,
-                        product_color: variation.color_name,
-                        product_title: product.title,
-                        quantity: 1,
-                        variation: variation,
-                    });
+                    // this.orders.order.push({
+                    //     id: product.id,
+                    //     product: product,
+                    //     image: product.image,
+                    //     summ: product.price,
+                    //     price: product.price,
+                    //     product_color: variation.color_name,
+                    //     product_title: product.title,
+                    //     quantity: 1,
+                    //     variation: variation,
+                    // });
                     localStorage.setItem("orders", JSON.stringify(this.orders));
                 }
 
