@@ -5,11 +5,18 @@
 </div>
 <header class="container-fliud">
     <div class="container">
-        <div class="row">
+        <div class="row mobile-header_row">
             <div class="col-lg-1 col-md-2 col-xs-3 logo-header">
                 <a alt="Apple Store – интернет магазин Apple" class="logo-link" data-ajax="false" href="/" title="Apple Store – интернет магазин Apple"><img alt="Apple Store – интернет магазин Apple" src="{{ asset('client/themes/site/img/apple-logo.png') }}" title="Apple Store – интернет магазин Apple"></a>
             </div>
-            <div class="col-lg-8 col-md-8 col-xs-5 header-nav">
+            <div class="col-lg-1 col-md-2 mobile-phone">
+                <span class="phone-header">
+                    <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
+                    <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
+                    </a>
+                </span>
+            </div>
+            <div class="col-lg-8 col-md-8 col-xs-4 header-nav">
                 <div class="topnav">
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     <a href="javascript:void(0);" class="icon" id="mobile-menu">
@@ -41,8 +48,8 @@
                                 <a href="{{ URL::route('comments') }}">Отзывы</a>
                             </li>
                             <li>
-                              <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
-                                <span class="lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
+                              <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}" onclick="gtag('event', 'Click', {'event_category': 'Call'});" replaced="by Phonet" ct-phonet="true">
+                                <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
                               </a>
                             </li>
                         </ul>
@@ -56,6 +63,8 @@
                     </div>
                     <p>меню</p>
                 </div>
+
+                
                 <nav class="three">
                     <ul class="top-menu topmenu" style="margin-left: 0px;">
                         <li>
@@ -87,21 +96,21 @@
                             <a href="{{ URL::route('comments') }}">Отзывы</a>
                         </li>
                         <li>
-                <span class="phone-header hidden-lg hidden-md">
-                  <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}" onclick="gtag('event', 'Click', {'event_category': 'Call'});" replaced="by Phonet" ct-phonet="true">
-                    <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
-                  </a>
-                </span>
+                            <span class="phone-header hidden-lg hidden-md">
+                                <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}" onclick="gtag('event', 'Click', {'event_category': 'Call'});" replaced="by Phonet" ct-phonet="true">
+                                    <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
+                                </a>
+                            </span>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3 col-md-2 col-xs-4 header-info">
-          <span class="phone-header hidden-sm hidden-xs hidden-md">
-            <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
-              <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
-            </a>
-          </span>
+                <span class="phone-header hidden-sm hidden-xs hidden-md">
+                    <a href="tel:{{ $settings->getAttribute('general_settings')['phone'] }}">
+                    <span class="ph-phone-a lptracker_phone">{{ $settings->getAttribute('general_settings')['phone'] }}</span>
+                    </a>
+                </span>
                 <button id="callback-button" class="buy-in-click buy-in-click_act fancybox" href="#buy-in-click-popup2">Заказать звонок</button>
             </div>
         </div>

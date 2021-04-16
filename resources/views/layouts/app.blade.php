@@ -52,6 +52,14 @@
             margin-right: 20px;
         }
 
+        .mobile-phone {
+          display: none;
+        }
+
+        .mobile-header_row {
+          display: flex;
+        }
+
         @media only screen and (max-width: 768px) {
             .topnav {
                 display: block;
@@ -63,6 +71,14 @@
             /* Hide the links inside the navigation menu (except for logo/home) */
             .topnav #myLinks {
                 display: none;
+            }
+
+            .header-info {
+              display: none;
+            }
+
+            .mobile-phone {
+              display: block;
             }
 
             /* Style navigation menu links */
