@@ -209,7 +209,7 @@
                             </tr>
                             <tr class="w-50percent text-333 small">
                                 <th class="p-all-5px">{{ $t('admin.order.form.created_at') }}:</th>
-                                <td class="text-666">{{ normalizeDate(this.model.created_at) }}</td>
+                                <td class="text-666">{{ this.model.created_at }}</td>
                             </tr>
                             <tr class="w-50percent text-333 small">
                                 <th class="p-all-5px">{{ $t('admin.order.form.updated_at') }}:</th>

@@ -111,7 +111,7 @@
                                     <td>
                                         {{ $t('admin.order.order_statuses.' + order.ordered_status) }}
                                     </td>
-                                    <td>{{ normalizeDate(order.created_at) }}</td>
+                                    <td>{{ order.created_at }}</td>
                                     <td>
                                         <a :href="$r('admin.order.edit', { order: order.id })">
                                             <i class="icon-pencil"></i>

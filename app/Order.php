@@ -54,4 +54,9 @@ class Order extends Model
         'ordered_status' => 'int',
         'ip_address' => 'string',
     ];
+
+    public function getCreatedAtAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('d-m-Y H:i:s');
+    }
 }
