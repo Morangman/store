@@ -92,7 +92,6 @@
                                             <div class="row hr">
                                                 <p><img class="hr" :src="'../client/uploads/dost.png'">Доставка за 2 часа</p>
                                                 <p><img class="hr" :src="'../client/uploads/orig.png'">Оригинальная техника</p>
-                                                <p><img class="hr" :src="'../client/uploads/gar.png'">Гарантия 1 год</p>
                                                 <a :href="$r('credit')"><img class="hr" :src="'../client/uploads/credit.png'">Рассрочка / оплата частями</a>
                                             </div>
                                             <div class="single_variation_wrap">
@@ -338,7 +337,7 @@
                             <p class="text-danger" v-if="isValidPhoneText">Введите корректный номер</p>
                             <div class="promo">
                                 <p class="mti_title">ОСТАВЬТЕ ЗАЯВКУ</p>
-                                <p>и получите в подарок защитное стекло!</p>
+                                <p>и получите защитное стекло в подарок!</p>
                                 <b style="color: #1a86d6;">Цена снижена до {{ date }}</b>
                             </div>
                             <span style="font-size: 0.8em;" class="oft"><input class="oftt2" checked="" type="checkbox"> Я согласен с <a target="_blank" :href="$r('guarantee')">публичной офертой</a></span>

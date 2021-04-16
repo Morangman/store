@@ -434,6 +434,11 @@
             });
 
             $( "#mobile-menu-2" ).click(() => {
+              if ($(".hide-mobile").is(":visible")) {
+                $(".hide-mobile").hide();
+              } else {
+                $(".hide-mobile").show();
+              }
                 let x = document.getElementById("myLinks-2");
                 if (x.style.display === "block") {
                     x.style.display = "none";

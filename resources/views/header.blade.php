@@ -39,19 +39,19 @@
                                     </ul>
                                 </div>
                             </div>
-                            <li>
+                            <li class="hide-mobile">
                                 <a href="{{ URL::route('accessories') }}">Аксессуары</a>
                             </li>
-                            <li>
+                            <li class="hide-mobile">
                                 <a href="{{ URL::route('guarantee') }}">Гарантия</a>
                             </li>
-                           <li>
+                            <li class="hide-mobile">
                                 <a href="{{ URL::route('credit') }}">Кредитование</a>
                             </li>
-                            <li>
+                            <li class="hide-mobile">
                                 <a href="/#delivery">Доставка и оплата</a>
                             </li>
-                            <li>
+                            <li class="hide-mobile">
                                 <a href="{{ URL::route('comments') }}">Отзывы</a>
                             </li>
                         </ul>
