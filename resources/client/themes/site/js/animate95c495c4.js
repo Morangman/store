@@ -38,7 +38,6 @@ $(document).ready(function(){
 		}
 	
 	}).owlCarousel({
-		touchDrag: false,
 		loop: true,
         margin:10,
         nav : false,
@@ -63,7 +62,6 @@ $(document).ready(function(){
 		}
 
 	}).owlCarousel({
-		touchDrag: false,
 		loop: true,
 		margin:5,
 		nav: false,
