@@ -59,6 +59,27 @@
 
         .mobile-header_row {
           display: flex;
+          justify-content: space-between;
+        }
+
+        #mobile-menu {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #2898d2;
+          background: linear-gradient(to top, #2797d2, #51b8ec);
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+        }
+
+        #mobile-menu i{
+          margin-right: 5px;
         }
         
         #myLinks-2 {

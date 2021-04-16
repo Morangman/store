@@ -20,7 +20,7 @@
                 <div class="topnav">
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     <a href="javascript:void(0);" class="icon" id="mobile-menu">
-                        <i class="icon-menu3"></i>
+                        <i class="icon-menu3"></i>  Меню
                     </a>
                     <div id="myLinks">
                         <ul style="margin-left: 0px;">
