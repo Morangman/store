@@ -2904,6 +2904,10 @@ img.mbi {
     text-align: center;
 }
 
+.fancybox-desktop {
+	z-index: 9999999!important;
+}
+
 @media screen and (max-width: 576px) {
 	.popup-credit-content table tr td {
 		width: 100%;

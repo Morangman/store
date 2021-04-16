@@ -229,7 +229,7 @@
                                 <div class="promo">
                                     <p class="mti_title">ОСТАВЬТЕ ЗАЯВКУ</p>
                                     <p>и получите в подарок защитное стекло!</p>
-                                    <b style="color: #1a86d6;">Цена снижена до 14 апреля</b>
+                                    <b style="color: #1a86d6;">Цена снижена до {{ date }}</b>
                                 </div>
                                 <span style="font-size: 0.8em;" class="oft"><input class="oftt2" checked="" type="checkbox"> Я согласен с <a target="_blank" :href="$r('guarantee')">публичной офертой</a></span>
                                 <button v-if="!validateButton" class="b_o_c modal_btn" type="submit" v-on:click="makeOrder">Купить</button><br><br>
