@@ -85,7 +85,7 @@ $(document).ready(function(){
 			}
 		},
         autoplay: true,
-        stopOnHover : false,
+        stopOnHover : true,
 		autoplayTimeout:2000,
 		autoplayHoverPause:true
 	});
