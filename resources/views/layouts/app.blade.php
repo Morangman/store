@@ -466,7 +466,7 @@
 
             setTimeout(function() {
                 openModal();
-            }, 40000);
+            }, 70000);
 
             $(".rating").rate({
                 max_value: 5,
