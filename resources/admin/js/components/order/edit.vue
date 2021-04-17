@@ -3,6 +3,7 @@
         v-if="model"
         :model.sync="model"
         :products.sync="products"
+        :ismanager.sync="ismanager"
         :suspect.sync="suspect"
         :errors.sync="errors"
         @submit="update"
@@ -31,6 +32,10 @@
             },
             suspect: {
                 type: Array,
+                required: false,
+            },
+            ismanager: {
+                type: Boolean,
                 required: false,
             },
         },

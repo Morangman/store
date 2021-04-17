@@ -32,7 +32,9 @@ class OrderController extends Controller
      */
     public function index(): ViewContract
     {
-        return View::make('admin.order.index');
+        return View::make('admin.order.index', [
+            'is_manager' => Auth::user()->hasRole('manager'),
+        ]);
     }
 
     /**
@@ -116,6 +118,7 @@ class OrderController extends Controller
                 'order' => $order,
                 'productByCategory' => $productByCategory,
                 'suspectIp' => $suspectIp,
+                'is_manager' => Auth::user()->hasRole('manager'),
             ]
         );
     }

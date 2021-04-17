@@ -19,5 +19,6 @@
         :order="{{ $order }}"
         :products="{{ json_encode($productByCategory, true) }}"
         :suspect="{{ json_encode($suspectIp, true) }}"
+        :ismanager="{{ json_encode($is_manager, true) }}"
     ></order-edit>
 @endsection

@@ -269,6 +269,7 @@
                     <button
                         type="submit"
                         class="btn btn-danger"
+                        v-if="!ismanager"
                         @click.prevent="deleteOrder"
                     >
                         {{ $t('common.word.delete') }}
@@ -302,6 +303,10 @@
             },
             suspect: {
                 type: Array,
+                required: false,
+            },
+            ismanager: {
+                type: Boolean,
                 required: false,
             },
             errors: {

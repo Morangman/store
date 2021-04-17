@@ -12,5 +12,7 @@
 @endsection
 
 @section('content')
-    <order-index></order-index>
+    <order-index
+        :ismanager="{{ json_encode($is_manager, true) }}"
+    ></order-index>
 @endsection

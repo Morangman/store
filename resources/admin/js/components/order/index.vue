@@ -117,6 +117,7 @@
                                             <i class="icon-pencil"></i>
                                         </a>
                                         <delete-confirmation
+                                        v-if="!ismanager"
                                             :route-path="$r('admin.order.delete', { order: order.id })"
                                             :redirect-path="$r('admin.order.index')"
                                             :title="$t('common.word.delete')"
@@ -144,6 +145,13 @@
     import moment from 'moment';
 
     export default {
+        props: {
+            ismanager: {
+                type: Boolean,
+                required: false,
+            },
+        },
+
         components: {
             InfiniteLoading,
         },
