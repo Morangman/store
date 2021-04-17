@@ -94,6 +94,10 @@
                 position: relative;
             }
 
+            .banks_footer img{
+              width: 35px;
+            }
+
             /* Hide the links inside the navigation menu (except for logo/home) */
             .topnav #myLinks {
                 display: none;
