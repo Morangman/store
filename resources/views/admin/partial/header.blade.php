@@ -12,7 +12,7 @@
     <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
         <div class="d-flex">
             <div class="breadcrumb">
-                <a href="/" class="breadcrumb-item">
+                <a href="/" target="_blank" class="breadcrumb-item">
                     <i class="icon-home2 position-left"></i>
                     @lang('common.header.breadcrumbs.home')
                 </a>

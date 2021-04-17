@@ -202,7 +202,7 @@ class HomeController extends Controller
             $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
         }
 
-        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+        if (Carbon::parse($actionDate)->isSameDay(today())) {
             $date = Carbon::parse($actionDate)->addDays(3);
 
             Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
@@ -292,7 +292,7 @@ class HomeController extends Controller
             $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
         }
 
-        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+        if (Carbon::parse($actionDate)->isSameDay(today())) {
             $date = Carbon::parse($actionDate)->addDays(3);
 
             Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
@@ -521,7 +521,7 @@ class HomeController extends Controller
             $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
         }
 
-        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+        if (Carbon::parse($actionDate)->isSameDay(today())) {
             $date = Carbon::parse($actionDate)->addDays(3);
 
             Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
@@ -572,7 +572,7 @@ class HomeController extends Controller
             $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
         }
 
-        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+        if (Carbon::parse($actionDate)->isSameDay(today())) {
             $date = Carbon::parse($actionDate)->addDays(3);
 
             Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
