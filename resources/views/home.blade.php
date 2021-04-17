@@ -69,11 +69,17 @@
     </section>
     <section class="catalogue container" id="catalogue"></section>
 
-
-    <products
-        :products="{{ json_encode($products) }}"
-        :date="{{ json_encode($date) }}"
-    ></products>
+    <div v-cloak>
+        <products
+            :products="{{ json_encode($products) }}"
+            :date="{{ json_encode($date) }}"
+        ></products>
+    </div>
+    <div v-if="!$data">
+        <div class="device-preloader">
+            <p>LOADING...</p>
+        </div>
+    </div>
 
 
     <section class="container-fluid delivery" id="akcii">
