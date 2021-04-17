@@ -294,29 +294,6 @@
 
                     <p v-if="!orders['order'].length" style="margin-top:10px;" class="to_pay">Корзина пуста!</p>
 
-                    <p v-if="recommended.length && orders['order'].length" class="to_pay_reccomended">Рекомендуем к товару:</p>
-
-                    <span v-if="orders['order'].length">
-                        <div class="products product_recommended" v-for="(product, i) in recommended" :key="`order_recommended__${i}`">
-                            <div class="product-image">
-                                <a :href="$r('product', { product: product.id })" class="product-image_url">
-                                    <img :src="product.image" alt="">
-                                </a>
-                            </div>
-                            <div class="product-info">
-                                <p class="product-title">{{ product.title }}</p>
-                                <p class="product-color">Цвет: {{ product.variations[0].color_name }}</p>
-                                <div class="product-prices">
-                                    <p class="old">{{ product.variations[0].old_price }} грн.</p>
-                                    <p class="new">{{ product.variations[0].price }} грн.</p>
-                                </div>
-                            </div>
-                            <div class="modal-order-product__product-base-quantity">
-                                <a href="javascript:;" v-on:click="addToBox(product)">Добавить</a>
-                            </div>
-                        </div>
-                    </span>
-
                     <div class="modal_forma" v-if="orders['order'].length">
                         <form id="form1" v-if="!orderSuccess">
                             <input name="name" :class="{ 'border-danger': errors.name }" placeholder="Имя" type="text" v-model="name" required><br>
