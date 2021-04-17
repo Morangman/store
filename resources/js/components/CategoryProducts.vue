@@ -294,10 +294,10 @@
 
                     <p v-if="!orders['order'].length" style="margin-top:10px;" class="to_pay">Корзина пуста!</p>
 
-                    <p v-if="recommended.length && orders['order'].length" class="to_pay">Рекомендуем к товару:</p>
+                    <p v-if="recommended.length && orders['order'].length" class="to_pay_reccomended">Рекомендуем к товару:</p>
 
                     <span v-if="orders['order'].length">
-                        <div class="products" v-for="(product, i) in recommended" :key="`order_recommended__${i}`">
+                        <div class="products product_recommended" v-for="(product, i) in recommended" :key="`order_recommended__${i}`">
                             <div class="product-image">
                                 <a :href="$r('product', { product: product.id })" class="product-image_url">
                                     <img :src="product.image" alt="">

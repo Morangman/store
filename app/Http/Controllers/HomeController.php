@@ -562,6 +562,24 @@ class HomeController extends Controller
      */
     public function accessories(): ViewContract
     {
+        $today = Carbon::now();
+
+        $date = $today;
+
+        if (Storage::disk('public')->exists('date.json')) {
+            $actionDate = json_decode(Storage::disk('public')->get('date.json'), true)['date'];
+        } else {
+            $actionDate = Storage::disk('public')->put('date.json', json_encode(['date' => $today->addDays(3)]));
+        }
+
+        if (Carbon::parse($actionDate)->addDays(3)->isSameDay(today())) {
+            $date = Carbon::parse($actionDate)->addDays(3);
+
+            Storage::disk('public')->put('date.json', json_encode(['date' => $date]));
+        } else {
+            $date = Carbon::parse($actionDate);
+        }
+
         $productByCategory = [];
 
         $accessories = Product::query()->where('is_hidden', false)->get() ?? [];
@@ -585,6 +603,7 @@ class HomeController extends Controller
             'accessories',
             [
                 'products' => $productByCategory,
+                'date' => $date->format('d.m'),
                 'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
                 'settings' => Setting::latest('updated_at')->first() ?? null,
                 'content' => json_decode(Storage::disk('file')->get('content.json'), true)

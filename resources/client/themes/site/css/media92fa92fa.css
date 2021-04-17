@@ -697,6 +697,23 @@ section#delivery {
   }
 }
 @media only screen and (max-width : 375px) {
+  .products .product-image img {
+    width: 38px!important;
+  }
+
+  .product_recommended, .modal_forma {
+    margin-top: 0!important;
+    padding: 0!important;
+  }
+
+  .to_pay_reccomended {
+    font-size: 1.125rem!important;
+  }
+
+  .products {
+    margin-bottom: 0!important;
+  }
+
   .product-info .product-title {
     font-size: 14px!important;
   }

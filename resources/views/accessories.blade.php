@@ -4,6 +4,7 @@
     @yield('header', View::make('header', ['categories' => $categories, 'settings' => $settings]))
 
     <products
+        :date="{{ json_encode($date) }}"
         :products="{{ json_encode($products) }}"
         :accessories=true
     ></products>
