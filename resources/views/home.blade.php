@@ -13,7 +13,7 @@
                     @foreach($slimages as $key => $image)
                         <div class="owl-item slider-item-{{$key}}">
                             <a href="{{ isset($image['target_url']) ? $image['target_url'] : ''}}"><div class="item active">
-                                <img class="owl-lazy" width="100%" data-src="{{ $image['url'] }}">
+                                <img width="100%" src="{{ $image['url'] }}">
                                 <div class="carousel-caption">
                                     <p class="site-title">{{ isset($image['title']) ? $image['title'] : '' }}</p>
                                 </div>
