@@ -29,7 +29,7 @@
         <div class="item">
         <a class="category_href" href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">
             <div class="category">
-                <img class="owl-lazy" data-src="{{ $category->getAttribute('image') }}">
+                <img src="{{ $category->getAttribute('image') }}">
                 <p class="cat_name">{{ $category->getAttribute('name') }}</p>
             </div>
         </a>

@@ -989,13 +989,7 @@ width: 100% !important;}
   .owl-item{
 	  display: none;
   }
-
-  .owl-carousel2 .owl-item .owl-lazy.loaded{
-    opacity: 1;
-    visibility:visible;
-	height:auto;
-    }
-
+    
 .owl-carousel:not(.owl-loaded){ 
 	opacity: 0; 
 	visibility:hidden;
