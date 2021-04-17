@@ -359,7 +359,18 @@ class HomeController extends Controller
      */
     public function credit(): ViewContract
     {
+        $settings = Setting::latest('updated_at')->first() ?? null;
+        
         return View::make('credit', [
+            'creditimages' => $settings->getMedia(Setting::MEDIA_COLLECTION_CREIT_SLIDER)
+                ->map(static function (Media $media) {
+                    return [
+                        'id' => $media->getKey(),
+                        'url' => $media->getFullUrl(),
+                        'title' => $media->getCustomProperty('title'),
+                        'target_url' => $media->getCustomProperty('target_url'),
+                    ];
+                })->toArray(),
             'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
             'settings' => Setting::latest('updated_at')->first() ?? null,
         ]);

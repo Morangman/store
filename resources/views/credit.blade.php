@@ -12,15 +12,16 @@
                         <div class="owl-carousel owl-theme owl-loaded">
                             <div class="owl-stage-outer">
                                 <div class="owl-stage">
-                                    <div class="owl-item slider-item-1">
-                                        <img alt="" height="527" src="{{ asset('client/uploads/glav-varianty-kredita-rassrichki-oplaty-chastiymy-2-black(3).jpg') }}" width="1522" />
-                                    </div>
-                                    <div class="owl-item slider-item-2">
-                                        <img alt="" height="527" src="{{ asset('client/uploads/glav-varianty-kredita-rassrichki-oplaty-chastiymy-2-black(3).jpg') }}" width="1522" />
-                                    </div>
-                                    <div class="owl-item slider-item-3">
-                                        <img alt="" height="527" src="{{ asset('client/uploads/glav-varianty-kredita-rassrichki-oplaty-chastiymy-2-black(3).jpg') }}" width="1522" />
-                                    </div>
+                                    @foreach($creditimages as $key => $image)
+                                        <div class="owl-item slider-item-{{$key}}">
+                                            <a href="{{ isset($image['target_url']) ? $image['target_url'] : ''}}"><div class="item active">
+                                                <img width="100%" src="{{ $image['url'] }}">
+                                                <div class="carousel-caption">
+                                                    <p class="site-title">{{ isset($image['title']) ? $image['title'] : '' }}</p>
+                                                </div>
+                                            </div></a>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="owl-controls">

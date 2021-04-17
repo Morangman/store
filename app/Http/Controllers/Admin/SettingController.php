@@ -44,6 +44,14 @@ class SettingController extends Controller
                         'title' => $media->getCustomProperty('title'),
                     ];
                 })->toArray(),
+            'creditimages' => $setting->getMedia(Setting::MEDIA_COLLECTION_CREIT_SLIDER)
+                ->map(static function (Media $media) {
+                    return [
+                        'id' => $media->getKey(),
+                        'url' => $media->getFullUrl(),
+                        'title' => $media->getCustomProperty('title'),
+                    ];
+                })->toArray(),
             'content' => json_decode(Storage::disk('file')->get('content.json'), true)
         ]);
     }
@@ -104,6 +112,15 @@ class SettingController extends Controller
                 $setting->addMedia($file['file'])
                     ->withCustomProperties(['title' => isset($reqFiles[$key]['title']) ? $reqFiles[$key]['title'] : '', 'target_url' => isset($reqFiles[$key]['target_url']) ? $reqFiles[$key]['target_url'] : ''])
                     ->toMediaCollection(Setting::MEDIA_COLLECTION_SLIDER);
+            }
+        }
+
+        if ($files = $request->file('creditimages', [])) {
+            $reqFiles = $request->get('creditimages');
+            foreach($files as $key => $file) {
+                $setting->addMedia($file['file'])
+                    ->withCustomProperties(['title' => isset($reqFiles[$key]['title']) ? $reqFiles[$key]['title'] : '', 'target_url' => isset($reqFiles[$key]['target_url']) ? $reqFiles[$key]['target_url'] : ''])
+                    ->toMediaCollection(Setting::MEDIA_COLLECTION_CREIT_SLIDER);
             }
         }
 
@@ -195,11 +212,12 @@ class SettingController extends Controller
 
         try {
             if ($media->getAttribute('collection_name') === Setting::MEDIA_COLLECTION_SLIDER
+                || $media->getAttribute('collection_name') === Setting::MEDIA_COLLECTION_CREIT_SLIDER
                 && ModelHelper::doesMorphedBelongToParent($media, $setting, 'model')
             ) {
                 $setting->deleteMedia($media->getKey());
             }
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             return $this->json()->badRequest(['message' => $e->getMessage()]);
         }
 

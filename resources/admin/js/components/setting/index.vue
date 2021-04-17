@@ -311,40 +311,82 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                            <span v-for="(file, index) in slimages">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="files">
-                                            <p>{{ file.title }}</p>
-                                            <a :href="file.url">{{ file.url }}</a>
-                                            <span class="input-group-btn">
-                                                <button v-on:click="deleteFile(file.id)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
-                                            </span>
+                                <span v-for="(file, index) in slimages">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="files">
+                                                <p>{{ file.title }}</p>
+                                                <a :href="file.url">{{ file.url }}</a>
+                                                <span class="input-group-btn">
+                                                    <button v-on:click="deleteFile(file.id)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </span>
+                                </span>
                                 <span v-for="(file, index) in model.slimages">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="input-group">
-                                        <input type="text" placeholder="Текст для слайдера" v-model="file.title" class="form-control">
-                                        <input type="text" placeholder="Ссылка" v-model="file.target_url" class="form-control">
-                                        <b-form-file
-                                            class="form-control"
-                                            accept=".png,.jpg,.jpeg,.gif"
-                                            @change="addFileEvent($event, index)"
-                                        ></b-form-file>
-                                        <span class="input-group-btn">
-                                            <button v-on:click="removeFile(index)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
-                                        </span>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Текст для слайдера" v-model="file.title" class="form-control">
+                                                <input type="text" placeholder="Ссылка" v-model="file.target_url" class="form-control">
+                                                <b-form-file
+                                                    class="form-control"
+                                                    accept=".png,.jpg,.jpeg,.gif"
+                                                    @change="addFileEvent($event, index)"
+                                                ></b-form-file>
+                                                <span class="input-group-btn">
+                                                    <button v-on:click="removeFile(index)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p style="margin-left: 20px;">Размер фото: height: 418 px, width: 1903 px</p>
                                     </div>
-                                </div>
-                                <p style="margin-left: 20px;">Размер фото: height: 418 px, width: 1903 px</p>
-                            </div>
-                            </span>
+                                </span>
                                 <div class="card-body">
                                     <button v-on:click="addFile" class="btn btn-info">{{ $t('common.word.add') }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1>Кредитование</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <span v-for="(file, index) in creditimages">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="files">
+                                                <p>{{ file.title }}</p>
+                                                <a :href="file.url">{{ file.url }}</a>
+                                                <span class="input-group-btn">
+                                                    <button v-on:click="deleteFile(file.id)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                                <span v-for="(file, index) in model.creditimages">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Текст для слайдера" v-model="file.title" class="form-control">
+                                                <input type="text" placeholder="Ссылка" v-model="file.target_url" class="form-control">
+                                                <b-form-file
+                                                    class="form-control"
+                                                    accept=".png,.jpg,.jpeg,.gif"
+                                                    @change="addFileEventCredit($event, index)"
+                                                ></b-form-file>
+                                                <span class="input-group-btn">
+                                                    <button v-on:click="removeFileCredit(index)" class="btn btn-default" type="button">{{ $t('common.word.delete') }}</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p style="margin-left: 20px;">Размер фото: height: 527 px, width: 1522 px</p>
+                                    </div>
+                                </span>
+                                <div class="card-body">
+                                    <button v-on:click="addFileCredit" class="btn btn-info">{{ $t('common.word.add') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -410,6 +452,10 @@
                 type: Array,
                 required: false,
             },
+            creditimages: {
+                type: Array,
+                required: false,
+            },
         },
 
         data() {
@@ -429,6 +475,7 @@
                         seo_image: null,
                     },
                     slimages: [],
+                    creditimages: [],
                     content: {},
                     code_insert: null,
                 },
@@ -489,6 +536,28 @@
                 this.$forceUpdate();
             },
 
+            addFileEventCredit(event, index) {
+                const file = event.target.files[0];
+
+                this.model.creditimages[index].file = file;
+            },
+
+            addFileCredit() {
+                this.model.creditimages.push({
+                    title: null,
+                    target_url: null,
+                    file: null,
+                });
+
+                this.$forceUpdate();
+            },
+
+            removeFileCredit(index) {
+                this.model.creditimages.splice(index, 1);
+
+                this.$forceUpdate();
+            },
+
             save() {
                 this.errors = {};
                 this.formData = new FormData();
@@ -539,6 +608,8 @@
                 this.model.general_settings.seo_image = null;
 
                 this.model.slimages = [];
+
+                this.model.creditimages = [];
             }
         },
     };

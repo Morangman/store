@@ -1,6 +1,13 @@
 <footer class="container-fluid hidden-opacity visible animated fadeInDown full-visible">
     <div class="row">
         <div class="col-md-12 col-lg-12 footer-menu text-center">
+            <div class="banks_footer">
+                <img src="{{ asset('client/uploads/5--privatbank(2).png') }}"/>
+                <img src="{{ asset('client/uploads/6--monobank.png') }}"/>
+                <img src="{{ asset('client/uploads/otp-bank.png') }}"/>
+                <img src="{{ asset('client/uploads/8--alfa-bank.png') }}"/>
+                <img src="{{ asset('client/uploads/7--ukrsibbank.png') }}"/>
+            </div>
             <ul class="bottom-menu">
                 <li>
                     <a href="/">Главная</a>
