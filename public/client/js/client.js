@@ -13715,6 +13715,7 @@ $(document).ready(function () {
       carousel.find('.loading-placeholder').hide();
     }
   }).owlCarousel({
+    lazyLoad: true,
     loop: true,
     margin: 10,
     nav: false,
@@ -13736,6 +13737,7 @@ $(document).ready(function () {
       carousel.find('.loading-placeholder').hide();
     }
   }).owlCarousel({
+    lazyLoad: true,
     loop: true,
     margin: 5,
     nav: false,

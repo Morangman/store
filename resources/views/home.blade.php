@@ -13,7 +13,7 @@
                     @foreach($slimages as $key => $image)
                         <div class="owl-item slider-item-{{$key}}">
                             <a href="{{ isset($image['target_url']) ? $image['target_url'] : ''}}"><div class="item active">
-                                <img width="100%" src="{{ $image['url'] }}">
+                                <img class="owl-lazy" width="100%" data-src="{{ $image['url'] }}">
                                 <div class="carousel-caption">
                                     <p class="site-title">{{ isset($image['title']) ? $image['title'] : '' }}</p>
                                 </div>
@@ -29,7 +29,7 @@
         <div class="item">
         <a class="category_href" href="{{ URL::route('category', ['slug' => $category->getAttribute('slug')]) }}">
             <div class="category">
-                <img src="{{ $category->getAttribute('image') }}">
+                <img class="owl-lazy" data-src="{{ $category->getAttribute('image') }}">
                 <p class="cat_name">{{ $category->getAttribute('name') }}</p>
             </div>
         </a>
