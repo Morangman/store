@@ -696,10 +696,34 @@ section#delivery {
     border-right: none;
   }
 }
+@media only screen and (max-width : 375px) {
+  .product-info .product-title {
+    font-size: 14px!important;
+  }
+
+  .modal-order-product__product-base-quantity {
+    font-size: 14px!important;
+  }
+
+  .product-info{
+    padding: 14px!important;
+  }
+  }
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {
   .header-baner-title p.header-baner-title-head, .guaranty .dream-text > p.guaranty-title, .press-about-title, .advantages .press-about-title {
     font-size: 44px;
+  }
+  .product-info .product-title {
+    font-size: 12px!important;
+  }
+
+  .modal-order-product__product-base-quantity {
+    font-size: 12px!important;
+  }
+
+  .product-info{
+    padding: 14px!important;
   }
 }
 
