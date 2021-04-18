@@ -221,7 +221,7 @@ top:21%!important;}
 }
 
 @media only screen and (min-width: 992px) {
-    .col-md-3 {
+    .adapter, .earpods {
         width: auto!important;
     }
 }
