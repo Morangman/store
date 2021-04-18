@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="thank-text">
                     <h2 class="base-title order-title">Спасибо за заказ!</h2>
-                    <h4 class="base-title order-title">Наш менеджер свяжеться с вами в кратчайшие сроки.</h4>
+                    <h4 class="base-title order-title">Наш менеджер свяжется с вами в кратчайшие сроки.</h4>
                     <a href="{{ URL::route('home') }}" class="thank-main">На главную</a>
                 </div>
             </div> <!-- .container -->
