@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
+    public const STATUS_VIEWED = 1;
+
     public const STATUS_NEW = 1;
     public const STATUS_IN_PROCESS = 2;
     public const STATUS_PAYMENT_EXPECTED = 3;
@@ -21,6 +23,7 @@ class Order extends Model
     public const STATUS_PAYED = 6;
     public const STATUS_NEW_CREDIT = 7;
     public const STATUS_NEW_FREE_LOAN = 8;
+    public const STATUS_СALL = 9;
 
     /**
      * @var string
@@ -38,6 +41,7 @@ class Order extends Model
         'ordered_product',
         'credit_data',
         'ordered_status',
+        'is_view',
         'ip_address',
     ];
 
@@ -52,6 +56,7 @@ class Order extends Model
         'ordered_product' => 'array',
         'credit_data' => 'array',
         'ordered_status' => 'int',
+        'is_view' => 'int',
         'ip_address' => 'string',
     ];
 

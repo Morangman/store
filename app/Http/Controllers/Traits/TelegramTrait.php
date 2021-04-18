@@ -23,9 +23,9 @@ trait TelegramTrait
     {
         $botApiToken = env('TELEGRAM_BOT_API');
 
-        $productTitle = $order->getAttribute('ordered_product')[0]['product']['title'];
+        $productTitle = $order->getAttribute('ordered_product') ? $order->getAttribute('ordered_product')[0]['product']['title'] : '';
 
-        $price = $order->getAttribute('ordered_product')[0]['price'];
+        $price = $order->getAttribute('ordered_product') ? $order->getAttribute('ordered_product')[0]['price'] : '';
 
         $orderUrl = route('admin.order.edit', ['order' => $order->getKey()]);
 

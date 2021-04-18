@@ -493,7 +493,11 @@ class HomeController extends Controller
                 'ordered_product' => $request->get('ordered_product') ?? [],
             ];
 
-        Order::create(array_merge($orderData, ['ip_address' => $request->ip()]));
+        $order = Order::create(array_merge($orderData, ['ip_address' => $request->ip()]));
+
+        $order->update(['ordered_status' => Order::STATUS_СALL]);
+
+        $this->sendMessage($order, 'Передзвоніть пізніше!');
 
         return $this->json()->noContent();
     }

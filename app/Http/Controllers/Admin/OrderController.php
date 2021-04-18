@@ -97,6 +97,8 @@ class OrderController extends Controller
      */
     public function edit(Order $order): ViewContract
     {
+        $order->update(['is_view' => Order::STATUS_VIEWED]);
+
         $productByCategory = [];
 
         $products = Product::all();

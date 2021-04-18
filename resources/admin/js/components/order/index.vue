@@ -106,12 +106,12 @@
                         <template v-if="!isLoading">
                             <tr v-for="(order, i) in orders" :key="`order${i}`">
                                     <td><a :href="$r('admin.order.edit', { order: order.id })">{{ order.id }}</a></td>
-                                    <td v-html="highlightSearchResult(order.name, filters.search)"></td>
-                                    <td>{{ order.phone }} <br> {{ order.email }}</td>
-                                    <td>
+                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'" v-html="highlightSearchResult(order.name, filters.search)"></td>
+                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'">{{ order.phone }} <br> {{ order.email }}</td>
+                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'">
                                         {{ $t('admin.order.order_statuses.' + order.ordered_status) }}
                                     </td>
-                                    <td>{{ order.created_at }}</td>
+                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'">{{ order.created_at }}</td>
                                     <td>
                                         <a :href="$r('admin.order.edit', { order: order.id })">
                                             <i class="icon-pencil"></i>
