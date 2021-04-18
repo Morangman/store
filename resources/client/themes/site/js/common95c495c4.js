@@ -589,9 +589,7 @@ $('.basket-icon, .basket-icon-active').click(function(){
                   'content': '<p class="thanks_text">Спасибо за Ваш Заказ!<p>'
               });
 
-              setInterval(function() {
-                  window.location.reload(true);
-              }, 3000);
+              setTimeout(() => location.href = Router.route('thank'), 1200);
           })
           .catch(function (error) {
               $('#buy-in-click-popup2 form').html(error.responseText);
