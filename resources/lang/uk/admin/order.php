@@ -67,7 +67,7 @@ return [
         Order::STATUS_СALL => 'Передзвоніть пізніше',
         Order::STATUS_NEW_CREDIT_CHECK => 'Замовлення в кредит. Оброблений',
         Order::STATUS_NEW_FREE_LOAN_CHECK => 'Замовлення в беспроцентний кредит. Оброблений',
-        Order::STATUS_NEW_FREE_LOAN_CHECK => 'Передзвоніть пізніше. Оброблений',
+        Order::STATUS_СALL_CHECK => 'Передзвоніть пізніше. Оброблений',
     ],
     'create' => [
         'title' => 'Створити заявку',
