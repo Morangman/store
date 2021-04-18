@@ -154,6 +154,26 @@ header {
   opacity: 1;
 }
 
+.thank-text {
+	margin-top: 250px;
+	margin-bottom: 350px;
+	text-align: center;
+  }
+
+.thank-main{
+    padding: 10px;
+    background: #2898d2;
+    background: linear-gradient(to top, #2797d2, #51b8ec);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
 ul.submenu li {
     width: 87%;
     display: block;
@@ -2646,6 +2666,9 @@ img.mbi {
 	.woocommerce-variation-add-to-cart {
 		flex-direction: column;
 	}
+	.thank-text {
+		margin-top: 50px;
+	  }
   }
 
   .credit-btn{

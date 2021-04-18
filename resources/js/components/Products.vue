@@ -691,9 +691,7 @@
 
                         this.clearCart();
 
-                        if (this.orderStatus === 1) {
-                            setTimeout(() => location.href = Router.route('home'), 2000);
-                        }
+                        setTimeout(() => location.href = Router.route('thank'), 1200);
 
                         if (this.orderStatus === 6) {
                             this.liqpay = data.data.form;

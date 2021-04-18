@@ -354,6 +354,17 @@ class HomeController extends Controller
         ]);
     }
 
+        /**
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function thank(): ViewContract
+    {
+        return View::make('thank', [
+            'categories' => Category::query()->where('is_hidden', false)->get() ?? [],
+            'settings' => Setting::latest('updated_at')->first() ?? null,
+        ]);
+    }
+
     /**
      * @return \Illuminate\Contracts\View\View
      */
