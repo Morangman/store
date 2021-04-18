@@ -26,6 +26,7 @@ class Order extends Model
     public const STATUS_СALL = 9;
     public const STATUS_NEW_CREDIT_CHECK = 10;
     public const STATUS_NEW_FREE_LOAN_CHECK = 11;
+    public const STATUS_СALL_CHECK = 12;
 
     /**
      * @var string
