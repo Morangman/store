@@ -59,11 +59,70 @@
     <script src="{{ URL::asset('common/js/routes.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('client/plugins/jquery95c495c4.js?ver12') }}"></script>
-    <script src="{{ asset('client/themes/site/js/jquery-ui92fa92fa.js?ver1131') }}"></script>
     <script src="{{ URL::asset('client/plugins/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('client/js/client.js') }}"></script>
     <script>
         $(window).on('load', function () {
+            var carousel = $('.owl-carousel');
+            carousel.on({
+            
+                'initialized.owl.carousel': function () {
+                    carousel.find('.owl-item').show();
+                    carousel.find('.loading-placeholder').hide();
+                }
+            
+            }).owlCarousel({
+                loop: true,
+                margin:10,
+                nav : false,
+                navText: ['', ''],
+                responsive:{
+                    0:{
+                        items:1
+                    }
+                },
+                autoplay: true,
+                stopOnHover : false,
+                autoplayTimeout:5000,
+                autoplayHoverPause:true
+            });
+
+            var carousel = $('.owl-carousel2');
+            carousel.on({
+
+                'initialized.owl.carousel': function () {
+                    carousel.find('.owl-item').show();
+                    carousel.find('.loading-placeholder').hide();
+                }
+
+            }).owlCarousel({
+                loop: true,
+                margin:5,
+                nav: false,
+                navText: ['', ''],
+                responsiveClass: true,
+                responsive:{
+                    0:{
+                        items:3,
+                        nav:true,
+                        loop:true
+                    },
+                    600:{
+                        items:3,
+                        nav:false,
+                        loop:true
+                    },
+                    1000:{
+                        items:6,
+                        nav:false,
+                        loop:true
+                    }
+                },
+                autoplay: true,
+                stopOnHover : true,
+                autoplayTimeout:2000,
+                autoplayHoverPause:true
+            });
             let $preloader = $('.cssload-container'),
                 $spinner = $preloader.find('.cssload-torus');
             $spinner.fadeOut();

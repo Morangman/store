@@ -1040,12 +1040,12 @@ $(document).ready(function () {
     //     return g();
     // });
 
-    $('.dd').easyDropDown({
-        onChange: function(selected){
-            $('#order_review .input-radio[name="payment_method"]').attr('checked', false);
-            $('#order_review .input-radio[value="' + selected.value + '"]').prop('checked', true);
-        }
-    });
+    // $('.dd').easyDropDown({
+    //     onChange: function(selected){
+    //         $('#order_review .input-radio[name="payment_method"]').attr('checked', false);
+    //         $('#order_review .input-radio[value="' + selected.value + '"]').prop('checked', true);
+    //     }
+    // });
 });
 
 $(window).load(function(){
