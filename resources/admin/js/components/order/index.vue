@@ -129,7 +129,7 @@
                                     <td :class="order.is_view === 1 ? 'not-view' : 'view'">
                                         {{ $t('admin.order.form_name.' + order.form_name) }}
                                     </td>
-                                    <td>
+                                    <td style="max-width: 300px;">
                                         {{ order.notes }}
                                     </td>
                                     <td :class="order.is_view === 1 ? 'not-view' : 'view'">{{ order.created_at }}</td>
