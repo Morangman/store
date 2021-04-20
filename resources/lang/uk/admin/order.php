@@ -69,6 +69,12 @@ return [
         Order::STATUS_NEW_FREE_LOAN_CHECK => 'Замовлення в беспроцентний кредит. Оброблений',
         Order::STATUS_СALL_CHECK => 'Передзвоніть пізніше. Оброблений',
     ],
+    'form_name' => [
+        Order::STATUS_NEW => 'Нове замовлення',
+        Order::STATUS_NEW_CREDIT => 'Замовлення в кредит',
+        Order::STATUS_NEW_FREE_LOAN => 'Замовлення в беспроцентний кредит',
+        Order::STATUS_СALL => 'Передзвоніть пізніше',
+    ],
     'create' => [
         'title' => 'Створити заявку',
     ],

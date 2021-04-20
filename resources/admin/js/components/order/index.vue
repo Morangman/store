@@ -21,6 +21,19 @@
                         <option v-for="(status, key) in $t('admin.order.order_statuses')" :value="key">{{ status }}</option>
                     </select>
                 </div>
+                <div class="form-group col-md-auto">
+                    <label for="orderStatus" class="d-inline-block">Форма :</label>
+                    <select
+                        id="formName"
+                        class="form-control form-control-sm d-inline-block"
+                        style="width: auto;"
+                        v-model="filters.form_name"
+                        required
+                    >
+                        <option :value="null">{{ $t('admin.order.index.search.all') }}</option>
+                        <option v-for="(status, key) in $t('admin.order.form_name')" :value="key">{{ status }}</option>
+                    </select>
+                </div>
                 <div class="col col-md-5">
                     <input
                         v-model="filters.search"
@@ -80,6 +93,8 @@
                             </th>
                             <th>{{ $t('admin.order.index.table.headers.contacts') }}</th>
                             <th>{{ $t('admin.order.index.table.headers.status') }}</th>
+                            <th>Форма</th>
+                            <th>Примітки</th>
                             <th>
                                 {{ $t('admin.order.index.table.headers.created_at') }}
                                 <span>
@@ -106,12 +121,18 @@
                         <template v-if="!isLoading">
                             <tr v-for="(order, i) in orders" :key="`order${i}`">
                                     <td><a :href="$r('admin.order.edit', { order: order.id })">{{ order.id }}</a></td>
-                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'" v-html="highlightSearchResult(order.name, filters.search)"></td>
-                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'">{{ order.phone }} <br> {{ order.email }}</td>
-                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'">
+                                    <td :class="order.is_view === 1 ? 'not-view' : 'view'" v-html="highlightSearchResult(order.name, filters.search)"></td>
+                                    <td :class="order.is_view === 1 ? 'not-view' : 'view'">{{ order.phone }} <br> {{ order.email }}</td>
+                                    <td :class="order.is_view === 1 ? 'not-view' : 'view'">
                                         {{ $t('admin.order.order_statuses.' + order.ordered_status) }}
                                     </td>
-                                    <td :class="order.is_view === 1 ? 'view' : 'not-view'">{{ order.created_at }}</td>
+                                    <td :class="order.is_view === 1 ? 'not-view' : 'view'">
+                                        {{ $t('admin.order.form_name.' + order.form_name) }}
+                                    </td>
+                                    <td>
+                                        {{ order.notes }}
+                                    </td>
+                                    <td :class="order.is_view === 1 ? 'not-view' : 'view'">{{ order.created_at }}</td>
                                     <td>
                                         <a :href="$r('admin.order.edit', { order: order.id })">
                                             <i class="icon-pencil"></i>
@@ -164,6 +185,7 @@
                     page: 1,
                     search: null,
                     order_status: null,
+                    form_name: null,
                     by: 'id',
                     dir: 'desc',
                 },

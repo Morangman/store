@@ -60,7 +60,7 @@
                             {{ error }}
                         </div>
                     </div>
-                    <div v-if="model.ordered_status === 7">
+                    <div v-if="model.form_name === 7">
                     <div class="form-group">
                         <label>
                             <strong>Дата рождения:</strong>
@@ -196,6 +196,20 @@
                         </select>
                         <div v-for="(error, i) in errors.ordered_status"
                              :key="`ordered_status_product__error__${i}`"
+                             class="text-danger error"
+                        >
+                            {{ error }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <strong>Форма</strong>
+                        </label>
+                        <select class="form-control" name="form_name" v-model="model.form_name" required :class="{ 'border-danger': errors.ordered_status }">
+                            <option v-for="(status, i) in $t('admin.order.form_name')" :value="i">{{ status }}</option>
+                        </select>
+                        <div v-for="(error, i) in errors.form_name"
+                             :key="`form_name_product__error__${i}`"
                              class="text-danger error"
                         >
                             {{ error }}

@@ -27,6 +27,7 @@ class CreateOrdersTable extends Migration
             $table->json('ordered_product');
             $table->string('ip_address')->nullable();
             $table->tinyInteger('ordered_status')->unsigned()->default(1);
+            $table->tinyInteger('form_name')->unsigned()->default(1);
             $table->tinyInteger('is_view')->unsigned()->default(0);
             $table->timestamps();
         });

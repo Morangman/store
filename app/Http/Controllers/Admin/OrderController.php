@@ -201,11 +201,19 @@ class OrderController extends Controller
     {
         $orderStatus = $request->get('order_status');
 
+        $formName = $request->get('form_name');
+
         $orders = Order::query()
             ->when(
                 $orderStatus,
                 function ($q) use ($orderStatus) {
                     $q->where('ordered_status', $orderStatus);
+                }
+            )
+            ->when(
+                $formName,
+                function ($q) use ($formName) {
+                    $q->where('form_name', $formName);
                 }
             )
             ->when(

@@ -438,7 +438,7 @@ class HomeController extends Controller
     
                     return $this->json()->ok(['form' => $form]);
                 case Order::STATUS_NEW_CREDIT:
-                    $order->update(['ordered_status' => Order::STATUS_NEW_CREDIT]);
+                    $order->update(['form_name' => Order::STATUS_NEW_CREDIT]);
     
                     $this->sendMessage($order, 'Покупка в кредит!');
     
@@ -446,7 +446,7 @@ class HomeController extends Controller
     
                     return $this->json()->noContent();
                 case Order::STATUS_NEW_FREE_LOAN:
-                        $order->update(['ordered_status' => Order::STATUS_NEW_FREE_LOAN]);
+                        $order->update(['form_name' => Order::STATUS_NEW_FREE_LOAN]);
         
                         $this->sendMessage($order, 'Покупка в беспроцентный кредит!');
         
@@ -506,7 +506,7 @@ class HomeController extends Controller
 
         $order = Order::create(array_merge($orderData, ['ip_address' => $request->ip()]));
 
-        $order->update(['ordered_status' => Order::STATUS_СALL]);
+        $order->update(['form_name' => Order::STATUS_СALL]);
 
         $this->sendMessage($order, 'Передзвоніть пізніше!');
 

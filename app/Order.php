@@ -44,6 +44,7 @@ class Order extends Model
         'ordered_product',
         'credit_data',
         'ordered_status',
+        'form_name',
         'is_view',
         'ip_address',
     ];
@@ -59,6 +60,7 @@ class Order extends Model
         'ordered_product' => 'array',
         'credit_data' => 'array',
         'ordered_status' => 'int',
+        'form_name' => 'int',
         'is_view' => 'int',
         'ip_address' => 'string',
     ];
